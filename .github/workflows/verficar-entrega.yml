@@ -1,0 +1,105 @@
+name: Verificar entrega
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'taller_sparklyr.qmd'
+
+jobs:
+  verificar-estructura:
+    runs-on: ubuntu-latest
+    name: Comprobar que el notebook está completo
+
+    steps:
+      - name: Checkout código del alumno
+        uses: actions/checkout@v4
+
+      - name: Instalar R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.2'
+
+      - name: Verificar que no quedan huecos sin rellenar
+        run: |
+          echo "=== Buscando huecos sin completar ==="
+          HUECOS=$(grep -n "TU_CODIGO_AQUI\|COMPLETAR\|TODO\|___\|\.\.\." taller_sparklyr.qmd || true)
+          if [ -n "$HUECOS" ]; then
+            echo "❌ Se encontraron huecos sin rellenar:"
+            echo "$HUECOS"
+            echo ""
+            echo "Por favor, completa todos los ejercicios antes de entregar."
+            exit 1
+          else
+            echo "✅ No se encontraron huecos pendientes."
+          fi
+
+      - name: Verificar sintaxis R de los bloques de código
+        run: |
+          cat << 'SCRIPT' > verificar_sintaxis.R
+          # Extraer bloques de código R del .qmd
+          lineas <- readLines("taller_sparklyr.qmd")
+
+          en_bloque <- FALSE
+          bloques <- list()
+          bloque_actual <- character()
+          linea_inicio <- 0
+
+          for (i in seq_along(lineas)) {
+            linea <- lineas[i]
+            if (grepl("^```\\{r", linea)) {
+              en_bloque <- TRUE
+              bloque_actual <- character()
+              linea_inicio <- i
+            } else if (en_bloque && grepl("^```$", linea)) {
+              en_bloque <- FALSE
+              bloques[[length(bloques) + 1]] <- list(
+                codigo = paste(bloque_actual, collapse = "\n"),
+                linea = linea_inicio
+              )
+            } else if (en_bloque) {
+              bloque_actual <- c(bloque_actual, linea)
+            }
+          }
+
+          errores <- 0
+          for (b in bloques) {
+            if (nchar(trimws(b$codigo)) == 0) next
+            resultado <- tryCatch(
+              { parse(text = b$codigo); NULL },
+              error = function(e) e$message
+            )
+            if (!is.null(resultado)) {
+              errores <- errores + 1
+              cat(sprintf("❌ Error de sintaxis en línea %d:\n%s\n\n",
+                          b$linea, resultado))
+            }
+          }
+
+          if (errores > 0) {
+            cat(sprintf("\nSe encontraron %d errores de sintaxis.\n", errores))
+            quit(status = 1)
+          } else {
+            cat(sprintf("✅ %d bloques de código verificados sin errores de sintaxis.\n",
+                        length(bloques)))
+          }
+          SCRIPT
+          Rscript verificar_sintaxis.R
+
+      - name: Verificar que el archivo fue modificado
+        run: |
+          git fetch origin main
+          CAMBIOS=$(git diff origin/main -- taller_sparklyr.qmd | wc -l)
+          if [ "$CAMBIOS" -lt 10 ]; then
+            echo "⚠️ El notebook apenas tiene cambios respecto al original."
+            echo "Asegúrate de haber completado los ejercicios."
+            exit 1
+          else
+            echo "✅ El notebook tiene modificaciones sustanciales ($CAMBIOS líneas cambiadas)."
+          fi
+
+      - name: Resumen
+        if: success()
+        run: |
+          echo "🎉 Todas las verificaciones pasaron correctamente."
+          echo "El profesor revisará tu Pull Request próximamente."

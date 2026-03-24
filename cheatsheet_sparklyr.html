@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sparklyr — Cheatsheet de referencia rápida</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f5f6fa;
+    color: #2c3e50;
+    padding: 16px;
+    line-height: 1.5;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #e74c3c;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (min-width: 700px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1050px) {
+    .grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-top: 4px solid #3498db;
+  }
+  .card.green  { border-top-color: #27ae60; }
+  .card.orange { border-top-color: #e67e22; }
+  .card.purple { border-top-color: #8e44ad; }
+  .card.red    { border-top-color: #e74c3c; }
+  .card.teal   { border-top-color: #16a085; }
+  .card h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card h2 .emoji { font-size: 1.2rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  th {
+    text-align: left;
+    background: #f0f0f0;
+    padding: 5px 8px;
+    font-weight: 600;
+  }
+  td {
+    padding: 5px 8px;
+    border-top: 1px solid #eee;
+    vertical-align: top;
+  }
+  code {
+    background: #f8f8f8;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    color: #c0392b;
+    font-family: 'Fira Code', 'Consolas', monospace;
+  }
+  .code-block {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.78rem;
+    overflow-x: auto;
+    margin: 8px 0;
+    line-height: 1.6;
+    white-space: pre;
+  }
+  .code-block .comment { color: #75715e; }
+  .code-block .string  { color: #a6e22e; }
+  .code-block .func    { color: #66d9ef; }
+  .code-block .arg     { color: #fd971f; }
+  .tip {
+    background: #fef9e7;
+    border-left: 3px solid #f1c40f;
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.82rem;
+    margin-top: 8px;
+  }
+  .vs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-size: 0.82rem;
+  }
+  .vs-col {
+    background: #f8f8f8;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .vs-arrow { font-size: 1.2rem; color: #999; }
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.8rem;
+    color: #999;
+  }
+</style>
+</head>
+<body>
+
+<h1>🔧 sparklyr — Referencia rápida</h1>
+<p class="subtitle">Todo lo que necesitas durante el taller, en una página</p>
+
+<div class="grid">
+
+  <!-- CARD 1: Conexión -->
+  <div class="card">
+    <h2><span class="emoji">🔌</span> Conexión</h2>
+    <table>
+      <tr><th>Acción</th><th>Código</th></tr>
+      <tr><td>Conectar (local)</td><td><code>sc &lt;- spark_connect(master = "local")</code></td></tr>
+      <tr><td>Desconectar</td><td><code>spark_disconnect(sc)</code></td></tr>
+      <tr><td>Ver versión</td><td><code>spark_version(sc)</code></td></tr>
+      <tr><td>Listar tablas</td><td><code>src_tbls(sc)</code></td></tr>
+    </table>
+  </div>
+
+  <!-- CARD 2: Lectura de datos -->
+  <div class="card green">
+    <h2><span class="emoji">📂</span> Lectura de datos</h2>
+    <table>
+      <tr><th>Formato</th><th>Función</th></tr>
+      <tr><td>CSV</td><td><code>spark_read_csv(sc, name, path)</code></td></tr>
+      <tr><td>Parquet</td><td><code>spark_read_parquet(sc, name, path)</code></td></tr>
+      <tr><td>JSON</td><td><code>spark_read_json(sc, name, path)</code></td></tr>
+      <tr><td>R → Spark</td><td><code>copy_to(sc, df_r, "nombre")</code></td></tr>
+    </table>
+    <div class="tip">💡 <code>infer_schema = TRUE</code> para que Spark adivine los tipos de columna.</div>
+  </div>
+
+  <!-- CARD 3: Inspección -->
+  <div class="card orange">
+    <h2><span class="emoji">🔍</span> Inspección</h2>
+    <table>
+      <tr><th>Qué quieres saber</th><th>Código</th></tr>
+      <tr><td>Nº de filas</td><td><code>sdf_nrow(tbl)</code></td></tr>
+      <tr><td>Nº de columnas</td><td><code>sdf_ncol(tbl)</code></td></tr>
+      <tr><td>Esquema (tipos)</td><td><code>sdf_schema(tbl)</code></td></tr>
+      <tr><td>Primeras filas</td><td><code>tbl |> head(5) |> collect()</code></td></tr>
+      <tr><td>Vistazo rápido</td><td><code>glimpse(tbl)</code></td></tr>
+    </table>
+  </div>
+
+  <!-- CARD 4: dplyr en Spark -->
+  <div class="card purple">
+    <h2><span class="emoji">🔄</span> dplyr → Spark</h2>
+    <p style="font-size:0.82rem; margin-bottom:8px;">
+      Estas funciones funcionan <strong>igual</strong> que en dplyr local,
+      pero se ejecutan dentro de Spark:
+    </p>
+    <table>
+      <tr><td><code>filter()</code></td><td>Filtrar filas</td></tr>
+      <tr><td><code>select()</code></td><td>Seleccionar columnas</td></tr>
+      <tr><td><code>mutate()</code></td><td>Crear/modificar columnas</td></tr>
+      <tr><td><code>group_by()</code></td><td>Agrupar</td></tr>
+      <tr><td><code>summarise()</code></td><td>Agregar (colapsa filas)</td></tr>
+      <tr><td><code>arrange()</code></td><td>Ordenar</td></tr>
+      <tr><td><code>left_join()</code></td><td>Unir tablas</td></tr>
+      <tr><td><code>case_when()</code></td><td>Condicional múltiple</td></tr>
+      <tr><td><code>if_else()</code></td><td>Condicional simple</td></tr>
+    </table>
+  </div>
+
+  <!-- CARD 5: Materializar resultados -->
+  <div class="card red">
+    <h2><span class="emoji">📦</span> Materializar resultados</h2>
+    <div class="vs">
+      <div class="vs-col">
+        <strong><code>collect()</code></strong><br>
+        Spark → R<br>
+        <span style="font-size:0.75rem; color:#888;">Resultado en R como tibble.<br>Úsalo al final.</span>
+      </div>
+      <div class="vs-arrow">vs</div>
+      <div class="vs-col">
+        <strong><code>compute("nombre")</code></strong><br>
+        Spark → Spark<br>
+        <span style="font-size:0.75rem; color:#888;">Materializa en Spark.<br>Úsalo en pasos intermedios.</span>
+      </div>
+    </div>
+    <div class="tip">⚠️ Sin <code>collect()</code> ni <code>compute()</code>, nada se ejecuta (evaluación perezosa).</div>
+  </div>
+
+  <!-- CARD 6: Funciones de ventana -->
+  <div class="card teal">
+    <h2><span class="emoji">🪟</span> Funciones de ventana</h2>
+    <p style="font-size:0.82rem; margin-bottom:8px;">
+      <code>group_by() |> mutate()</code> en vez de <code>summarise()</code>.
+      Calcula sin colapsar filas.
+    </p>
+    <table>
+      <tr><th>Función</th><th>Qué hace</th></tr>
+      <tr><td><code>min_rank(desc(x))</code></td><td>Ranking (1 = mayor)</td></tr>
+      <tr><td><code>dense_rank()</code></td><td>Ranking sin huecos</td></tr>
+      <tr><td><code>row_number()</code></td><td>Ranking sin empates</td></tr>
+      <tr><td><code>lag(x, 1)</code></td><td>Valor de fila anterior</td></tr>
+      <tr><td><code>lead(x, 1)</code></td><td>Valor de fila siguiente</td></tr>
+      <tr><td><code>mean(x)</code> en mutate</td><td>Media del grupo</td></tr>
+    </table>
+    <div class="tip">💡 Siempre <code>ungroup()</code> después de usar ventanas.</div>
+  </div>
+
+  <!-- CARD 7: ML — Preparar features -->
+  <div class="card">
+    <h2><span class="emoji">🧩</span> ML: preparar features</h2>
+    <div class="code-block"><span class="comment"># Categorías → números</span>
+tbl |>
+  <span class="func">ft_string_indexer</span>(<span class="string">"col"</span>, <span class="string">"col_idx"</span>) |>
+
+  <span class="comment"># Todo → un solo vector</span>
+  <span class="func">ft_vector_assembler</span>(
+    <span class="arg">input_cols</span>  = c(<span class="string">"col_idx"</span>, <span class="string">"num_col"</span>),
+    <span class="arg">output_col</span> = <span class="string">"features"</span>
+  )</div>
+  </div>
+
+  <!-- CARD 8: ML — Modelos -->
+  <div class="card green">
+    <h2><span class="emoji">🤖</span> ML: entrenar y evaluar</h2>
+    <table>
+      <tr><th>Paso</th><th>Código</th></tr>
+      <tr><td>Dividir datos</td><td><code>sdf_random_split(train=.7, test=.3)</code></td></tr>
+      <tr><td>Reg. logística</td><td><code>ml_logistic_regression()</code></td></tr>
+      <tr><td>Random forest</td><td><code>ml_random_forest_classifier()</code></td></tr>
+      <tr><td>Predecir</td><td><code>ml_predict(modelo, datos)</code></td></tr>
+      <tr><td>Evaluar (AUC)</td><td><code>ml_binary_classification_evaluator()</code></td></tr>
+    </table>
+  </div>
+
+  <!-- CARD 9: ML — Pipeline -->
+  <div class="card orange">
+    <h2><span class="emoji">🔗</span> ML: pipeline</h2>
+    <div class="code-block"><span class="comment"># 1. Definir</span>
+pipe <- <span class="func">ml_pipeline</span>(sc) |>
+  <span class="func">ft_string_indexer</span>(...) |>
+  <span class="func">ft_vector_assembler</span>(...) |>
+  <span class="func">ml_logistic_regression</span>(...)
+
+<span class="comment"># 2. Entrenar</span>
+pipe_fit <- <span class="func">ml_fit</span>(pipe, train_data)
+
+<span class="comment"># 3. Predecir datos nuevos</span>
+preds <- <span class="func">ml_transform</span>(pipe_fit, new_data)
+
+<span class="comment"># 4. Guardar / Cargar</span>
+<span class="func">ml_save</span>(pipe_fit, <span class="string">"ruta"</span>)
+pipe2 <- <span class="func">ml_load</span>(sc, <span class="string">"ruta"</span>)</div>
+  </div>
+
+</div>
+
+<p class="footer">
+  Taller sparklyr · Máster en Data Science · Tenla abierta en otra pestaña mientras trabajas 🚀
+</p>
+
+</body>
+</html>

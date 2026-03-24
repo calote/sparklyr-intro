@@ -1,0 +1,19 @@
+# Datos generados
+data/vuelos_2024.csv
+# Archivos de Spark
+spark-warehouse/
+metastore_db/
+derby.log
+# Modelo guardado
+modelo_cancelaciones/
+# Archivos renderizados (cada alumno genera el suyo)
+*.html
+!cheatsheet_sparklyr.html
+# RStudio
+.Rproj.user
+.Rhistory
+.RData
+.Rprofile
+.positai
+README.qmd
+gitignore

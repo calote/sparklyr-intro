@@ -1,0 +1,1246 @@
+---
+title: "Taller: Big Data con sparklyr"
+subtitle: "De dplyr a Spark sin salir de R"
+author: "Máster en Data Science"
+date: today
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    code-fold: false
+    code-tools: true
+    theme: flatly
+    highlight-style: github
+    self-contained: true
+    embed-resources: true
+  typst:
+    toc: true
+    toc-depth: 3
+    fig-format: png
+    #mainfont: "DejaVu Sans"
+    keep-typ: true
+execute:
+  eval: false
+  echo: true
+  warning: false
+  message: false
+---
+
+```{=typst}
+#show "☐": box(width: 0.75em, height: 0.75em, baseline: 0.15em, stroke: 0.5pt + black)
+#show "☑": box(width: 0.75em, height: 0.75em, baseline: 0.15em, stroke: 0.5pt + black,
+  place(center + horizon, text(size: 0.6em)[✓]))
+```
+
+
+```{css, echo=FALSE}
+/* Estilos para huecos y pistas */
+.hueco code {
+  background-color: #fff3cd;
+  border: 2px dashed #ffc107;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.pista {
+  background-color: #e8f4f8;
+  border-left: 4px solid #17a2b8;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.pista summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #17a2b8;
+}
+.concepto {
+  background-color: #f0f7ee;
+  border-left: 4px solid #28a745;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.alerta {
+  background-color: #fef0f0;
+  border-left: 4px solid #dc3545;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.ejercicio {
+  background-color: #fff8e1;
+  border: 2px solid #ffc107;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+```
+
+
+# Antes de empezar
+
+## ¿Qué vamos a hacer hoy?
+
+Vamos a analizar un dataset de **500.000 vuelos** usando **sparklyr**, la
+interfaz de R para Apache Spark. Al final del taller habrás recorrido el ciclo
+completo: desde la conexión a Spark hasta guardar un modelo predictivo
+reutilizable.
+
+**Lo que ya sabes** y vas a reutilizar:
+
+- `dplyr`: `filter()`, `mutate()`, `group_by()`, `summarise()`, `arrange()`
+- Operadores lógicos y `case_when()`
+- Visualización con `ggplot2`
+
+**Lo nuevo** que vas a aprender:
+
+- Conectar R a Spark y entender qué ocurre por debajo
+- Trabajar con datos que **no caben en la memoria de R**
+- Funciones de ventana (window functions)
+- Entrenar modelos de machine learning distribuidos
+- Construir pipelines reproducibles
+
+
+## Instalación y verificación
+
+Ejecuta este bloque para comprobar que todo está listo. Si algún paso falla,
+avisa al profesor antes de continuar.
+
+```{r}
+#| label: setup
+#| eval: true
+
+# Instalar sparklyr si no está disponible
+if (!requireNamespace("sparklyr", quietly = TRUE)) {
+  install.packages("sparklyr")
+}
+
+library(sparklyr)
+library(dplyr)
+library(ggplot2)
+
+# Verificar que Spark está instalado localmente
+if (nrow(spark_installed_versions()) == 0) {
+  message("Instalando Spark (solo la primera vez, tarda ~2 min)...")
+  spark_install(version = "3.5")
+}
+
+# Verificar que el archivo de datos existe
+stopifnot(
+  "No se encuentra el archivo de datos. Asegúrate de tener 'data/vuelos_2024.csv'" =
+    file.exists("data/vuelos_2024.csv")
+)
+
+cat("✅ Todo listo para empezar\n")
+```
+
+
+## La idea clave: evaluación perezosa
+
+::: {.concepto}
+**Concepto fundamental — léelo antes de escribir código**
+
+Cuando trabajas con dplyr sobre un data.frame normal, cada operación se ejecuta
+inmediatamente. Si escribes `filter(df, x > 5)`, R filtra las filas al instante.
+
+Con sparklyr es diferente. Cuando escribes `filter(tabla_spark, x > 5)`, **no
+ocurre nada todavía**. R simplemente toma nota de lo que quieres hacer y lo
+apunta en un "plan de ejecución". Spark solo ejecuta el plan cuando le pides
+un resultado concreto:
+
+| Acción           | ¿Qué hace?                                              |
+|------------------|----------------------------------------------------------|
+| `collect()`      | Ejecuta y trae el resultado a R como tibble              |
+| `compute("nombre")` | Ejecuta y guarda el resultado en Spark como tabla    |
+| `head(n)`        | Ejecuta y trae solo las primeras n filas a R             |
+| `sdf_nrow()`     | Ejecuta y devuelve el conteo                             |
+| `print` / ver    | Ejecuta y muestra una muestra pequeña                    |
+
+**Regla de oro**: filtra, transforma y agrega dentro de Spark. Trae a R solo
+el resultado final (que debería ser pequeño).
+:::
+
+Para entender la diferencia visualmente, piensa en estos dos flujos:
+
+```
+dplyr normal:    datos_R ──▶ filter ──▶ resultado_R ──▶ summarise ──▶ resultado_R
+                 (todo en la memoria de R, cada paso se ejecuta al instante)
+
+sparklyr:        datos_Spark ──▶ filter ──▶ [plan] ──▶ summarise ──▶ [plan]
+                 ...y solo cuando haces collect()... ──▶ resultado_R
+                 (los datos nunca salen de Spark hasta el collect final)
+```
+
+
+# RETO 1 — Conexión y exploración {#reto1}
+
+## Objetivo
+
+Conectarte a Spark, cargar el dataset de vuelos y responder tres preguntas
+básicas usando las funciones de sparklyr equivalentes a las que ya conoces
+de dplyr.
+
+## Teoría: conectar y cargar datos
+
+Para conectar R con Spark usamos `spark_connect()`. En este taller usamos
+modo **local** (Spark corre en tu máquina), pero en producción el parámetro
+`master` apuntaría a un cluster remoto.
+
+```{r}
+# Ejemplo — no modificar, solo ejecutar
+sc <- spark_connect(master = "local")
+```
+
+`sc` es nuestro objeto de conexión. Lo usaremos en todo el taller.
+
+Para cargar un CSV en Spark (no en R):
+
+```{r}
+# Ejemplo — no modificar, solo ejecutar
+vuelos_sp <- spark_read_csv(
+  sc,
+  name    = "vuelos",
+  path    = "data/vuelos_2024.csv",
+  header  = TRUE,
+  infer_schema = TRUE
+)
+```
+
+Fíjate en que `vuelos_sp` **no es un data.frame**. Es una referencia a una
+tabla que vive en la memoria de Spark. Puedes comprobarlo:
+
+```{r}
+class(vuelos_sp)       # "tbl_spark"
+class(iris)            # "data.frame"
+```
+
+Para ver qué tipos de columna ha inferido Spark:
+
+```{r}
+sdf_schema(vuelos_sp)
+```
+
+::: {.alerta}
+**Error frecuente**: si Spark no encuentra el CSV, revisa que la ruta es
+relativa al directorio de trabajo de R. Usa `getwd()` para comprobarlo
+y `setwd()` para cambiarlo si es necesario.
+:::
+
+
+## Ejercicios del Reto 1
+
+::: {.ejercicio}
+**Ejercicio 1.1 — ¿Cuántas filas tiene el dataset?**
+
+Usa la función `sdf_nrow()` para contar las filas totales.
+:::
+
+```{r}
+#| label: reto1-ej1
+
+n_total <- ___(vuelos_sp)
+
+cat("Total de vuelos:", n_total, "\n")
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`sdf_nrow()` recibe una tabla Spark y devuelve un número. Es el equivalente
+a `nrow()` para data.frames, pero funciona con datos en Spark.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 1.2 — ¿Cuántos vuelos cancelados hay?**
+
+Filtra los vuelos donde `cancelado == 1` y cuenta cuántos son.
+Calcula también el porcentaje sobre el total.
+:::
+
+```{r}
+#| label: reto1-ej2
+
+n_cancelados <- vuelos_sp |>
+  filter(___) |>
+  sdf_nrow()
+
+cat("Vuelos cancelados:", n_cancelados, "\n")
+cat("Porcentaje:", round(___ / ___ * 100, 2), "%\n")
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+El filtro es idéntico a como lo harías en dplyr: `cancelado == 1`.
+Para el porcentaje, divide `n_cancelados` entre `n_total`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 1.3 — Retraso medio por aerolínea**
+
+Agrupa por `aerolinea` y calcula:
+
+- `n_vuelos`: número de vuelos
+- `retraso_medio`: media de `retraso_min`
+- `pct_cancelado`: porcentaje de cancelación (media de `cancelado` × 100)
+
+Ordena de mayor a menor retraso medio. **No olvides `collect()` al final.**
+:::
+
+```{r}
+#| label: reto1-ej3
+
+resumen_aerolineas <- vuelos_sp |>
+  group_by(___) |>
+  summarise(
+    n_vuelos      = ___,
+    retraso_medio = ___,
+    pct_cancelado = ___
+  ) |>
+  arrange(___) |>
+  ___()     # <-- traer resultado a R
+
+resumen_aerolineas
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista 1 — funciones de agregación</summary>
+`n()` cuenta filas, `mean(columna, na.rm = TRUE)` calcula la media.
+Para el porcentaje de cancelación: `mean(cancelado, na.rm = TRUE) * 100`.
+</details>
+</div>
+
+<div class="pista">
+<details>
+<summary>💡 Pista 2 — ordenar de mayor a menor</summary>
+`arrange(desc(retraso_medio))` ordena de mayor a menor.
+</details>
+</div>
+
+<div class="pista">
+<details>
+<summary>💡 Pista 3 — ¿por qué hace falta collect()?</summary>
+Sin `collect()`, el resultado es una referencia perezosa. Con `collect()`,
+Spark ejecuta todas las operaciones acumuladas y envía el resultado (pequeño)
+a R como un tibble normal.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Pregunta de reflexión 1.1** (escribe tu respuesta debajo)
+
+¿Qué pasaría si hicieras `collect()` justo después de `vuelos_sp` (antes
+del `group_by`)? ¿Funcionaría? ¿Sería buena idea?
+:::
+
+> *Tu respuesta aquí:*
+>
+>
+
+
+::: {.ejercicio}
+**Pregunta de reflexión 1.2** (escribe tu respuesta debajo)
+
+Mira el resultado de `sdf_schema(vuelos_sp)`. ¿Hay alguna columna cuyo tipo
+te sorprenda? ¿Ha acertado Spark con la inferencia?
+:::
+
+> *Tu respuesta aquí:*
+>
+>
+
+
+# RETO 2 — Transformaciones en Spark {#reto2}
+
+## Objetivo
+
+Crear columnas derivadas usando `mutate()` y `case_when()` dentro de Spark,
+agregar por múltiples variables, y visualizar los resultados con ggplot2.
+
+## Teoría: mutate en Spark vs en R
+
+`mutate()` funciona casi igual que en dplyr local, con una diferencia
+importante:
+
+::: {.concepto}
+**Solo puedes usar funciones que Spark sepa traducir.**
+
+La mayoría de funciones de dplyr y operadores de R están traducidas:
+`case_when`, `if_else`, `between`, `coalesce`, operadores aritméticos,
+`substr`, `nchar`, `tolower`, `toupper`, etc.
+
+Lo que **no** funciona directamente: funciones de paquetes de R que Spark
+no conoce (por ejemplo, `lubridate::ymd()` o funciones propias que tú definas).
+Para esos casos existen alternativas, pero no las necesitamos hoy.
+:::
+
+Ejemplo de `case_when` en Spark:
+
+```{r}
+# Ejemplo — solo para leer, no ejecutar aún
+tabla_spark |>
+  mutate(
+    categoria = case_when(
+      valor < 10  ~ "bajo",
+      valor < 50  ~ "medio",
+      TRUE        ~ "alto"       # TRUE actúa como "else"
+    )
+  )
+```
+
+::: {.alerta}
+**Error frecuente con `case_when` en Spark**: todas las ramas deben devolver
+el **mismo tipo**. Si una rama devuelve `"texto"` y otra devuelve `42`,
+Spark dará un error. Esto es más estricto que en R local.
+:::
+
+
+## Teoría: `compute()` — materializar tablas intermedias
+
+Cuando encadenas muchas transformaciones, Spark las acumula pero no las ejecuta.
+Si después usas el resultado varias veces, Spark recalcularía todo desde cero
+cada vez. Para evitarlo, puedes materializar una tabla intermedia con `compute()`:
+
+```{r}
+# Ejemplo conceptual
+resultado_intermedio <- tabla_spark |>
+  filter(...) |>
+  mutate(...) |>
+  compute("nombre_tabla_en_spark")   # <-- ejecuta y guarda en Spark
+
+# Ahora resultado_intermedio está materializado.
+# Las siguientes operaciones parten de aquí, sin recalcular lo anterior.
+```
+
+```
+                          collect()             compute()
+¿Dónde queda el          En R                  En Spark
+resultado?               (como tibble)         (como tabla Spark)
+
+¿Cuándo usarlo?          Al final, cuando      En pasos intermedios
+                         el resultado es       que se reutilizan
+                         pequeño               varias veces
+```
+
+
+## Ejercicios del Reto 2
+
+::: {.ejercicio}
+**Ejercicio 2.1 — Filtrar y transformar**
+
+1. Filtra solo vuelos no cancelados (`cancelado == 0`)
+2. Crea una columna `franja_horaria` basada en `hora_prog`:
+   - `hora_prog < 7` → `"madrugada"`
+   - `hora_prog < 13` → `"mañana"`
+   - `hora_prog < 20` → `"tarde"`
+   - resto → `"noche"`
+3. Crea una columna `ingreso_estimado` = `pasajeros * precio_medio`
+4. Materializa el resultado con `compute()`
+:::
+
+```{r}
+#| label: reto2-ej1
+
+vuelos_enriquecidos <- vuelos_sp |>
+  filter(___) |>
+  mutate(
+    franja_horaria = case_when(
+      ___ ~ "madrugada",
+      ___ ~ "mañana",
+      ___ ~ "tarde",
+      ___ ~ "noche"
+    ),
+    ingreso_estimado = ___
+  ) |>
+  compute("___")
+
+# Verificar: mira unas cuantas filas
+vuelos_enriquecidos |>
+  select(aerolinea, hora_prog, franja_horaria, ingreso_estimado) |>
+  head(5) |>
+  collect()
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+El filtro es `cancelado == 0`. Las condiciones del `case_when` siguen la
+estructura `hora_prog < 7 ~ "madrugada"`. El ingreso es una multiplicación
+directa de dos columnas.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 2.2 — Ingreso total por aerolínea y franja horaria**
+
+Agrupa por `aerolinea` y `franja_horaria` y calcula:
+
+- `n_vuelos`: conteo
+- `ingreso_total`: suma de `ingreso_estimado`
+- `ingreso_medio`: media de `ingreso_estimado`
+
+Ordena por aerolínea y luego por ingreso total descendente.
+:::
+
+```{r}
+#| label: reto2-ej2
+
+ingresos <- vuelos_enriquecidos |>
+  group_by(___, ___) |>
+  summarise(
+    n_vuelos      = ___,
+    ingreso_total = ___,
+    ingreso_medio = ___
+  ) |>
+  arrange(___, ___) |>
+  collect()
+
+ingresos
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`sum(ingreso_estimado, na.rm = TRUE)` para la suma total.
+Para ordenar: `arrange(aerolinea, desc(ingreso_total))`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 2.3 — Visualización**
+
+Crea un gráfico de barras con ggplot2 mostrando el ingreso total por franja
+horaria, diferenciando por aerolínea con colores. Recuerda que ggplot solo
+funciona con datos en R (el resultado del `collect()`).
+:::
+
+```{r}
+#| label: reto2-ej3
+
+ggplot(___, aes(x = ___, y = ___, fill = ___)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Ingreso estimado por aerolínea y franja horaria",
+    x     = "___",
+    y     = "___"
+  ) +
+  theme_minimal()
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+El primer argumento de `ggplot()` es el tibble `ingresos` (ya está en R).
+En `aes()`: x es `franja_horaria`, y es `ingreso_total`, fill es `aerolinea`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Pregunta de reflexión 2.1** (escribe tu respuesta debajo)
+
+En el ejercicio 2.1 usamos `compute()` al final. ¿Qué habría pasado si
+hubiéramos usado `collect()` en vez de `compute()`? ¿Podríamos haber
+hecho el ejercicio 2.2 de la misma forma?
+:::
+
+> *Tu respuesta aquí:*
+>
+>
+
+
+# RETO 3 — Funciones de ventana {#reto3}
+
+## Objetivo
+
+Usar funciones de ventana para calcular rankings y comparaciones fila a fila
+dentro de grupos, sin colapsar las filas.
+
+## Teoría: ¿qué es una función de ventana?
+
+::: {.concepto}
+**`summarise` vs función de ventana**
+
+Ya conoces el patrón `group_by() |> summarise()`: colapsa muchas filas en una
+por grupo.
+
+Una **función de ventana** usa `group_by() |> mutate()`: calcula un valor
+para cada fila basándose en su grupo, **pero sin eliminar filas**.
+
+```
+Datos originales:         Con summarise:         Con ventana (mutate):
+┌────────┬───────┐        ┌────────┬──────┐      ┌────────┬───────┬──────┐
+│ grupo  │ valor │        │ grupo  │ media│      │ grupo  │ valor │ media│
+├────────┼───────┤        ├────────┼──────┤      ├────────┼───────┼──────┤
+│ A      │ 10    │        │ A      │ 20   │      │ A      │ 10    │ 20   │
+│ A      │ 30    │  ───▶  │ B      │ 5    │      │ A      │ 30    │ 20   │
+│ B      │ 5     │        └────────┴──────┘      │ B      │ 5     │ 5    │
+└────────┴───────┘        (2 filas)              └────────┴───────┴──────┘
+                                                  (3 filas, una media por grupo
+                                                   pegada a cada fila)
+```
+:::
+
+### Funciones de ventana más comunes
+
+```
+Función           ¿Qué hace?                              Ejemplo
+─────────────────────────────────────────────────────────────────────
+min_rank()        Ranking con huecos en empates            1, 2, 2, 4
+dense_rank()      Ranking sin huecos en empates            1, 2, 2, 3
+row_number()      Ranking sin empates (desempate arbitr.)  1, 2, 3, 4
+lag(col, n)       Valor de la fila n posiciones atrás      fila anterior
+lead(col, n)      Valor de la fila n posiciones adelante   fila siguiente
+mean(), sum()     Agregación de grupo pegada a cada fila   media del grupo
+```
+
+### Ejemplo completo
+
+```{r}
+# Ejemplo — lee y entiende antes de hacer los ejercicios
+
+# Pregunta: para cada aerolínea, ¿cuál es la media de retraso
+# y cuánto se desvía cada vuelo de esa media?
+
+ejemplo_ventana <- vuelos_enriquecidos |>
+  group_by(aerolinea) |>
+  mutate(
+    media_aerolinea = mean(retraso_min, na.rm = TRUE),
+    desviacion      = retraso_min - media_aerolinea
+  ) |>
+  ungroup()
+
+# Cada vuelo conserva su fila, pero ahora tiene pegada la media de su grupo.
+ejemplo_ventana |>
+  select(vuelo_id, aerolinea, retraso_min, media_aerolinea, desviacion) |>
+  head(8) |>
+  collect()
+```
+
+::: {.alerta}
+**No olvides `ungroup()`** después de usar funciones de ventana. Si no lo
+haces, las operaciones posteriores seguirán agrupadas y pueden dar resultados
+inesperados.
+:::
+
+
+## Ejercicios del Reto 3
+
+::: {.ejercicio}
+**Ejercicio 3.1 — Ranking de aeropuertos por aerolínea**
+
+Queremos saber, para cada aerolínea, cuáles son sus aeropuertos de origen
+más frecuentes. Hazlo en dos pasos:
+
+1. Cuenta vuelos por `(aerolinea, origen)` con `group_by` + `summarise`
+2. Dentro de cada aerolínea, rankea los orígenes de mayor a menor volumen
+
+Filtra solo los top 3 de cada aerolínea.
+:::
+
+```{r}
+#| label: reto3-ej1
+
+top3_origenes <- vuelos_enriquecidos |>
+  # Paso 1: contar
+  group_by(___, ___) |>
+  summarise(n_vuelos = ___) |>
+
+  # Paso 2: rankear dentro de cada aerolínea
+  group_by(___) |>
+  mutate(
+    ranking = min_rank(___)
+  ) |>
+  ungroup() |>
+
+  # Quedarnos solo con los top 3
+  filter(___) |>
+  arrange(aerolinea, ranking) |>
+  collect()
+
+top3_origenes
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista 1 — el ranking</summary>
+Queremos que el origen con MÁS vuelos tenga ranking 1. Como `min_rank()` da
+el 1 al valor más bajo, necesitamos `min_rank(desc(n_vuelos))`.
+</details>
+</div>
+
+<div class="pista">
+<details>
+<summary>💡 Pista 2 — filtrar top 3</summary>
+`filter(ranking <= 3)`
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 3.2 — Desviación respecto al grupo**
+
+Para cada vuelo (no cancelado), calcula:
+
+- `media_grupo`: la media de `retraso_min` de su grupo `(aerolinea, franja_horaria)`
+- `desviacion`: diferencia entre su retraso y la media del grupo
+- `n_en_grupo`: cuántos vuelos hay en su grupo
+
+Después, trae a R los 10 vuelos con mayor desviación positiva.
+:::
+
+```{r}
+#| label: reto3-ej2
+
+vuelos_con_desviacion <- vuelos_enriquecidos |>
+  filter(!is.na(retraso_min)) |>
+  group_by(___, ___) |>
+  mutate(
+    media_grupo = ___,
+    desviacion  = ___,
+    n_en_grupo  = ___
+  ) |>
+  ___()    # <-- no olvides desagrupar
+
+# Top 10 con mayor desviación
+top10 <- vuelos_con_desviacion |>
+  arrange(___) |>
+  select(vuelo_id, aerolinea, franja_horaria,
+         retraso_min, media_grupo, desviacion) |>
+  head(___) |>
+  collect()
+
+top10
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`media_grupo = mean(retraso_min, na.rm = TRUE)`. La desviación es
+`retraso_min - media_grupo`. El conteo dentro de la ventana es `n()`.
+Para los top 10: `arrange(desc(desviacion))` y `head(10)`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 3.3 — Tendencia diaria con `lag()`**
+
+Calcula el retraso medio diario por aerolínea. Luego, usando `lag()`, añade
+una columna con el retraso del día anterior y otra con el cambio diario.
+Visualiza la tendencia de una aerolínea con ggplot.
+:::
+
+```{r}
+#| label: reto3-ej3
+
+tendencia <- vuelos_enriquecidos |>
+  # Paso 1: retraso medio por día y aerolínea
+  group_by(aerolinea, ___) |>
+  summarise(retraso_dia = mean(retraso_min, na.rm = TRUE)) |>
+
+  # Paso 2: función de ventana con lag
+  group_by(___) |>
+  arrange(___) |>
+  mutate(
+    retraso_ayer  = lag(___, ___),
+    cambio_diario = ___
+  ) |>
+  ungroup() |>
+  collect()
+
+# Visualización para la aerolínea "IB" (o la que prefieras)
+tendencia |>
+  filter(aerolinea == "___") |>
+  ggplot(aes(x = fecha, y = retraso_dia)) +
+  geom_line(alpha = 0.4) +
+  geom_smooth(se = FALSE, color = "tomato") +
+  labs(title = "Evolución del retraso medio diario",
+       x = "Fecha", y = "Retraso medio (min)") +
+  theme_minimal()
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+El `lag` se aplica sobre `retraso_dia` con desplazamiento `1`:
+`lag(retraso_dia, 1)`. El cambio diario es `retraso_dia - retraso_ayer`.
+Agrupa por `aerolinea` y ordena por `fecha` antes de aplicar `lag`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Pregunta de reflexión 3.1** (escribe tu respuesta debajo)
+
+¿Por qué es importante el `arrange(fecha)` antes del `lag()`? ¿Qué pasaría
+si no ordenamos?
+:::
+
+> *Tu respuesta aquí:*
+>
+>
+
+
+# RETO 4 — Modelo predictivo {#reto4}
+
+## Objetivo
+
+Entrenar un modelo de clasificación (regresión logística) para predecir
+si un vuelo será cancelado, usando la librería MLlib de Spark a través
+de sparklyr.
+
+## Teoría: Machine Learning en Spark
+
+::: {.concepto}
+**¿Por qué ML en Spark y no en R directamente?**
+
+Con 500.000 filas, R podría manejar los datos sin problema. Pero en
+producción, los datasets pueden tener cientos de millones de filas. Spark
+MLlib permite entrenar modelos **sin que los datos salgan del cluster**:
+R da las instrucciones, Spark hace el trabajo pesado.
+:::
+
+### El flujo de ML en sparklyr tiene 5 pasos
+
+```
+Datos ──▶ Preparar features ──▶ Dividir train/test ──▶ Entrenar ──▶ Evaluar
+            │                       │                      │           │
+            ▼                       ▼                      ▼           ▼
+       ft_string_indexer      sdf_random_split      ml_logistic_    ml_binary_
+       ft_vector_assembler                          regression      classification_
+                                                                    evaluator
+```
+
+### Paso clave: preparar features
+
+Spark MLlib necesita que **todas** las variables predictoras estén empaquetadas
+en **una sola columna de tipo vector**. Esto requiere dos sub-pasos:
+
+**Sub-paso A — Indexar las variables categóricas** con `ft_string_indexer()`:
+
+Convierte strings a números (la categoría más frecuente recibe 0, la siguiente 1, etc.).
+
+```
+"IB" → 0,   "VY" → 1,   "FR" → 2,   "UX" → 3 ...
+```
+
+**Sub-paso B — Ensamblar todo** con `ft_vector_assembler()`:
+
+Combina todas las columnas numéricas (las indexadas + las que ya eran numéricas)
+en una sola columna `features` de tipo vector.
+
+```
+aerolinea_idx=0, franja_idx=2, precio_medio=120.5  →  features=[0, 2, 120.5]
+```
+
+### Ejemplo visual completo
+
+```
+Tabla original:           Tras indexar:              Tras ensamblar:
+┌──────┬───────┬───────┐  ┌──────┬─────┬───────┐    ┌──────────────────┐
+│ aerol│franja │precio │  │a_idx │f_idx│precio │    │ features         │
+├──────┼───────┼───────┤  ├──────┼─────┼───────┤    ├──────────────────┤
+│ "IB" │"tarde"│120.5  │  │ 0    │ 2   │120.5  │    │ [0, 2, 120.5]   │
+│ "VY" │"mañan"│ 85.0  │  │ 1    │ 1   │ 85.0  │    │ [1, 1, 85.0]    │
+└──────┴───────┴───────┘  └──────┴─────┴───────┘    └──────────────────┘
+```
+
+
+## Ejercicios del Reto 4
+
+::: {.ejercicio}
+**Ejercicio 4.1 — Preparar la tabla para ML**
+
+Partiendo de `vuelos_sp` (la tabla completa, con cancelados), crea una tabla
+`vuelos_ml` que:
+
+1. Filtre filas sin NAs en `retraso_min` y `precio_medio`
+2. Cree la columna `franja_horaria` (como en el reto 2)
+3. Seleccione solo las columnas necesarias: `cancelado`, `aerolinea`,
+   `franja_horaria`, `origen`, `destino`, `precio_medio`
+4. Materialice con `compute()`
+:::
+
+```{r}
+#| label: reto4-ej1
+
+vuelos_ml <- vuelos_sp |>
+  filter(!is.na(___), !is.na(___)) |>
+  mutate(
+    franja_horaria = case_when(
+      hora_prog < 7  ~ "madrugada",
+      hora_prog < 13 ~ "mañana",
+      hora_prog < 20 ~ "tarde",
+      TRUE           ~ "noche"
+    )
+  ) |>
+  select(___) |>
+  compute("___")
+```
+
+
+::: {.ejercicio}
+**Ejercicio 4.2 — Indexar y ensamblar features**
+
+Aplica `ft_string_indexer()` a cada variable categórica y luego
+`ft_vector_assembler()` para crear la columna `features`.
+:::
+
+```{r}
+#| label: reto4-ej2
+
+vuelos_preparados <- vuelos_ml |>
+  ft_string_indexer("aerolinea",      "___") |>
+  ft_string_indexer("franja_horaria", "___") |>
+  ft_string_indexer("origen",         "___") |>
+  ft_string_indexer("destino",        "___") |>
+  ft_vector_assembler(
+    input_cols = c("___", "___", "___", "___", "___"),
+    output_col = "___"
+  )
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+La convención habitual es nombrar las columnas indexadas con sufijo `_idx`:
+`aerolinea_idx`, `franja_idx`, `origen_idx`, `destino_idx`.
+En `ft_vector_assembler`, `input_cols` recibe las 4 columnas indexadas más
+`precio_medio`, y `output_col` es `"features"`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 4.3 — Dividir en entrenamiento y test**
+
+Usa `sdf_random_split()` con 70% entrenamiento y 30% test. Usa `seed = 42`
+para reproducibilidad.
+:::
+
+```{r}
+#| label: reto4-ej3
+
+particiones <- vuelos_preparados |>
+  sdf_random_split(___ = 0.7, ___ = 0.3, seed = ___)
+
+train_sp <- particiones$___
+test_sp  <- particiones$___
+
+cat("Filas train:", sdf_nrow(train_sp), "\n")
+cat("Filas test: ", sdf_nrow(test_sp), "\n")
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+Los nombres de los elementos son los que tú elijas:
+`sdf_random_split(training = 0.7, testing = 0.3, seed = 42)`.
+Luego accedes con `particiones$training` y `particiones$testing`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 4.4 — Entrenar regresión logística**
+
+Entrena un modelo de regresión logística sobre el conjunto de entrenamiento.
+La variable respuesta es `cancelado` y las features están en la columna
+`features`.
+:::
+
+```{r}
+#| label: reto4-ej4
+
+modelo <- train_sp |>
+  ml_logistic_regression(
+    features_col = "___",
+    label_col    = "___"
+  )
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`features_col = "features"` y `label_col = "cancelado"`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 4.5 — Predecir y evaluar**
+
+1. Genera predicciones sobre el conjunto de test con `ml_predict()`
+2. Calcula el AUC con `ml_binary_classification_evaluator()`
+3. Construye una matriz de confusión agrupando por `cancelado` y `prediction`
+:::
+
+```{r}
+#| label: reto4-ej5
+
+# Predicciones
+predicciones <- ml_predict(___, ___)
+
+# AUC
+auc <- ml_binary_classification_evaluator(
+  ___,
+  label_col   = "___",
+  metric_name = "___"
+)
+
+cat("AUC:", round(auc, 4), "\n")
+
+# Matriz de confusión
+matriz <- predicciones |>
+  group_by(___, ___) |>
+  summarise(n = n()) |>
+  collect()
+
+matriz
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`ml_predict(modelo, test_sp)`. Para el evaluador: `label_col = "cancelado"`,
+`metric_name = "areaUnderROC"`. La matriz agrupa por `cancelado` y `prediction`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Pregunta de reflexión 4.1** (escribe tu respuesta debajo)
+
+Si el 94% de los vuelos NO se cancelan, un modelo que prediga siempre
+"no cancelado" tendría un accuracy del 94%. ¿Por qué el AUC es una
+métrica más informativa que el accuracy en este caso?
+:::
+
+> *Tu respuesta aquí:*
+>
+>
+
+
+# RETO 5 — Pipeline completo {#reto5}
+
+## Objetivo
+
+Encapsular todo el flujo (indexación + ensamblado + modelo) en un pipeline
+único que se pueda guardar, cargar y aplicar a datos nuevos.
+
+## Teoría: ¿qué es un pipeline?
+
+::: {.concepto}
+**Sin pipeline** (lo que hicimos en el Reto 4):
+
+```
+datos ──▶ ft_string_indexer (manual)
+      ──▶ ft_string_indexer (manual)
+      ──▶ ft_vector_assembler (manual)
+      ──▶ ml_logistic_regression (manual)
+```
+
+Si llegan datos nuevos, hay que repetir cada paso en el orden correcto.
+
+**Con pipeline**:
+
+```
+datos ──▶ [ pipeline ] ──▶ predicciones
+           (contiene todos los pasos encapsulados)
+```
+
+Se entrena una vez con `ml_fit()` y se aplica a datos nuevos con
+`ml_transform()`. Se guarda con `ml_save()` y se carga con `ml_load()`.
+:::
+
+### Las tres funciones clave
+
+```
+ml_pipeline(sc) |> ...   Define la secuencia de stages (aún no entrena nada)
+ml_fit(pipeline, datos)  Entrena: ajusta indexadores + modelo con los datos
+ml_transform(modelo, datos_nuevos)  Aplica el pipeline entrenado a datos nuevos
+```
+
+
+## Ejercicios del Reto 5
+
+::: {.ejercicio}
+**Ejercicio 5.1 — Definir el pipeline**
+
+Crea un pipeline que contenga, en este orden:
+
+1. Cuatro `ft_string_indexer` (uno por variable categórica)
+2. Un `ft_vector_assembler`
+3. Un `ml_logistic_regression`
+:::
+
+```{r}
+#| label: reto5-ej1
+
+mi_pipeline <- ml_pipeline(___) |>
+  ft_string_indexer(input_col = "aerolinea",      output_col = "aerolinea_idx") |>
+  ft_string_indexer(input_col = "___",            output_col = "___") |>
+  ft_string_indexer(input_col = "___",            output_col = "___") |>
+  ft_string_indexer(input_col = "___",            output_col = "___") |>
+  ft_vector_assembler(
+    input_cols = c("aerolinea_idx", "franja_idx",
+                   "origen_idx", "destino_idx", "precio_medio"),
+    output_col = "features"
+  ) |>
+  ml_logistic_regression(
+    features_col = "features",
+    label_col    = "___"
+  )
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`ml_pipeline(sc)` recibe la conexión. Luego encadena los mismos pasos del
+Reto 4, pero dentro del pipeline. `label_col = "cancelado"`.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 5.2 — Entrenar el pipeline**
+
+Usa `ml_fit()` para entrenar el pipeline con los datos de entrenamiento.
+:::
+
+```{r}
+#| label: reto5-ej2
+
+# Usamos las mismas particiones del Reto 4
+pipeline_entrenado <- ml_fit(___, ___)
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`ml_fit(mi_pipeline, train_sp)`. Recuerda: `train_sp` debe tener las columnas
+originales (antes de indexar), porque el pipeline se encarga de todo.
+
+**Importante**: si en el Reto 4 dividiste los datos DESPUÉS de indexar, aquí
+necesitas dividirlos ANTES. Rehaz la partición sobre `vuelos_ml` directamente.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 5.3 — Predecir y evaluar**
+
+Aplica el pipeline entrenado al conjunto de test con `ml_transform()` y
+calcula el AUC.
+:::
+
+```{r}
+#| label: reto5-ej3
+
+predicciones_pipe <- ml_transform(___, ___)
+
+auc_pipe <- ml_binary_classification_evaluator(
+  ___,
+  label_col   = "cancelado",
+  metric_name = "areaUnderROC"
+)
+
+cat("AUC del pipeline:", round(auc_pipe, 4), "\n")
+```
+
+
+::: {.ejercicio}
+**Ejercicio 5.4 — Guardar y recargar el pipeline**
+
+Guarda el pipeline entrenado en disco, vuélvelo a cargar y verifica que
+el AUC es idéntico.
+:::
+
+```{r}
+#| label: reto5-ej4
+
+# Guardar
+ml_save(___, "modelo_cancelaciones", overwrite = TRUE)
+
+# Cargar en una variable nueva
+pipeline_recargado <- ml_load(___, "modelo_cancelaciones")
+
+# Verificar
+pred_recargado <- ml_transform(___, test_sp)
+
+auc_recargado <- ml_binary_classification_evaluator(
+  pred_recargado,
+  label_col   = "cancelado",
+  metric_name = "areaUnderROC"
+)
+
+cat("AUC original: ", round(auc_pipe, 4), "\n")
+cat("AUC recargado:", round(auc_recargado, 4), "\n")
+```
+
+<div class="pista">
+<details>
+<summary>💡 Pista</summary>
+`ml_save(pipeline_entrenado, ...)` y `ml_load(sc, ...)`. El segundo argumento
+de `ml_load` es la conexión a Spark.
+</details>
+</div>
+
+
+::: {.ejercicio}
+**Ejercicio 5.5 — Reflexión final** (escribe tu respuesta debajo)
+
+Imagina que en vez de 500.000 vuelos tuvieras 500 millones. Escribe un
+párrafo para cada una de estas preguntas:
+
+1. ¿Qué cambiarías en la configuración de `spark_connect()`?
+2. ¿Seguirías usando un CSV o elegirías otro formato? ¿Por qué?
+3. ¿Qué ventaja tiene tener el modelo en un pipeline guardable frente a
+   tener los pasos sueltos?
+4. ¿Cómo afecta el desbalanceo de clases (pocos cancelados) al modelo
+   y qué estrategias se podrían aplicar?
+:::
+
+> *Tu respuesta aquí:*
+>
+>
+
+
+# Cierre
+
+No olvides desconectar Spark al terminar:
+
+```{r}
+#| label: cierre
+
+spark_disconnect(sc)
+cat("✅ Sesión cerrada\n")
+```
+
+
+## Checklist de entrega
+
+Antes de enviar tu `.qmd` renderizado, verifica:
+
+- [ ] Todos los bloques de código se ejecutan sin errores
+- [ ] Los huecos `___` están reemplazados por código real
+- [ ] Las preguntas de reflexión tienen respuestas escritas por ti
+- [ ] La sesión de Spark se cierra al final
+- [ ] El documento se renderiza correctamente a HTML
+
+
+
+
