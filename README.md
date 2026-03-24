@@ -1,6 +1,6 @@
 
 
-# Taller: Big Data con sparklyr
+# Taller: Introducción a Big Data con sparklyr
 
 Taller práctico de introducción al procesamiento de datos masivos con
 **sparklyr** en R. Aprenderás a conectar con Apache Spark desde R,
@@ -33,7 +33,7 @@ Después, instala Apache Spark en local (esto tarda unos minutos la
 primera vez):
 
 ``` r
-sparklyr::spark_install(version = "3.5")
+sparklyr::spark_install(version = "3.5.0")
 ```
 
 Para comprobar que todo funciona:
@@ -64,8 +64,8 @@ Abre una terminal (o la terminal integrada de RStudio en
 `Tools → Terminal`) y ejecuta:
 
 ``` bash
-git clone https://github.com/tu-usuario/taller-sparklyr.git
-cd taller-sparklyr
+git clone https://github.com/calote/sparklyr-intro.git
+cd sparklyr-intro
 ```
 
 También puedes clonar desde RStudio:
@@ -151,7 +151,7 @@ Cuando hayas completado todos los retos (o al finalizar la sesión):
 
 1.  Asegúrate de que has hecho **Commit** y **Push** de todos tus
     cambios.
-2.  Ve a https://github.com/tu-usuario/taller-sparklyr en el navegador.
+2.  Ve a https://github.com/calote/sparklyr-intro en el navegador.
 3.  Verás un banner amarillo con el nombre de tu rama → haz clic en
     **“Compare & pull request”**.
 4.  En el título escribe: `Entrega - Tu Nombre Apellido`.
@@ -220,8 +220,3 @@ creación del PR solo aparece en GitHub después del primer push.
 - [Mastering Spark with R](https://therinspark.com/) (libro gratuito
   online)
 - [Referencia de dplyr](https://dplyr.tidyverse.org/reference/)
-
-Hay un par de cosas que tendrías que personalizar antes de publicarlo:
-sustituir `tu-usuario` por tu nombre de usuario real de GitHub en las
-URLs, y si el dataset final o la versión de Spark cambian, actualizar
-esas referencias. Por lo demás está listo para usar tal cual.
