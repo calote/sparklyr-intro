@@ -17,3 +17,4 @@ modelo_cancelaciones/
 .positai
 README.qmd
 gitignore
+.DS_Store

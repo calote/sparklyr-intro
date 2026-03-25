@@ -242,7 +242,7 @@ Usa la función `sdf_nrow()` para contar las filas totales.
 ```{r}
 #| label: reto1-ej1
 
-n_total <- ___(vuelos_sp)
+n_total <- sdf_nrow(vuelos_sp)
 
 cat("Total de vuelos:", n_total, "\n")
 ```
@@ -267,11 +267,11 @@ Calcula también el porcentaje sobre el total.
 #| label: reto1-ej2
 
 n_cancelados <- vuelos_sp |>
-  filter(___) |>
+  filter(cancelado == 1) |>
   sdf_nrow()
 
 cat("Vuelos cancelados:", n_cancelados, "\n")
-cat("Porcentaje:", round(___ / ___ * 100, 2), "%\n")
+cat("Porcentaje:", round(n_cancelados / n_total * 100, 2), "%\n")
 ```
 
 <div class="pista">
@@ -299,14 +299,14 @@ Ordena de mayor a menor retraso medio. **No olvides `collect()` al final.**
 #| label: reto1-ej3
 
 resumen_aerolineas <- vuelos_sp |>
-  group_by(___) |>
+  group_by(aerolinea) |>
   summarise(
-    n_vuelos      = ___,
-    retraso_medio = ___,
-    pct_cancelado = ___
+    n_vuelos      = n(),
+    retraso_medio = mean(retraso_min),
+    pct_cancelado = mean(cancelado)*100
   ) |>
-  arrange(___) |>
-  ___()     # <-- traer resultado a R
+  arrange(desc(retraso_medio)) |>
+  collect()     # <-- traer resultado a R
 
 resumen_aerolineas
 ```
@@ -344,8 +344,9 @@ del `group_by`)? ¿Funcionaría? ¿Sería buena idea?
 :::
 
 > *Tu respuesta aquí:*
->
->
+> Se descargarían todos los datos de vuelo de Spark a R (llevaría mucho tiempo y sería peligroso).
+> Sí, pero duraría mucho tiempo. 
+> No sería buena idea.
 
 
 ::: {.ejercicio}
@@ -356,8 +357,8 @@ te sorprenda? ¿Ha acertado Spark con la inferencia?
 :::
 
 > *Tu respuesta aquí:*
->
->
+> "pasajeros" y "precio_medio" lo ha convertido a tipo "StringType", siendo valores numéricos.
+> No ha acertado Spark con la inferencia.
 
 
 # RETO 2 — Transformaciones en Spark {#reto2}
