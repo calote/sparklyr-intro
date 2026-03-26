@@ -129,7 +129,7 @@ Cada vez que completes un reto o quieras guardar un punto intermedio:
 ``` bash
 git add taller_sparklyr.qmd
 git commit -m "Completado reto 1"
-git push origin alumno/nombre-apellido
+git push -u origin alumno/nombre-apellido
 ```
 
 **Desde RStudio:**
