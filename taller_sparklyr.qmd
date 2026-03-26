@@ -27,6 +27,8 @@ execute:
   echo: true
   warning: false
   message: false
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{=typst}
