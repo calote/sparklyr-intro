@@ -191,6 +191,19 @@ modo **local** (Spark corre en tu máquina), pero en producción el parámetro
 `master` apuntaría a un cluster remoto.
 
 ```{r}
+
+# Carpeta logs creada
+
+# Reemplaza la ruta de la instalación usando barras normales:
+Sys.setenv(JAVA_HOME = "C:/Program Files/Eclipse Adoptium/jdk-11.0.30.7-hotspot")
+
+# Verifica que se haya guardado
+Sys.getenv("JAVA_HOME")
+
+```
+
+```{r}
+options(rstudio.connectionObserver.errorsSuppressed = TRUE)
 # Ejemplo — no modificar, solo ejecutar
 sc <- spark_connect(master = "local")
 ```
