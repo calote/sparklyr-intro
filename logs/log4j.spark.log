@@ -1,0 +1,1297 @@
+26/03/26 18:53:40.541 nioEventLoopGroup-2-2 INFO HiveConf: Found configuration file file:/C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/conf/hive-site.xml
+26/03/26 18:53:40.902 nioEventLoopGroup-2-2 INFO SparkContext: Running Spark version 3.5.0
+26/03/26 18:53:40.903 nioEventLoopGroup-2-2 INFO SparkContext: OS info Windows 11, 10.0, amd64
+26/03/26 18:53:40.904 nioEventLoopGroup-2-2 INFO SparkContext: Java version 25.0.2
+26/03/26 18:53:40.950 nioEventLoopGroup-2-2 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/03/26 18:54:40.124 shutdown-hook-0 INFO ShutdownHookManager: Shutdown hook called
+26/03/26 18:54:40.126 shutdown-hook-0 INFO ShutdownHookManager: Deleting directory C:\Users\hugom\AppData\Local\Temp\spark-3a4e5a8f-c051-4798-a05e-f7ae7c673060
+26/03/26 18:56:56.018 nioEventLoopGroup-2-2 INFO HiveConf: Found configuration file file:/C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/conf/hive-site.xml
+26/03/26 18:56:56.507 nioEventLoopGroup-2-2 INFO SparkContext: Running Spark version 3.5.0
+26/03/26 18:56:56.510 nioEventLoopGroup-2-2 INFO SparkContext: OS info Windows 11, 10.0, amd64
+26/03/26 18:56:56.511 nioEventLoopGroup-2-2 INFO SparkContext: Java version 11.0.30
+26/03/26 18:56:56.571 nioEventLoopGroup-2-2 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/03/26 18:56:56.792 nioEventLoopGroup-2-2 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+26/03/26 18:56:56.875 nioEventLoopGroup-2-2 INFO ResourceUtils: ==============================================================
+26/03/26 18:56:56.876 nioEventLoopGroup-2-2 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/03/26 18:56:56.877 nioEventLoopGroup-2-2 INFO ResourceUtils: ==============================================================
+26/03/26 18:56:56.878 nioEventLoopGroup-2-2 INFO SparkContext: Submitted application: sparklyr
+26/03/26 18:56:56.937 nioEventLoopGroup-2-2 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/03/26 18:56:56.959 nioEventLoopGroup-2-2 INFO ResourceProfile: Limiting resource is cpu
+26/03/26 18:56:56.959 nioEventLoopGroup-2-2 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/03/26 18:56:57.086 nioEventLoopGroup-2-2 INFO SecurityManager: Changing view acls to: hugom
+26/03/26 18:56:57.087 nioEventLoopGroup-2-2 INFO SecurityManager: Changing modify acls to: hugom
+26/03/26 18:56:57.087 nioEventLoopGroup-2-2 INFO SecurityManager: Changing view acls groups to: 
+26/03/26 18:56:57.088 nioEventLoopGroup-2-2 INFO SecurityManager: Changing modify acls groups to: 
+26/03/26 18:56:57.089 nioEventLoopGroup-2-2 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hugom; groups with view permissions: EMPTY; users with modify permissions: hugom; groups with modify permissions: EMPTY
+26/03/26 18:56:57.318 nioEventLoopGroup-2-2 INFO Utils: Successfully started service 'sparkDriver' on port 55394.
+26/03/26 18:56:57.378 nioEventLoopGroup-2-2 INFO SparkEnv: Registering MapOutputTracker
+26/03/26 18:56:57.462 nioEventLoopGroup-2-2 INFO SparkEnv: Registering BlockManagerMaster
+26/03/26 18:56:57.514 nioEventLoopGroup-2-2 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/03/26 18:56:57.514 nioEventLoopGroup-2-2 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/03/26 18:56:57.521 nioEventLoopGroup-2-2 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/03/26 18:56:57.585 nioEventLoopGroup-2-2 INFO DiskBlockManager: Created local directory at C:\Users\hugom\AppData\Local\spark\spark-3.5.0-bin-hadoop3\tmp\local\blockmgr-2055eee0-0f79-4f1c-8406-9821d54c4b31
+26/03/26 18:56:57.621 nioEventLoopGroup-2-2 INFO MemoryStore: MemoryStore started with capacity 1048.8 MiB
+26/03/26 18:56:57.656 nioEventLoopGroup-2-2 INFO SparkEnv: Registering OutputCommitCoordinator
+26/03/26 18:56:57.661 nioEventLoopGroup-2-2 WARN Utils: The configured local directories are not expected to be URIs; however, got suspicious values [C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/tmp/local]. Please check your configured local directories.
+26/03/26 18:56:57.979 nioEventLoopGroup-2-2 INFO JettyUtils: Start Jetty 127.0.0.1:4040 for SparkUI
+26/03/26 18:56:58.165 nioEventLoopGroup-2-2 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/03/26 18:56:58.248 nioEventLoopGroup-2-2 INFO SparkContext: Added JAR file:/C:/Users/hugom/AppData/Local/R/win-library/4.5/sparklyr/java/sparklyr-3.5-2.12.jar at spark://127.0.0.1:55394/jars/sparklyr-3.5-2.12.jar with timestamp 1774547816489
+26/03/26 18:56:58.403 nioEventLoopGroup-2-2 INFO Executor: Starting executor ID driver on host 127.0.0.1
+26/03/26 18:56:58.404 nioEventLoopGroup-2-2 INFO Executor: OS info Windows 11, 10.0, amd64
+26/03/26 18:56:58.404 nioEventLoopGroup-2-2 INFO Executor: Java version 11.0.30
+26/03/26 18:56:58.420 nioEventLoopGroup-2-2 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/03/26 18:56:58.421 nioEventLoopGroup-2-2 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@ed74e28 for default.
+26/03/26 18:56:58.447 nioEventLoopGroup-2-2 INFO Executor: Fetching spark://127.0.0.1:55394/jars/sparklyr-3.5-2.12.jar with timestamp 1774547816489
+26/03/26 18:56:58.534 nioEventLoopGroup-2-2 INFO TransportClientFactory: Successfully created connection to /127.0.0.1:55394 after 40 ms (0 ms spent in bootstraps)
+26/03/26 18:56:58.547 nioEventLoopGroup-2-2 INFO Utils: Fetching spark://127.0.0.1:55394/jars/sparklyr-3.5-2.12.jar to C:\Users\hugom\AppData\Local\spark\spark-3.5.0-bin-hadoop3\tmp\local\spark-592958f1-22ed-4148-95b7-372987c6df07\userFiles-06190d42-ba8d-4a2d-a1bc-90224ee9775f\fetchFileTemp13604700007720317562.tmp
+26/03/26 18:56:58.770 nioEventLoopGroup-2-2 INFO Executor: Adding file:/C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/tmp/local/spark-592958f1-22ed-4148-95b7-372987c6df07/userFiles-06190d42-ba8d-4a2d-a1bc-90224ee9775f/sparklyr-3.5-2.12.jar to class loader default
+26/03/26 18:56:58.825 nioEventLoopGroup-2-2 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 55443.
+26/03/26 18:56:58.826 nioEventLoopGroup-2-2 INFO NettyBlockTransferService: Server created on 127.0.0.1:55443
+26/03/26 18:56:58.829 nioEventLoopGroup-2-2 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/03/26 18:56:58.859 nioEventLoopGroup-2-2 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 127.0.0.1, 55443, None)
+26/03/26 18:56:58.878 dispatcher-BlockManagerMaster INFO BlockManagerMasterEndpoint: Registering block manager 127.0.0.1:55443 with 1048.8 MiB RAM, BlockManagerId(driver, 127.0.0.1, 55443, None)
+26/03/26 18:56:58.904 nioEventLoopGroup-2-2 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 127.0.0.1, 55443, None)
+26/03/26 18:56:58.910 nioEventLoopGroup-2-2 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 127.0.0.1, 55443, None)
+26/03/26 18:56:59.692 nioEventLoopGroup-2-2 INFO SharedState: Setting hive.metastore.warehouse.dir ('C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/tmp/hive') to the value of spark.sql.warehouse.dir.
+26/03/26 18:56:59.710 nioEventLoopGroup-2-2 INFO SharedState: Warehouse path is 'file:/C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/tmp/hive'.
+26/03/26 18:57:11.688 nioEventLoopGroup-2-2 INFO HiveUtils: Initializing HiveMetastoreConnection version 2.3.9 using Spark classes.
+26/03/26 18:57:12.369 nioEventLoopGroup-2-2 INFO HiveClientImpl: Warehouse location for Hive client (version 2.3.9) is file:/C:/Users/hugom/AppData/Local/spark/spark-3.5.0-bin-hadoop3/tmp/hive
+26/03/26 18:57:12.757 nioEventLoopGroup-2-2 WARN HiveConf: HiveConf of name hive.stats.jdbc.timeout does not exist
+26/03/26 18:57:12.760 nioEventLoopGroup-2-2 WARN HiveConf: HiveConf of name hive.stats.retries.wait does not exist
+26/03/26 18:57:12.760 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: Opening raw store with implementation class:org.apache.hadoop.hive.metastore.ObjectStore
+26/03/26 18:57:12.894 nioEventLoopGroup-2-2 INFO ObjectStore: ObjectStore, initialize called
+26/03/26 18:57:13.465 nioEventLoopGroup-2-2 INFO Persistence: Propiedad hive.metastore.integral.jdo.pushdown desconocida - vamos a ignorarla
+26/03/26 18:57:13.471 nioEventLoopGroup-2-2 INFO Persistence: Propiedad datanucleus.cache.level2 desconocida - vamos a ignorarla
+26/03/26 18:57:16.296 nioEventLoopGroup-2-2 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+26/03/26 18:57:20.408 nioEventLoopGroup-2-2 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
+26/03/26 18:57:20.418 nioEventLoopGroup-2-2 INFO ObjectStore: Initialized ObjectStore
+26/03/26 18:57:20.729 nioEventLoopGroup-2-2 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 2.3.0
+26/03/26 18:57:20.730 nioEventLoopGroup-2-2 WARN ObjectStore: setMetaStoreSchemaVersion called but recording version is disabled: version = 2.3.0, comment = Set by MetaStore UNKNOWN@192.168.0.22
+26/03/26 18:57:20.826 nioEventLoopGroup-2-2 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
+26/03/26 18:57:21.346 nioEventLoopGroup-2-2 INFO HiveMetaStore: Added admin role in metastore
+26/03/26 18:57:21.353 nioEventLoopGroup-2-2 INFO HiveMetaStore: Added public role in metastore
+26/03/26 18:57:21.565 nioEventLoopGroup-2-2 INFO HiveMetaStore: No user is added in admin role, since config is empty
+26/03/26 18:57:21.921 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:21.926 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:21.978 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: global_temp
+26/03/26 18:57:21.978 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: global_temp	
+26/03/26 18:57:21.979 nioEventLoopGroup-2-2 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
+26/03/26 18:57:21.982 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:21.983 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:21.988 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:21.988 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:21.994 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 18:57:21.995 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 18:57:24.609 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 800.7789 ms
+26/03/26 18:57:25.258 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 18:57:25.276 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 0 finished: collect at utils.scala:26, took 0,016340 s
+26/03/26 18:57:26.833 nioEventLoopGroup-2-2 INFO InMemoryFileIndex: It took 174 ms to list leaf files for 1 paths.
+26/03/26 18:57:27.090 nioEventLoopGroup-2-2 INFO InMemoryFileIndex: It took 9 ms to list leaf files for 1 paths.
+26/03/26 18:57:27.979 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Pushed Filters: 
+26/03/26 18:57:27.985 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#14, None)) > 0)
+26/03/26 18:57:28.191 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 50.8213 ms
+26/03/26 18:57:28.449 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 202.3 KiB, free 1048.6 MiB)
+26/03/26 18:57:28.840 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 35.2 KiB, free 1048.6 MiB)
+26/03/26 18:57:28.881 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 127.0.0.1:55443 (size: 35.2 KiB, free: 1048.8 MiB)
+26/03/26 18:57:28.904 nioEventLoopGroup-2-2 INFO SparkContext: Created broadcast 0 from csv at NativeMethodAccessorImpl.java:0
+26/03/26 18:57:28.962 nioEventLoopGroup-2-2 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/03/26 18:57:29.185 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/03/26 18:57:29.246 dag-scheduler-event-loop INFO DAGScheduler: Got job 1 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/03/26 18:57:29.248 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0)
+26/03/26 18:57:29.249 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 18:57:29.254 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:29.268 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[6] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 18:57:29.499 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 13.5 KiB, free 1048.6 MiB)
+26/03/26 18:57:29.527 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.4 KiB, free 1048.5 MiB)
+26/03/26 18:57:29.557 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 127.0.0.1:55443 (size: 6.4 KiB, free: 1048.8 MiB)
+26/03/26 18:57:29.558 dag-scheduler-event-loop INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:29.625 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/03/26 18:57:29.629 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+26/03/26 18:57:30.011 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:30.082 Executor task launch worker for task 0.0 in stage 0.0 (TID 0) INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/03/26 18:57:30.797 Executor task launch worker for task 0.0 in stage 0.0 (TID 0) INFO CodeGenerator: Code generated in 112.9825 ms
+26/03/26 18:57:30.816 Executor task launch worker for task 0.0 in stage 0.0 (TID 0) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 0-4194304, partition values: [empty row]
+26/03/26 18:57:30.878 Executor task launch worker for task 0.0 in stage 0.0 (TID 0) INFO CodeGenerator: Code generated in 42.1358 ms
+26/03/26 18:57:31.271 Executor task launch worker for task 0.0 in stage 0.0 (TID 0) INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1751 bytes result sent to driver
+26/03/26 18:57:31.330 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1385 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 18:57:31.342 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+26/03/26 18:57:31.361 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 0 (csv at NativeMethodAccessorImpl.java:0) finished in 2,011 s
+26/03/26 18:57:31.375 dag-scheduler-event-loop INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 18:57:31.377 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/03/26 18:57:31.380 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 1 finished: csv at NativeMethodAccessorImpl.java:0, took 2,193045 s
+26/03/26 18:57:31.454 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 31.7613 ms
+26/03/26 18:57:31.669 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Pushed Filters: 
+26/03/26 18:57:31.669 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Post-Scan Filters: 
+26/03/26 18:57:31.696 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 202.3 KiB, free 1048.4 MiB)
+26/03/26 18:57:31.762 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 35.2 KiB, free 1048.3 MiB)
+26/03/26 18:57:31.767 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 127.0.0.1:55443 (size: 35.2 KiB, free: 1048.7 MiB)
+26/03/26 18:57:31.770 nioEventLoopGroup-2-2 INFO SparkContext: Created broadcast 2 from csv at NativeMethodAccessorImpl.java:0
+26/03/26 18:57:31.772 nioEventLoopGroup-2-2 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/03/26 18:57:31.817 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_1_piece0 on 127.0.0.1:55443 in memory (size: 6.4 KiB, free: 1048.7 MiB)
+26/03/26 18:57:32.032 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/03/26 18:57:32.035 dag-scheduler-event-loop INFO DAGScheduler: Got job 2 (csv at NativeMethodAccessorImpl.java:0) with 6 output partitions
+26/03/26 18:57:32.036 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0)
+26/03/26 18:57:32.036 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 18:57:32.038 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:32.041 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[12] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 18:57:32.186 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 27.9 KiB, free 1048.3 MiB)
+26/03/26 18:57:32.206 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 13.0 KiB, free 1048.3 MiB)
+26/03/26 18:57:32.217 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 127.0.0.1:55443 (size: 13.0 KiB, free: 1048.7 MiB)
+26/03/26 18:57:32.277 dag-scheduler-event-loop INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:32.280 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 1 (MapPartitionsRDD[12] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 18:57:32.280 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 1.0 with 6 tasks resource profile 0
+26/03/26 18:57:32.288 dispatcher-event-loop-6 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:32.290 dispatcher-event-loop-6 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:32.293 dispatcher-event-loop-6 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 3) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:32.297 dispatcher-event-loop-6 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 4) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:32.299 dispatcher-event-loop-6 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 5) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:32.302 dispatcher-event-loop-6 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 6) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:32.322 Executor task launch worker for task 0.0 in stage 1.0 (TID 1) INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/03/26 18:57:32.363 Executor task launch worker for task 2.0 in stage 1.0 (TID 3) INFO Executor: Running task 2.0 in stage 1.0 (TID 3)
+26/03/26 18:57:32.363 Executor task launch worker for task 1.0 in stage 1.0 (TID 2) INFO Executor: Running task 1.0 in stage 1.0 (TID 2)
+26/03/26 18:57:32.361 Executor task launch worker for task 5.0 in stage 1.0 (TID 6) INFO Executor: Running task 5.0 in stage 1.0 (TID 6)
+26/03/26 18:57:32.364 Executor task launch worker for task 3.0 in stage 1.0 (TID 4) INFO Executor: Running task 3.0 in stage 1.0 (TID 4)
+26/03/26 18:57:32.395 Executor task launch worker for task 4.0 in stage 1.0 (TID 5) INFO Executor: Running task 4.0 in stage 1.0 (TID 5)
+26/03/26 18:57:32.538 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_0_piece0 on 127.0.0.1:55443 in memory (size: 35.2 KiB, free: 1048.8 MiB)
+26/03/26 18:57:32.772 Executor task launch worker for task 0.0 in stage 1.0 (TID 1) INFO CodeGenerator: Code generated in 26.9967 ms
+26/03/26 18:57:32.799 Executor task launch worker for task 5.0 in stage 1.0 (TID 6) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 20971520-21342711, partition values: [empty row]
+26/03/26 18:57:32.799 Executor task launch worker for task 3.0 in stage 1.0 (TID 4) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 12582912-16777216, partition values: [empty row]
+26/03/26 18:57:32.799 Executor task launch worker for task 4.0 in stage 1.0 (TID 5) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 16777216-20971520, partition values: [empty row]
+26/03/26 18:57:32.800 Executor task launch worker for task 1.0 in stage 1.0 (TID 2) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 4194304-8388608, partition values: [empty row]
+26/03/26 18:57:32.800 Executor task launch worker for task 2.0 in stage 1.0 (TID 3) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 8388608-12582912, partition values: [empty row]
+26/03/26 18:57:32.801 Executor task launch worker for task 0.0 in stage 1.0 (TID 1) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 0-4194304, partition values: [empty row]
+26/03/26 18:57:34.952 Executor task launch worker for task 5.0 in stage 1.0 (TID 6) INFO Executor: Finished task 5.0 in stage 1.0 (TID 6). 1795 bytes result sent to driver
+26/03/26 18:57:34.981 task-result-getter-1 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 6) in 2680 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 18:57:36.799 Executor task launch worker for task 4.0 in stage 1.0 (TID 5) INFO Executor: Finished task 4.0 in stage 1.0 (TID 5). 1795 bytes result sent to driver
+26/03/26 18:57:36.816 task-result-getter-2 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 5) in 4517 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 18:57:36.826 Executor task launch worker for task 3.0 in stage 1.0 (TID 4) INFO Executor: Finished task 3.0 in stage 1.0 (TID 4). 1795 bytes result sent to driver
+26/03/26 18:57:36.847 task-result-getter-3 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 4) in 4551 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 18:57:37.288 Executor task launch worker for task 1.0 in stage 1.0 (TID 2) INFO Executor: Finished task 1.0 in stage 1.0 (TID 2). 1752 bytes result sent to driver
+26/03/26 18:57:37.292 task-result-getter-0 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 5004 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 18:57:37.319 Executor task launch worker for task 2.0 in stage 1.0 (TID 3) INFO Executor: Finished task 2.0 in stage 1.0 (TID 3). 1795 bytes result sent to driver
+26/03/26 18:57:37.327 task-result-getter-1 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 3) in 5032 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 18:57:37.506 Executor task launch worker for task 0.0 in stage 1.0 (TID 1) INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1752 bytes result sent to driver
+26/03/26 18:57:37.508 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 5221 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 18:57:37.512 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+26/03/26 18:57:37.513 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0) finished in 5,465 s
+26/03/26 18:57:37.514 dag-scheduler-event-loop INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 18:57:37.514 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/03/26 18:57:37.516 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 2 finished: csv at NativeMethodAccessorImpl.java:0, took 5,481992 s
+26/03/26 18:57:37.937 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:37.938 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:37.946 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:37.946 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:37.953 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 18:57:37.953 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 18:57:38.446 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Pushed Filters: 
+26/03/26 18:57:38.446 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Post-Scan Filters: 
+26/03/26 18:57:39.266 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 202.2 KiB, free 1048.3 MiB)
+26/03/26 18:57:39.309 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 35.1 KiB, free 1048.3 MiB)
+26/03/26 18:57:39.314 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 127.0.0.1:55443 (size: 35.1 KiB, free: 1048.7 MiB)
+26/03/26 18:57:39.317 nioEventLoopGroup-2-2 INFO SparkContext: Created broadcast 4 from sql at NativeMethodAccessorImpl.java:0
+26/03/26 18:57:39.340 nioEventLoopGroup-2-2 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/03/26 18:57:39.392 dag-scheduler-event-loop INFO DAGScheduler: Got job 3 (sql at NativeMethodAccessorImpl.java:0) with 6 output partitions
+26/03/26 18:57:39.392 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 2 (sql at NativeMethodAccessorImpl.java:0)
+26/03/26 18:57:39.392 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 18:57:39.399 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:39.401 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 2 (In-memory table vuelos MapPartitionsRDD[16] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 18:57:39.449 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 14.9 KiB, free 1048.3 MiB)
+26/03/26 18:57:39.457 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 7.6 KiB, free 1048.3 MiB)
+26/03/26 18:57:39.461 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 127.0.0.1:55443 (size: 7.6 KiB, free: 1048.7 MiB)
+26/03/26 18:57:39.463 dag-scheduler-event-loop INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:39.465 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 2 (In-memory table vuelos MapPartitionsRDD[16] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 18:57:39.466 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 2.0 with 6 tasks resource profile 0
+26/03/26 18:57:39.468 dispatcher-event-loop-7 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 7) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:39.469 dispatcher-event-loop-7 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 8) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:39.472 dispatcher-event-loop-7 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 9) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:39.473 dispatcher-event-loop-7 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 10) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:39.474 dispatcher-event-loop-7 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 11) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:39.477 dispatcher-event-loop-7 INFO TaskSetManager: Starting task 5.0 in stage 2.0 (TID 12) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 18:57:39.479 Executor task launch worker for task 0.0 in stage 2.0 (TID 7) INFO Executor: Running task 0.0 in stage 2.0 (TID 7)
+26/03/26 18:57:39.479 Executor task launch worker for task 1.0 in stage 2.0 (TID 8) INFO Executor: Running task 1.0 in stage 2.0 (TID 8)
+26/03/26 18:57:39.479 Executor task launch worker for task 2.0 in stage 2.0 (TID 9) INFO Executor: Running task 2.0 in stage 2.0 (TID 9)
+26/03/26 18:57:39.480 Executor task launch worker for task 3.0 in stage 2.0 (TID 10) INFO Executor: Running task 3.0 in stage 2.0 (TID 10)
+26/03/26 18:57:39.480 Executor task launch worker for task 4.0 in stage 2.0 (TID 11) INFO Executor: Running task 4.0 in stage 2.0 (TID 11)
+26/03/26 18:57:39.485 Executor task launch worker for task 5.0 in stage 2.0 (TID 12) INFO Executor: Running task 5.0 in stage 2.0 (TID 12)
+26/03/26 18:57:39.814 Executor task launch worker for task 1.0 in stage 2.0 (TID 8) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 4194304-8388608, partition values: [empty row]
+26/03/26 18:57:39.814 Executor task launch worker for task 5.0 in stage 2.0 (TID 12) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 20971520-21342711, partition values: [empty row]
+26/03/26 18:57:39.815 Executor task launch worker for task 2.0 in stage 2.0 (TID 9) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 8388608-12582912, partition values: [empty row]
+26/03/26 18:57:39.815 Executor task launch worker for task 0.0 in stage 2.0 (TID 7) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 0-4194304, partition values: [empty row]
+26/03/26 18:57:39.816 Executor task launch worker for task 3.0 in stage 2.0 (TID 10) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 12582912-16777216, partition values: [empty row]
+26/03/26 18:57:39.823 Executor task launch worker for task 4.0 in stage 2.0 (TID 11) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 16777216-20971520, partition values: [empty row]
+26/03/26 18:57:40.154 Executor task launch worker for task 5.0 in stage 2.0 (TID 12) INFO CodeGenerator: Code generated in 256.0722 ms
+26/03/26 18:57:40.653 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_2_piece0 on 127.0.0.1:55443 in memory (size: 35.2 KiB, free: 1048.7 MiB)
+26/03/26 18:57:40.855 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_3_piece0 on 127.0.0.1:55443 in memory (size: 13.0 KiB, free: 1048.8 MiB)
+26/03/26 18:57:42.287 Executor task launch worker for task 5.0 in stage 2.0 (TID 12) INFO MemoryStore: Block rdd_16_5 stored as values in memory (estimated size 227.7 KiB, free 1048.3 MiB)
+26/03/26 18:57:42.319 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_16_5 in memory on 127.0.0.1:55443 (size: 227.7 KiB, free: 1048.5 MiB)
+26/03/26 18:57:42.893 Executor task launch worker for task 5.0 in stage 2.0 (TID 12) INFO Executor: 1 block locks were not released by task 5.0 in stage 2.0 (TID 12)
+[rdd_16_5]
+26/03/26 18:57:42.904 Executor task launch worker for task 5.0 in stage 2.0 (TID 12) INFO Executor: Finished task 5.0 in stage 2.0 (TID 12). 1416 bytes result sent to driver
+26/03/26 18:57:42.906 task-result-getter-3 INFO TaskSetManager: Finished task 5.0 in stage 2.0 (TID 12) in 3431 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 18:57:44.036 Executor task launch worker for task 4.0 in stage 2.0 (TID 11) INFO MemoryStore: Block rdd_16_4 stored as values in memory (estimated size 2.5 MiB, free 1045.8 MiB)
+26/03/26 18:57:44.041 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_16_4 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1046.0 MiB)
+26/03/26 18:57:44.048 Executor task launch worker for task 4.0 in stage 2.0 (TID 11) INFO Executor: 1 block locks were not released by task 4.0 in stage 2.0 (TID 11)
+[rdd_16_4]
+26/03/26 18:57:44.065 Executor task launch worker for task 4.0 in stage 2.0 (TID 11) INFO Executor: Finished task 4.0 in stage 2.0 (TID 11). 1416 bytes result sent to driver
+26/03/26 18:57:44.071 Executor task launch worker for task 3.0 in stage 2.0 (TID 10) INFO MemoryStore: Block rdd_16_3 stored as values in memory (estimated size 2.5 MiB, free 1043.3 MiB)
+26/03/26 18:57:44.074 task-result-getter-0 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 11) in 4599 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 18:57:44.077 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_16_3 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1043.6 MiB)
+26/03/26 18:57:44.080 Executor task launch worker for task 3.0 in stage 2.0 (TID 10) INFO Executor: 1 block locks were not released by task 3.0 in stage 2.0 (TID 10)
+[rdd_16_3]
+26/03/26 18:57:44.083 Executor task launch worker for task 3.0 in stage 2.0 (TID 10) INFO Executor: Finished task 3.0 in stage 2.0 (TID 10). 1373 bytes result sent to driver
+26/03/26 18:57:44.085 task-result-getter-1 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 10) in 4612 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 18:57:44.864 Executor task launch worker for task 0.0 in stage 2.0 (TID 7) INFO MemoryStore: Block rdd_16_0 stored as values in memory (estimated size 2.5 MiB, free 1040.8 MiB)
+26/03/26 18:57:44.868 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_16_0 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1041.0 MiB)
+26/03/26 18:57:44.874 Executor task launch worker for task 0.0 in stage 2.0 (TID 7) INFO Executor: 1 block locks were not released by task 0.0 in stage 2.0 (TID 7)
+[rdd_16_0]
+26/03/26 18:57:44.877 Executor task launch worker for task 0.0 in stage 2.0 (TID 7) INFO Executor: Finished task 0.0 in stage 2.0 (TID 7). 1373 bytes result sent to driver
+26/03/26 18:57:44.880 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 7) in 5412 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 18:57:44.900 Executor task launch worker for task 1.0 in stage 2.0 (TID 8) INFO MemoryStore: Block rdd_16_1 stored as values in memory (estimated size 2.5 MiB, free 1038.3 MiB)
+26/03/26 18:57:44.905 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_16_1 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1038.5 MiB)
+26/03/26 18:57:44.906 Executor task launch worker for task 1.0 in stage 2.0 (TID 8) INFO Executor: 1 block locks were not released by task 1.0 in stage 2.0 (TID 8)
+[rdd_16_1]
+26/03/26 18:57:44.915 Executor task launch worker for task 1.0 in stage 2.0 (TID 8) INFO Executor: Finished task 1.0 in stage 2.0 (TID 8). 1416 bytes result sent to driver
+26/03/26 18:57:44.917 task-result-getter-3 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 8) in 5448 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 18:57:44.921 Executor task launch worker for task 2.0 in stage 2.0 (TID 9) INFO MemoryStore: Block rdd_16_2 stored as values in memory (estimated size 2.5 MiB, free 1035.8 MiB)
+26/03/26 18:57:44.924 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_16_2 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1036.0 MiB)
+26/03/26 18:57:44.926 Executor task launch worker for task 2.0 in stage 2.0 (TID 9) INFO Executor: 1 block locks were not released by task 2.0 in stage 2.0 (TID 9)
+[rdd_16_2]
+26/03/26 18:57:44.929 Executor task launch worker for task 2.0 in stage 2.0 (TID 9) INFO Executor: Finished task 2.0 in stage 2.0 (TID 9). 1373 bytes result sent to driver
+26/03/26 18:57:44.931 task-result-getter-0 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 9) in 5460 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 18:57:44.931 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+26/03/26 18:57:44.933 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 2 (sql at NativeMethodAccessorImpl.java:0) finished in 5,528 s
+26/03/26 18:57:44.934 dag-scheduler-event-loop INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 18:57:44.935 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+26/03/26 18:57:45.121 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 31.0765 ms
+26/03/26 18:57:45.241 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 21 (sql at NativeMethodAccessorImpl.java:0) as input to shuffle 0
+26/03/26 18:57:45.256 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 4 (sql at NativeMethodAccessorImpl.java:0) with 6 output partitions
+26/03/26 18:57:45.257 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 3 (sql at NativeMethodAccessorImpl.java:0)
+26/03/26 18:57:45.259 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 18:57:45.268 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:45.274 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[21] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 18:57:45.340 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 23.2 KiB, free 1035.8 MiB)
+26/03/26 18:57:45.347 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 10.8 KiB, free 1035.8 MiB)
+26/03/26 18:57:45.353 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 127.0.0.1:55443 (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 18:57:45.355 dag-scheduler-event-loop INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:45.360 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[21] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 18:57:45.360 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 3.0 with 6 tasks resource profile 0
+26/03/26 18:57:45.385 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 13) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:45.386 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 14) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:45.388 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 15) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:45.389 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 16) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:45.392 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 4.0 in stage 3.0 (TID 17) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:45.393 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 5.0 in stage 3.0 (TID 18) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:45.395 Executor task launch worker for task 0.0 in stage 3.0 (TID 13) INFO Executor: Running task 0.0 in stage 3.0 (TID 13)
+26/03/26 18:57:45.395 Executor task launch worker for task 1.0 in stage 3.0 (TID 14) INFO Executor: Running task 1.0 in stage 3.0 (TID 14)
+26/03/26 18:57:45.396 Executor task launch worker for task 2.0 in stage 3.0 (TID 15) INFO Executor: Running task 2.0 in stage 3.0 (TID 15)
+26/03/26 18:57:45.396 Executor task launch worker for task 3.0 in stage 3.0 (TID 16) INFO Executor: Running task 3.0 in stage 3.0 (TID 16)
+26/03/26 18:57:45.397 Executor task launch worker for task 4.0 in stage 3.0 (TID 17) INFO Executor: Running task 4.0 in stage 3.0 (TID 17)
+26/03/26 18:57:45.397 Executor task launch worker for task 5.0 in stage 3.0 (TID 18) INFO Executor: Running task 5.0 in stage 3.0 (TID 18)
+26/03/26 18:57:45.507 Executor task launch worker for task 5.0 in stage 3.0 (TID 18) INFO BlockManager: Found block rdd_16_5 locally
+26/03/26 18:57:45.507 Executor task launch worker for task 4.0 in stage 3.0 (TID 17) INFO BlockManager: Found block rdd_16_4 locally
+26/03/26 18:57:45.507 Executor task launch worker for task 1.0 in stage 3.0 (TID 14) INFO BlockManager: Found block rdd_16_1 locally
+26/03/26 18:57:45.507 Executor task launch worker for task 3.0 in stage 3.0 (TID 16) INFO BlockManager: Found block rdd_16_3 locally
+26/03/26 18:57:45.507 Executor task launch worker for task 0.0 in stage 3.0 (TID 13) INFO BlockManager: Found block rdd_16_0 locally
+26/03/26 18:57:45.507 Executor task launch worker for task 2.0 in stage 3.0 (TID 15) INFO BlockManager: Found block rdd_16_2 locally
+26/03/26 18:57:45.542 Executor task launch worker for task 1.0 in stage 3.0 (TID 14) INFO CodeGenerator: Code generated in 14.5013 ms
+26/03/26 18:57:45.661 Executor task launch worker for task 0.0 in stage 3.0 (TID 13) INFO CodeGenerator: Code generated in 84.314 ms
+26/03/26 18:57:45.714 Executor task launch worker for task 0.0 in stage 3.0 (TID 13) INFO CodeGenerator: Code generated in 46.8927 ms
+26/03/26 18:57:45.995 Executor task launch worker for task 1.0 in stage 3.0 (TID 14) INFO Executor: Finished task 1.0 in stage 3.0 (TID 14). 2153 bytes result sent to driver
+26/03/26 18:57:46.003 task-result-getter-1 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 14) in 618 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 18:57:46.011 Executor task launch worker for task 5.0 in stage 3.0 (TID 18) INFO Executor: Finished task 5.0 in stage 3.0 (TID 18). 2067 bytes result sent to driver
+26/03/26 18:57:46.013 task-result-getter-2 INFO TaskSetManager: Finished task 5.0 in stage 3.0 (TID 18) in 620 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 18:57:46.044 Executor task launch worker for task 4.0 in stage 3.0 (TID 17) INFO Executor: Finished task 4.0 in stage 3.0 (TID 17). 2110 bytes result sent to driver
+26/03/26 18:57:46.047 task-result-getter-3 INFO TaskSetManager: Finished task 4.0 in stage 3.0 (TID 17) in 656 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 18:57:46.077 Executor task launch worker for task 2.0 in stage 3.0 (TID 15) INFO Executor: Finished task 2.0 in stage 3.0 (TID 15). 2110 bytes result sent to driver
+26/03/26 18:57:46.078 task-result-getter-0 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 15) in 691 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 18:57:46.103 Executor task launch worker for task 3.0 in stage 3.0 (TID 16) INFO Executor: Finished task 3.0 in stage 3.0 (TID 16). 2110 bytes result sent to driver
+26/03/26 18:57:46.105 task-result-getter-1 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 16) in 716 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 18:57:46.133 Executor task launch worker for task 0.0 in stage 3.0 (TID 13) INFO Executor: Finished task 0.0 in stage 3.0 (TID 13). 2110 bytes result sent to driver
+26/03/26 18:57:46.135 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 13) in 759 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 18:57:46.135 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+26/03/26 18:57:46.137 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 3 (sql at NativeMethodAccessorImpl.java:0) finished in 0,852 s
+26/03/26 18:57:46.138 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 18:57:46.139 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 18:57:46.140 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 18:57:46.142 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 18:57:46.198 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 22.426 ms
+26/03/26 18:57:46.273 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: sql at NativeMethodAccessorImpl.java:0
+26/03/26 18:57:46.277 dag-scheduler-event-loop INFO DAGScheduler: Got job 5 (sql at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/03/26 18:57:46.277 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 5 (sql at NativeMethodAccessorImpl.java:0)
+26/03/26 18:57:46.278 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+26/03/26 18:57:46.278 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:46.281 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[24] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 18:57:46.298 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 12.5 KiB, free 1035.8 MiB)
+26/03/26 18:57:46.304 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1035.8 MiB)
+26/03/26 18:57:46.306 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 18:57:46.307 dag-scheduler-event-loop INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:46.308 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[24] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/03/26 18:57:46.308 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks resource profile 0
+26/03/26 18:57:46.314 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 19) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 18:57:46.316 Executor task launch worker for task 0.0 in stage 5.0 (TID 19) INFO Executor: Running task 0.0 in stage 5.0 (TID 19)
+26/03/26 18:57:46.424 Executor task launch worker for task 0.0 in stage 5.0 (TID 19) INFO ShuffleBlockFetcherIterator: Getting 6 (360.0 B) non-empty blocks including 6 (360.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 18:57:46.430 Executor task launch worker for task 0.0 in stage 5.0 (TID 19) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 41 ms
+26/03/26 18:57:46.495 Executor task launch worker for task 0.0 in stage 5.0 (TID 19) INFO CodeGenerator: Code generated in 36.6251 ms
+26/03/26 18:57:46.595 Executor task launch worker for task 0.0 in stage 5.0 (TID 19) INFO Executor: Finished task 0.0 in stage 5.0 (TID 19). 3995 bytes result sent to driver
+26/03/26 18:57:46.604 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 19) in 291 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 18:57:46.606 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 5 (sql at NativeMethodAccessorImpl.java:0) finished in 0,310 s
+26/03/26 18:57:46.607 dag-scheduler-event-loop INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 18:57:46.608 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+26/03/26 18:57:46.609 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+26/03/26 18:57:46.610 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 5 finished: sql at NativeMethodAccessorImpl.java:0, took 0,336166 s
+26/03/26 18:57:47.446 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 29 (collect at utils.scala:26) as input to shuffle 1
+26/03/26 18:57:47.447 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 6 (collect at utils.scala:26) with 6 output partitions
+26/03/26 18:57:47.447 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 6 (collect at utils.scala:26)
+26/03/26 18:57:47.447 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 18:57:47.448 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:47.451 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[29] at collect at utils.scala:26), which has no missing parents
+26/03/26 18:57:47.473 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 23.2 KiB, free 1035.8 MiB)
+26/03/26 18:57:47.493 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 10.8 KiB, free 1035.7 MiB)
+26/03/26 18:57:47.501 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 127.0.0.1:55443 (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 18:57:47.503 dag-scheduler-event-loop INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:47.504 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[29] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 18:57:47.505 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 6.0 with 6 tasks resource profile 0
+26/03/26 18:57:47.507 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_6_piece0 on 127.0.0.1:55443 in memory (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 18:57:47.511 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 20) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:47.515 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 1.0 in stage 6.0 (TID 21) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:47.521 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 2.0 in stage 6.0 (TID 22) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:47.522 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 3.0 in stage 6.0 (TID 23) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:47.524 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 4.0 in stage 6.0 (TID 24) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:47.524 dispatcher-event-loop-4 INFO TaskSetManager: Starting task 5.0 in stage 6.0 (TID 25) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 18:57:47.528 Executor task launch worker for task 0.0 in stage 6.0 (TID 20) INFO Executor: Running task 0.0 in stage 6.0 (TID 20)
+26/03/26 18:57:47.528 Executor task launch worker for task 1.0 in stage 6.0 (TID 21) INFO Executor: Running task 1.0 in stage 6.0 (TID 21)
+26/03/26 18:57:47.534 Executor task launch worker for task 2.0 in stage 6.0 (TID 22) INFO Executor: Running task 2.0 in stage 6.0 (TID 22)
+26/03/26 18:57:47.534 Executor task launch worker for task 3.0 in stage 6.0 (TID 23) INFO Executor: Running task 3.0 in stage 6.0 (TID 23)
+26/03/26 18:57:47.553 Executor task launch worker for task 1.0 in stage 6.0 (TID 21) INFO BlockManager: Found block rdd_16_1 locally
+26/03/26 18:57:47.560 Executor task launch worker for task 3.0 in stage 6.0 (TID 23) INFO BlockManager: Found block rdd_16_3 locally
+26/03/26 18:57:47.573 Executor task launch worker for task 5.0 in stage 6.0 (TID 25) INFO Executor: Running task 5.0 in stage 6.0 (TID 25)
+26/03/26 18:57:47.578 Executor task launch worker for task 4.0 in stage 6.0 (TID 24) INFO Executor: Running task 4.0 in stage 6.0 (TID 24)
+26/03/26 18:57:47.585 Executor task launch worker for task 5.0 in stage 6.0 (TID 25) INFO BlockManager: Found block rdd_16_5 locally
+26/03/26 18:57:47.588 Executor task launch worker for task 4.0 in stage 6.0 (TID 24) INFO BlockManager: Found block rdd_16_4 locally
+26/03/26 18:57:47.594 Executor task launch worker for task 0.0 in stage 6.0 (TID 20) INFO BlockManager: Found block rdd_16_0 locally
+26/03/26 18:57:47.595 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_7_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 18:57:47.602 Executor task launch worker for task 2.0 in stage 6.0 (TID 22) INFO BlockManager: Found block rdd_16_2 locally
+26/03/26 18:57:47.745 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_5_piece0 on 127.0.0.1:55443 in memory (size: 7.6 KiB, free: 1036.0 MiB)
+26/03/26 18:57:47.755 Executor task launch worker for task 3.0 in stage 6.0 (TID 23) INFO Executor: Finished task 3.0 in stage 6.0 (TID 23). 2067 bytes result sent to driver
+26/03/26 18:57:47.759 task-result-getter-0 INFO TaskSetManager: Finished task 3.0 in stage 6.0 (TID 23) in 237 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 18:57:47.807 Executor task launch worker for task 1.0 in stage 6.0 (TID 21) INFO Executor: Finished task 1.0 in stage 6.0 (TID 21). 2067 bytes result sent to driver
+26/03/26 18:57:47.808 task-result-getter-1 INFO TaskSetManager: Finished task 1.0 in stage 6.0 (TID 21) in 293 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 18:57:47.847 Executor task launch worker for task 4.0 in stage 6.0 (TID 24) INFO Executor: Finished task 4.0 in stage 6.0 (TID 24). 2110 bytes result sent to driver
+26/03/26 18:57:47.851 task-result-getter-2 INFO TaskSetManager: Finished task 4.0 in stage 6.0 (TID 24) in 328 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 18:57:47.890 Executor task launch worker for task 0.0 in stage 6.0 (TID 20) INFO Executor: Finished task 0.0 in stage 6.0 (TID 20). 2110 bytes result sent to driver
+26/03/26 18:57:47.895 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 20) in 387 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 18:57:47.934 Executor task launch worker for task 2.0 in stage 6.0 (TID 22) INFO Executor: Finished task 2.0 in stage 6.0 (TID 22). 2110 bytes result sent to driver
+26/03/26 18:57:47.937 task-result-getter-0 INFO TaskSetManager: Finished task 2.0 in stage 6.0 (TID 22) in 420 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 18:57:47.981 Executor task launch worker for task 5.0 in stage 6.0 (TID 25) INFO Executor: Finished task 5.0 in stage 6.0 (TID 25). 2067 bytes result sent to driver
+26/03/26 18:57:47.982 task-result-getter-1 INFO TaskSetManager: Finished task 5.0 in stage 6.0 (TID 25) in 458 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 18:57:47.985 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 6 (collect at utils.scala:26) finished in 0,528 s
+26/03/26 18:57:47.985 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 18:57:47.985 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 18:57:47.985 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 18:57:47.986 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 18:57:47.987 task-result-getter-1 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+26/03/26 18:57:48.059 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 18:57:48.062 dag-scheduler-event-loop INFO DAGScheduler: Got job 7 (collect at utils.scala:26) with 1 output partitions
+26/03/26 18:57:48.063 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 8 (collect at utils.scala:26)
+26/03/26 18:57:48.063 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 7)
+26/03/26 18:57:48.064 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:48.065 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[32] at collect at utils.scala:26), which has no missing parents
+26/03/26 18:57:48.071 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 12.5 KiB, free 1035.8 MiB)
+26/03/26 18:57:48.078 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1035.8 MiB)
+26/03/26 18:57:48.081 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 18:57:48.082 dag-scheduler-event-loop INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:48.083 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 8 (MapPartitionsRDD[32] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 18:57:48.085 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks resource profile 0
+26/03/26 18:57:48.087 dispatcher-event-loop-1 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 26) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 18:57:48.089 Executor task launch worker for task 0.0 in stage 8.0 (TID 26) INFO Executor: Running task 0.0 in stage 8.0 (TID 26)
+26/03/26 18:57:48.103 Executor task launch worker for task 0.0 in stage 8.0 (TID 26) INFO ShuffleBlockFetcherIterator: Getting 6 (360.0 B) non-empty blocks including 6 (360.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 18:57:48.104 Executor task launch worker for task 0.0 in stage 8.0 (TID 26) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+26/03/26 18:57:48.146 Executor task launch worker for task 0.0 in stage 8.0 (TID 26) INFO Executor: Finished task 0.0 in stage 8.0 (TID 26). 3952 bytes result sent to driver
+26/03/26 18:57:48.149 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 26) in 62 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 18:57:48.150 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+26/03/26 18:57:48.152 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 8 (collect at utils.scala:26) finished in 0,084 s
+26/03/26 18:57:48.153 dag-scheduler-event-loop INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 18:57:48.153 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 8: Stage finished
+26/03/26 18:57:48.154 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 7 finished: collect at utils.scala:26, took 0,094395 s
+26/03/26 18:57:48.201 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 36.1194 ms
+26/03/26 18:57:49.014 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 28.8598 ms
+26/03/26 18:57:49.061 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 18:57:49.063 dag-scheduler-event-loop INFO DAGScheduler: Got job 8 (collect at utils.scala:26) with 1 output partitions
+26/03/26 18:57:49.063 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 9 (collect at utils.scala:26)
+26/03/26 18:57:49.063 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 18:57:49.064 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 18:57:49.066 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[35] at collect at utils.scala:26), which has no missing parents
+26/03/26 18:57:49.071 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 7.8 KiB, free 1035.8 MiB)
+26/03/26 18:57:49.078 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 3.8 KiB, free 1035.8 MiB)
+26/03/26 18:57:49.081 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 127.0.0.1:55443 (size: 3.8 KiB, free: 1036.0 MiB)
+26/03/26 18:57:49.082 dag-scheduler-event-loop INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1580
+26/03/26 18:57:49.084 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[35] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 18:57:49.084 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks resource profile 0
+26/03/26 18:57:49.108 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 27) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8000 bytes) 
+26/03/26 18:57:49.111 Executor task launch worker for task 0.0 in stage 9.0 (TID 27) INFO Executor: Running task 0.0 in stage 9.0 (TID 27)
+26/03/26 18:57:49.165 Executor task launch worker for task 0.0 in stage 9.0 (TID 27) INFO CodeGenerator: Code generated in 33.9496 ms
+26/03/26 18:57:49.175 Executor task launch worker for task 0.0 in stage 9.0 (TID 27) INFO Executor: Finished task 0.0 in stage 9.0 (TID 27). 1456 bytes result sent to driver
+26/03/26 18:57:49.177 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 27) in 90 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 18:57:49.178 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 9 (collect at utils.scala:26) finished in 0,109 s
+26/03/26 18:57:49.179 dag-scheduler-event-loop INFO DAGScheduler: Job 8 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 18:57:49.181 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+26/03/26 18:57:49.181 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 9: Stage finished
+26/03/26 18:57:49.182 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 8 finished: collect at utils.scala:26, took 0,120404 s
+26/03/26 18:57:49.249 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 52.9109 ms
+26/03/26 18:57:49.938 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:49.939 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:49.945 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:49.946 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:49.951 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 18:57:49.951 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 18:57:50.124 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 78.3709 ms
+26/03/26 18:57:50.214 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 17.0386 ms
+26/03/26 18:57:50.294 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 49.8629 ms
+26/03/26 18:57:50.468 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:50.470 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:50.475 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:50.475 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:50.480 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 18:57:50.481 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 18:57:53.376 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:53.377 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:53.379 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 18:57:53.380 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 18:57:53.383 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 18:57:53.384 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 19:02:08.151 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:02:08.151 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:02:08.155 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:02:08.156 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:02:08.159 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 19:02:08.159 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 19:02:08.252 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:02:08.253 dag-scheduler-event-loop INFO DAGScheduler: Got job 9 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:02:08.254 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 10 (collect at utils.scala:26)
+26/03/26 19:02:08.254 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:08.254 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:08.256 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 10 (MapPartitionsRDD[38] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:02:08.258 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 7.5 KiB, free 1035.8 MiB)
+26/03/26 19:02:08.271 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 3.8 KiB, free 1035.8 MiB)
+26/03/26 19:02:08.271 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 127.0.0.1:55443 (size: 3.8 KiB, free: 1036.0 MiB)
+26/03/26 19:02:08.274 dag-scheduler-event-loop INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:08.275 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 10 (MapPartitionsRDD[38] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:02:08.275 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks resource profile 0
+26/03/26 19:02:08.278 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 28) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 7988 bytes) 
+26/03/26 19:02:08.280 Executor task launch worker for task 0.0 in stage 10.0 (TID 28) INFO Executor: Running task 0.0 in stage 10.0 (TID 28)
+26/03/26 19:02:08.294 Executor task launch worker for task 0.0 in stage 10.0 (TID 28) INFO CodeGenerator: Code generated in 9.0066 ms
+26/03/26 19:02:08.302 Executor task launch worker for task 0.0 in stage 10.0 (TID 28) INFO Executor: Finished task 0.0 in stage 10.0 (TID 28). 1471 bytes result sent to driver
+26/03/26 19:02:08.302 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 28) in 26 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:02:08.302 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+26/03/26 19:02:08.303 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 10 (collect at utils.scala:26) finished in 0,046 s
+26/03/26 19:02:08.304 dag-scheduler-event-loop INFO DAGScheduler: Job 9 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:08.304 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 10: Stage finished
+26/03/26 19:02:08.305 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 9 finished: collect at utils.scala:26, took 0,051827 s
+26/03/26 19:02:08.317 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 9.3156 ms
+26/03/26 19:02:08.419 nioEventLoopGroup-2-2 INFO MapPartitionsRDD: Removing RDD 16 from persistence list
+26/03/26 19:02:08.428 block-manager-storage-async-thread-pool-21 INFO BlockManager: Removing RDD 16
+26/03/26 19:02:08.543 nioEventLoopGroup-2-2 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/03/26 19:02:08.557 nioEventLoopGroup-2-2 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+26/03/26 19:02:08.681 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Pushed Filters: 
+26/03/26 19:02:08.681 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#797, None)) > 0)
+26/03/26 19:02:08.696 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 202.3 KiB, free 1048.3 MiB)
+26/03/26 19:02:08.715 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 35.2 KiB, free 1048.3 MiB)
+26/03/26 19:02:08.717 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on 127.0.0.1:55443 (size: 35.2 KiB, free: 1048.7 MiB)
+26/03/26 19:02:08.719 nioEventLoopGroup-2-2 INFO SparkContext: Created broadcast 12 from csv at NativeMethodAccessorImpl.java:0
+26/03/26 19:02:08.720 nioEventLoopGroup-2-2 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/03/26 19:02:08.740 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/03/26 19:02:08.741 dag-scheduler-event-loop INFO DAGScheduler: Got job 10 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/03/26 19:02:08.742 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 11 (csv at NativeMethodAccessorImpl.java:0)
+26/03/26 19:02:08.742 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:08.742 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:08.743 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[42] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 19:02:08.749 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 13.5 KiB, free 1048.2 MiB)
+26/03/26 19:02:08.753 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 6.4 KiB, free 1048.2 MiB)
+26/03/26 19:02:08.755 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on 127.0.0.1:55443 (size: 6.4 KiB, free: 1048.7 MiB)
+26/03/26 19:02:08.756 dag-scheduler-event-loop INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:08.756 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[42] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:02:08.757 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks resource profile 0
+26/03/26 19:02:08.758 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 29) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.758 Executor task launch worker for task 0.0 in stage 11.0 (TID 29) INFO Executor: Running task 0.0 in stage 11.0 (TID 29)
+26/03/26 19:02:08.763 Executor task launch worker for task 0.0 in stage 11.0 (TID 29) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 0-4194304, partition values: [empty row]
+26/03/26 19:02:08.775 Executor task launch worker for task 0.0 in stage 11.0 (TID 29) INFO Executor: Finished task 0.0 in stage 11.0 (TID 29). 1622 bytes result sent to driver
+26/03/26 19:02:08.776 task-result-getter-1 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 29) in 18 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:02:08.776 task-result-getter-1 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool 
+26/03/26 19:02:08.778 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 11 (csv at NativeMethodAccessorImpl.java:0) finished in 0,034 s
+26/03/26 19:02:08.778 dag-scheduler-event-loop INFO DAGScheduler: Job 10 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:08.778 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 11: Stage finished
+26/03/26 19:02:08.779 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 10 finished: csv at NativeMethodAccessorImpl.java:0, took 0,038298 s
+26/03/26 19:02:08.795 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Pushed Filters: 
+26/03/26 19:02:08.795 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Post-Scan Filters: 
+26/03/26 19:02:08.805 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 202.3 KiB, free 1048.0 MiB)
+26/03/26 19:02:08.825 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 35.2 KiB, free 1048.0 MiB)
+26/03/26 19:02:08.826 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on 127.0.0.1:55443 (size: 35.2 KiB, free: 1048.7 MiB)
+26/03/26 19:02:08.827 nioEventLoopGroup-2-2 INFO SparkContext: Created broadcast 14 from csv at NativeMethodAccessorImpl.java:0
+26/03/26 19:02:08.828 nioEventLoopGroup-2-2 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/03/26 19:02:08.852 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/03/26 19:02:08.854 dag-scheduler-event-loop INFO DAGScheduler: Got job 11 (csv at NativeMethodAccessorImpl.java:0) with 6 output partitions
+26/03/26 19:02:08.854 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 12 (csv at NativeMethodAccessorImpl.java:0)
+26/03/26 19:02:08.854 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:08.854 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:08.856 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 12 (MapPartitionsRDD[48] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 19:02:08.863 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 27.9 KiB, free 1048.0 MiB)
+26/03/26 19:02:08.865 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 13.0 KiB, free 1048.0 MiB)
+26/03/26 19:02:08.865 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 127.0.0.1:55443 (size: 13.0 KiB, free: 1048.7 MiB)
+26/03/26 19:02:08.865 dag-scheduler-event-loop INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:08.867 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 12 (MapPartitionsRDD[48] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:02:08.867 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 12.0 with 6 tasks resource profile 0
+26/03/26 19:02:08.869 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 30) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.869 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 1.0 in stage 12.0 (TID 31) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.870 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 2.0 in stage 12.0 (TID 32) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.871 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 3.0 in stage 12.0 (TID 33) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.872 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 4.0 in stage 12.0 (TID 34) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.872 dispatcher-event-loop-2 INFO TaskSetManager: Starting task 5.0 in stage 12.0 (TID 35) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:08.873 Executor task launch worker for task 0.0 in stage 12.0 (TID 30) INFO Executor: Running task 0.0 in stage 12.0 (TID 30)
+26/03/26 19:02:08.875 Executor task launch worker for task 2.0 in stage 12.0 (TID 32) INFO Executor: Running task 2.0 in stage 12.0 (TID 32)
+26/03/26 19:02:08.875 Executor task launch worker for task 1.0 in stage 12.0 (TID 31) INFO Executor: Running task 1.0 in stage 12.0 (TID 31)
+26/03/26 19:02:08.876 Executor task launch worker for task 4.0 in stage 12.0 (TID 34) INFO Executor: Running task 4.0 in stage 12.0 (TID 34)
+26/03/26 19:02:08.876 Executor task launch worker for task 3.0 in stage 12.0 (TID 33) INFO Executor: Running task 3.0 in stage 12.0 (TID 33)
+26/03/26 19:02:08.883 Executor task launch worker for task 5.0 in stage 12.0 (TID 35) INFO Executor: Running task 5.0 in stage 12.0 (TID 35)
+26/03/26 19:02:08.889 Executor task launch worker for task 2.0 in stage 12.0 (TID 32) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 8388608-12582912, partition values: [empty row]
+26/03/26 19:02:08.893 Executor task launch worker for task 1.0 in stage 12.0 (TID 31) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 4194304-8388608, partition values: [empty row]
+26/03/26 19:02:08.893 Executor task launch worker for task 3.0 in stage 12.0 (TID 33) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 12582912-16777216, partition values: [empty row]
+26/03/26 19:02:08.893 Executor task launch worker for task 0.0 in stage 12.0 (TID 30) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 0-4194304, partition values: [empty row]
+26/03/26 19:02:08.895 Executor task launch worker for task 4.0 in stage 12.0 (TID 34) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 16777216-20971520, partition values: [empty row]
+26/03/26 19:02:08.901 Executor task launch worker for task 5.0 in stage 12.0 (TID 35) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 20971520-21342711, partition values: [empty row]
+26/03/26 19:02:09.066 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_9_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.133 Executor task launch worker for task 5.0 in stage 12.0 (TID 35) INFO Executor: Finished task 5.0 in stage 12.0 (TID 35). 1795 bytes result sent to driver
+26/03/26 19:02:09.139 task-result-getter-2 INFO TaskSetManager: Finished task 5.0 in stage 12.0 (TID 35) in 267 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:02:09.176 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_13_piece0 on 127.0.0.1:55443 in memory (size: 6.4 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.218 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_8_piece0 on 127.0.0.1:55443 in memory (size: 10.8 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.236 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_12_piece0 on 127.0.0.1:55443 in memory (size: 35.2 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.246 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_11_piece0 on 127.0.0.1:55443 in memory (size: 3.8 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.254 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_10_piece0 on 127.0.0.1:55443 in memory (size: 3.8 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.512 Executor task launch worker for task 3.0 in stage 12.0 (TID 33) INFO Executor: Finished task 3.0 in stage 12.0 (TID 33). 1752 bytes result sent to driver
+26/03/26 19:02:09.512 task-result-getter-3 INFO TaskSetManager: Finished task 3.0 in stage 12.0 (TID 33) in 641 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:02:09.521 Executor task launch worker for task 2.0 in stage 12.0 (TID 32) INFO Executor: Finished task 2.0 in stage 12.0 (TID 32). 1795 bytes result sent to driver
+26/03/26 19:02:09.522 task-result-getter-0 INFO TaskSetManager: Finished task 2.0 in stage 12.0 (TID 32) in 652 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:02:09.539 Executor task launch worker for task 0.0 in stage 12.0 (TID 30) INFO Executor: Finished task 0.0 in stage 12.0 (TID 30). 1752 bytes result sent to driver
+26/03/26 19:02:09.540 task-result-getter-1 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 30) in 671 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:02:09.544 Executor task launch worker for task 1.0 in stage 12.0 (TID 31) INFO Executor: Finished task 1.0 in stage 12.0 (TID 31). 1752 bytes result sent to driver
+26/03/26 19:02:09.545 task-result-getter-2 INFO TaskSetManager: Finished task 1.0 in stage 12.0 (TID 31) in 676 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:02:09.548 Executor task launch worker for task 4.0 in stage 12.0 (TID 34) INFO Executor: Finished task 4.0 in stage 12.0 (TID 34). 1752 bytes result sent to driver
+26/03/26 19:02:09.549 task-result-getter-3 INFO TaskSetManager: Finished task 4.0 in stage 12.0 (TID 34) in 678 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:02:09.549 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool 
+26/03/26 19:02:09.549 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 12 (csv at NativeMethodAccessorImpl.java:0) finished in 0,692 s
+26/03/26 19:02:09.549 dag-scheduler-event-loop INFO DAGScheduler: Job 11 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:09.549 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 12: Stage finished
+26/03/26 19:02:09.551 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 11 finished: csv at NativeMethodAccessorImpl.java:0, took 0,697907 s
+26/03/26 19:02:09.585 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:02:09.585 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:02:09.589 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:02:09.589 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:02:09.592 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 19:02:09.592 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 19:02:09.691 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Pushed Filters: 
+26/03/26 19:02:09.691 nioEventLoopGroup-2-2 INFO FileSourceStrategy: Post-Scan Filters: 
+26/03/26 19:02:09.732 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 202.2 KiB, free 1048.1 MiB)
+26/03/26 19:02:09.751 nioEventLoopGroup-2-2 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 35.1 KiB, free 1048.1 MiB)
+26/03/26 19:02:09.752 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 127.0.0.1:55443 (size: 35.1 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.753 nioEventLoopGroup-2-2 INFO SparkContext: Created broadcast 16 from sql at NativeMethodAccessorImpl.java:0
+26/03/26 19:02:09.755 nioEventLoopGroup-2-2 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/03/26 19:02:09.772 dag-scheduler-event-loop INFO DAGScheduler: Got job 12 (sql at NativeMethodAccessorImpl.java:0) with 6 output partitions
+26/03/26 19:02:09.772 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 13 (sql at NativeMethodAccessorImpl.java:0)
+26/03/26 19:02:09.772 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:09.772 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:09.774 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 13 (In-memory table vuelos MapPartitionsRDD[52] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 19:02:09.784 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 14.9 KiB, free 1048.0 MiB)
+26/03/26 19:02:09.786 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 7.6 KiB, free 1048.0 MiB)
+26/03/26 19:02:09.787 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_17_piece0 in memory on 127.0.0.1:55443 (size: 7.6 KiB, free: 1048.7 MiB)
+26/03/26 19:02:09.788 dag-scheduler-event-loop INFO SparkContext: Created broadcast 17 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:09.789 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 13 (In-memory table vuelos MapPartitionsRDD[52] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:02:09.789 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 13.0 with 6 tasks resource profile 0
+26/03/26 19:02:09.790 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 36) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:09.791 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 1.0 in stage 13.0 (TID 37) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:09.792 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 2.0 in stage 13.0 (TID 38) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:09.792 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 3.0 in stage 13.0 (TID 39) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:09.794 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 4.0 in stage 13.0 (TID 40) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:09.794 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 5.0 in stage 13.0 (TID 41) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:02:09.795 Executor task launch worker for task 5.0 in stage 13.0 (TID 41) INFO Executor: Running task 5.0 in stage 13.0 (TID 41)
+26/03/26 19:02:09.795 Executor task launch worker for task 2.0 in stage 13.0 (TID 38) INFO Executor: Running task 2.0 in stage 13.0 (TID 38)
+26/03/26 19:02:09.795 Executor task launch worker for task 3.0 in stage 13.0 (TID 39) INFO Executor: Running task 3.0 in stage 13.0 (TID 39)
+26/03/26 19:02:09.795 Executor task launch worker for task 4.0 in stage 13.0 (TID 40) INFO Executor: Running task 4.0 in stage 13.0 (TID 40)
+26/03/26 19:02:09.795 Executor task launch worker for task 0.0 in stage 13.0 (TID 36) INFO Executor: Running task 0.0 in stage 13.0 (TID 36)
+26/03/26 19:02:09.795 Executor task launch worker for task 1.0 in stage 13.0 (TID 37) INFO Executor: Running task 1.0 in stage 13.0 (TID 37)
+26/03/26 19:02:09.801 Executor task launch worker for task 0.0 in stage 13.0 (TID 36) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 0-4194304, partition values: [empty row]
+26/03/26 19:02:09.801 Executor task launch worker for task 1.0 in stage 13.0 (TID 37) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 4194304-8388608, partition values: [empty row]
+26/03/26 19:02:09.801 Executor task launch worker for task 3.0 in stage 13.0 (TID 39) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 12582912-16777216, partition values: [empty row]
+26/03/26 19:02:09.802 Executor task launch worker for task 5.0 in stage 13.0 (TID 41) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 20971520-21342711, partition values: [empty row]
+26/03/26 19:02:09.801 Executor task launch worker for task 2.0 in stage 13.0 (TID 38) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 8388608-12582912, partition values: [empty row]
+26/03/26 19:02:09.803 Executor task launch worker for task 4.0 in stage 13.0 (TID 40) INFO FileScanRDD: Reading File path: file:///C:/Users/hugom/Documents/sparklyr-intro/data/vuelos_2024.csv, range: 16777216-20971520, partition values: [empty row]
+26/03/26 19:02:10.036 Executor task launch worker for task 5.0 in stage 13.0 (TID 41) INFO MemoryStore: Block rdd_52_5 stored as values in memory (estimated size 227.7 KiB, free 1047.8 MiB)
+26/03/26 19:02:10.041 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_52_5 in memory on 127.0.0.1:55443 (size: 227.7 KiB, free: 1048.5 MiB)
+26/03/26 19:02:10.042 Executor task launch worker for task 5.0 in stage 13.0 (TID 41) INFO Executor: 1 block locks were not released by task 5.0 in stage 13.0 (TID 41)
+[rdd_52_5]
+26/03/26 19:02:10.044 Executor task launch worker for task 5.0 in stage 13.0 (TID 41) INFO Executor: Finished task 5.0 in stage 13.0 (TID 41). 1287 bytes result sent to driver
+26/03/26 19:02:10.045 task-result-getter-0 INFO TaskSetManager: Finished task 5.0 in stage 13.0 (TID 41) in 251 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:02:10.868 Executor task launch worker for task 4.0 in stage 13.0 (TID 40) INFO MemoryStore: Block rdd_52_4 stored as values in memory (estimated size 2.5 MiB, free 1045.3 MiB)
+26/03/26 19:02:10.869 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_52_4 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1046.0 MiB)
+26/03/26 19:02:10.871 Executor task launch worker for task 4.0 in stage 13.0 (TID 40) INFO Executor: 1 block locks were not released by task 4.0 in stage 13.0 (TID 40)
+[rdd_52_4]
+26/03/26 19:02:10.895 Executor task launch worker for task 4.0 in stage 13.0 (TID 40) INFO Executor: Finished task 4.0 in stage 13.0 (TID 40). 1373 bytes result sent to driver
+26/03/26 19:02:10.897 task-result-getter-1 INFO TaskSetManager: Finished task 4.0 in stage 13.0 (TID 40) in 1105 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:02:10.901 Executor task launch worker for task 3.0 in stage 13.0 (TID 39) INFO MemoryStore: Block rdd_52_3 stored as values in memory (estimated size 2.5 MiB, free 1042.8 MiB)
+26/03/26 19:02:10.903 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_52_3 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1043.5 MiB)
+26/03/26 19:02:10.904 Executor task launch worker for task 3.0 in stage 13.0 (TID 39) INFO Executor: 1 block locks were not released by task 3.0 in stage 13.0 (TID 39)
+[rdd_52_3]
+26/03/26 19:02:10.905 Executor task launch worker for task 3.0 in stage 13.0 (TID 39) INFO Executor: Finished task 3.0 in stage 13.0 (TID 39). 1330 bytes result sent to driver
+26/03/26 19:02:10.906 task-result-getter-2 INFO TaskSetManager: Finished task 3.0 in stage 13.0 (TID 39) in 1114 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:02:10.918 Executor task launch worker for task 1.0 in stage 13.0 (TID 37) INFO MemoryStore: Block rdd_52_1 stored as values in memory (estimated size 2.5 MiB, free 1040.4 MiB)
+26/03/26 19:02:10.920 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_52_1 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1041.0 MiB)
+26/03/26 19:02:10.921 Executor task launch worker for task 1.0 in stage 13.0 (TID 37) INFO Executor: 1 block locks were not released by task 1.0 in stage 13.0 (TID 37)
+[rdd_52_1]
+26/03/26 19:02:10.922 Executor task launch worker for task 1.0 in stage 13.0 (TID 37) INFO Executor: Finished task 1.0 in stage 13.0 (TID 37). 1330 bytes result sent to driver
+26/03/26 19:02:10.923 task-result-getter-3 INFO TaskSetManager: Finished task 1.0 in stage 13.0 (TID 37) in 1132 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:02:10.964 Executor task launch worker for task 2.0 in stage 13.0 (TID 38) INFO MemoryStore: Block rdd_52_2 stored as values in memory (estimated size 2.5 MiB, free 1037.9 MiB)
+26/03/26 19:02:10.965 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_52_2 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1038.5 MiB)
+26/03/26 19:02:10.995 Executor task launch worker for task 2.0 in stage 13.0 (TID 38) INFO Executor: 1 block locks were not released by task 2.0 in stage 13.0 (TID 38)
+[rdd_52_2]
+26/03/26 19:02:10.997 block-manager-storage-async-thread-pool-45 INFO BlockManager: Removing RDD 16
+26/03/26 19:02:10.997 Executor task launch worker for task 2.0 in stage 13.0 (TID 38) INFO Executor: Finished task 2.0 in stage 13.0 (TID 38). 1416 bytes result sent to driver
+26/03/26 19:02:10.998 task-result-getter-0 INFO TaskSetManager: Finished task 2.0 in stage 13.0 (TID 38) in 1207 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:02:11.006 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_14_piece0 on 127.0.0.1:55443 in memory (size: 35.2 KiB, free: 1038.5 MiB)
+26/03/26 19:02:11.009 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_4_piece0 on 127.0.0.1:55443 in memory (size: 35.1 KiB, free: 1038.6 MiB)
+26/03/26 19:02:11.015 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_15_piece0 on 127.0.0.1:55443 in memory (size: 13.0 KiB, free: 1038.6 MiB)
+26/03/26 19:02:11.044 Executor task launch worker for task 0.0 in stage 13.0 (TID 36) INFO MemoryStore: Block rdd_52_0 stored as values in memory (estimated size 2.5 MiB, free 1035.8 MiB)
+26/03/26 19:02:11.045 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_52_0 in memory on 127.0.0.1:55443 (size: 2.5 MiB, free: 1036.0 MiB)
+26/03/26 19:02:11.046 Executor task launch worker for task 0.0 in stage 13.0 (TID 36) INFO Executor: 1 block locks were not released by task 0.0 in stage 13.0 (TID 36)
+[rdd_52_0]
+26/03/26 19:02:11.047 Executor task launch worker for task 0.0 in stage 13.0 (TID 36) INFO Executor: Finished task 0.0 in stage 13.0 (TID 36). 1373 bytes result sent to driver
+26/03/26 19:02:11.048 task-result-getter-1 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 36) in 1258 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:02:11.048 task-result-getter-1 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+26/03/26 19:02:11.049 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 13 (sql at NativeMethodAccessorImpl.java:0) finished in 1,273 s
+26/03/26 19:02:11.049 dag-scheduler-event-loop INFO DAGScheduler: Job 12 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:11.049 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 13: Stage finished
+26/03/26 19:02:11.081 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 57 (sql at NativeMethodAccessorImpl.java:0) as input to shuffle 2
+26/03/26 19:02:11.082 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 13 (sql at NativeMethodAccessorImpl.java:0) with 6 output partitions
+26/03/26 19:02:11.082 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 14 (sql at NativeMethodAccessorImpl.java:0)
+26/03/26 19:02:11.082 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:11.083 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:11.085 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 14 (MapPartitionsRDD[57] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 19:02:11.095 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 23.2 KiB, free 1035.8 MiB)
+26/03/26 19:02:11.099 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 10.8 KiB, free 1035.8 MiB)
+26/03/26 19:02:11.100 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_18_piece0 in memory on 127.0.0.1:55443 (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 19:02:11.100 dag-scheduler-event-loop INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:11.101 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 14 (MapPartitionsRDD[57] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:02:11.101 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 14.0 with 6 tasks resource profile 0
+26/03/26 19:02:11.102 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 14.0 (TID 42) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.103 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 1.0 in stage 14.0 (TID 43) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.103 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 2.0 in stage 14.0 (TID 44) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.105 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 3.0 in stage 14.0 (TID 45) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.105 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 4.0 in stage 14.0 (TID 46) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.106 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 5.0 in stage 14.0 (TID 47) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.107 Executor task launch worker for task 3.0 in stage 14.0 (TID 45) INFO Executor: Running task 3.0 in stage 14.0 (TID 45)
+26/03/26 19:02:11.107 Executor task launch worker for task 4.0 in stage 14.0 (TID 46) INFO Executor: Running task 4.0 in stage 14.0 (TID 46)
+26/03/26 19:02:11.107 Executor task launch worker for task 1.0 in stage 14.0 (TID 43) INFO Executor: Running task 1.0 in stage 14.0 (TID 43)
+26/03/26 19:02:11.107 Executor task launch worker for task 0.0 in stage 14.0 (TID 42) INFO Executor: Running task 0.0 in stage 14.0 (TID 42)
+26/03/26 19:02:11.107 Executor task launch worker for task 2.0 in stage 14.0 (TID 44) INFO Executor: Running task 2.0 in stage 14.0 (TID 44)
+26/03/26 19:02:11.107 Executor task launch worker for task 5.0 in stage 14.0 (TID 47) INFO Executor: Running task 5.0 in stage 14.0 (TID 47)
+26/03/26 19:02:11.114 Executor task launch worker for task 4.0 in stage 14.0 (TID 46) INFO BlockManager: Found block rdd_52_4 locally
+26/03/26 19:02:11.114 Executor task launch worker for task 5.0 in stage 14.0 (TID 47) INFO BlockManager: Found block rdd_52_5 locally
+26/03/26 19:02:11.115 Executor task launch worker for task 2.0 in stage 14.0 (TID 44) INFO BlockManager: Found block rdd_52_2 locally
+26/03/26 19:02:11.118 Executor task launch worker for task 3.0 in stage 14.0 (TID 45) INFO BlockManager: Found block rdd_52_3 locally
+26/03/26 19:02:11.120 Executor task launch worker for task 0.0 in stage 14.0 (TID 42) INFO BlockManager: Found block rdd_52_0 locally
+26/03/26 19:02:11.121 Executor task launch worker for task 1.0 in stage 14.0 (TID 43) INFO BlockManager: Found block rdd_52_1 locally
+26/03/26 19:02:11.167 Executor task launch worker for task 4.0 in stage 14.0 (TID 46) INFO Executor: Finished task 4.0 in stage 14.0 (TID 46). 2110 bytes result sent to driver
+26/03/26 19:02:11.168 task-result-getter-2 INFO TaskSetManager: Finished task 4.0 in stage 14.0 (TID 46) in 63 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:02:11.186 Executor task launch worker for task 1.0 in stage 14.0 (TID 43) INFO Executor: Finished task 1.0 in stage 14.0 (TID 43). 2067 bytes result sent to driver
+26/03/26 19:02:11.187 task-result-getter-3 INFO TaskSetManager: Finished task 1.0 in stage 14.0 (TID 43) in 84 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:02:11.212 Executor task launch worker for task 0.0 in stage 14.0 (TID 42) INFO Executor: Finished task 0.0 in stage 14.0 (TID 42). 2153 bytes result sent to driver
+26/03/26 19:02:11.213 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 14.0 (TID 42) in 111 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:02:11.227 Executor task launch worker for task 5.0 in stage 14.0 (TID 47) INFO Executor: Finished task 5.0 in stage 14.0 (TID 47). 2153 bytes result sent to driver
+26/03/26 19:02:11.229 task-result-getter-1 INFO TaskSetManager: Finished task 5.0 in stage 14.0 (TID 47) in 124 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:02:11.244 Executor task launch worker for task 2.0 in stage 14.0 (TID 44) INFO Executor: Finished task 2.0 in stage 14.0 (TID 44). 2067 bytes result sent to driver
+26/03/26 19:02:11.247 task-result-getter-2 INFO TaskSetManager: Finished task 2.0 in stage 14.0 (TID 44) in 144 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:02:11.268 Executor task launch worker for task 3.0 in stage 14.0 (TID 45) INFO Executor: Finished task 3.0 in stage 14.0 (TID 45). 2067 bytes result sent to driver
+26/03/26 19:02:11.272 task-result-getter-3 INFO TaskSetManager: Finished task 3.0 in stage 14.0 (TID 45) in 167 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:02:11.272 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 14.0, whose tasks have all completed, from pool 
+26/03/26 19:02:11.274 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 14 (sql at NativeMethodAccessorImpl.java:0) finished in 0,187 s
+26/03/26 19:02:11.274 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 19:02:11.274 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 19:02:11.275 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 19:02:11.275 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 19:02:11.308 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: sql at NativeMethodAccessorImpl.java:0
+26/03/26 19:02:11.310 dag-scheduler-event-loop INFO DAGScheduler: Got job 14 (sql at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/03/26 19:02:11.310 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 16 (sql at NativeMethodAccessorImpl.java:0)
+26/03/26 19:02:11.310 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 15)
+26/03/26 19:02:11.310 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:11.311 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 16 (MapPartitionsRDD[60] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 19:02:11.314 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 12.5 KiB, free 1035.8 MiB)
+26/03/26 19:02:11.317 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1035.8 MiB)
+26/03/26 19:02:11.318 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_19_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 19:02:11.318 dag-scheduler-event-loop INFO SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:11.318 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 16 (MapPartitionsRDD[60] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:02:11.320 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 16.0 with 1 tasks resource profile 0
+26/03/26 19:02:11.321 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 0.0 in stage 16.0 (TID 48) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 19:02:11.325 Executor task launch worker for task 0.0 in stage 16.0 (TID 48) INFO Executor: Running task 0.0 in stage 16.0 (TID 48)
+26/03/26 19:02:11.329 Executor task launch worker for task 0.0 in stage 16.0 (TID 48) INFO ShuffleBlockFetcherIterator: Getting 6 (360.0 B) non-empty blocks including 6 (360.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:02:11.331 Executor task launch worker for task 0.0 in stage 16.0 (TID 48) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+26/03/26 19:02:11.347 Executor task launch worker for task 0.0 in stage 16.0 (TID 48) INFO Executor: Finished task 0.0 in stage 16.0 (TID 48). 3909 bytes result sent to driver
+26/03/26 19:02:11.348 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 16.0 (TID 48) in 28 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:02:11.348 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 16.0, whose tasks have all completed, from pool 
+26/03/26 19:02:11.349 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 16 (sql at NativeMethodAccessorImpl.java:0) finished in 0,036 s
+26/03/26 19:02:11.350 dag-scheduler-event-loop INFO DAGScheduler: Job 14 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:11.350 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 16: Stage finished
+26/03/26 19:02:11.350 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 14 finished: sql at NativeMethodAccessorImpl.java:0, took 0,041444 s
+26/03/26 19:02:11.464 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 65 (collect at utils.scala:26) as input to shuffle 3
+26/03/26 19:02:11.464 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 15 (collect at utils.scala:26) with 6 output partitions
+26/03/26 19:02:11.464 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 17 (collect at utils.scala:26)
+26/03/26 19:02:11.464 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:11.466 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:11.467 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 17 (MapPartitionsRDD[65] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:02:11.476 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 23.2 KiB, free 1035.8 MiB)
+26/03/26 19:02:11.477 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 10.8 KiB, free 1035.7 MiB)
+26/03/26 19:02:11.479 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_20_piece0 in memory on 127.0.0.1:55443 (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 19:02:11.479 dag-scheduler-event-loop INFO SparkContext: Created broadcast 20 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:11.480 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 17 (MapPartitionsRDD[65] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:02:11.480 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 17.0 with 6 tasks resource profile 0
+26/03/26 19:02:11.483 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 17.0 (TID 49) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.483 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 1.0 in stage 17.0 (TID 50) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.483 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 2.0 in stage 17.0 (TID 51) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.484 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 3.0 in stage 17.0 (TID 52) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.484 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 4.0 in stage 17.0 (TID 53) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.485 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 5.0 in stage 17.0 (TID 54) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:02:11.487 Executor task launch worker for task 0.0 in stage 17.0 (TID 49) INFO Executor: Running task 0.0 in stage 17.0 (TID 49)
+26/03/26 19:02:11.487 Executor task launch worker for task 5.0 in stage 17.0 (TID 54) INFO Executor: Running task 5.0 in stage 17.0 (TID 54)
+26/03/26 19:02:11.487 Executor task launch worker for task 1.0 in stage 17.0 (TID 50) INFO Executor: Running task 1.0 in stage 17.0 (TID 50)
+26/03/26 19:02:11.487 Executor task launch worker for task 3.0 in stage 17.0 (TID 52) INFO Executor: Running task 3.0 in stage 17.0 (TID 52)
+26/03/26 19:02:11.487 Executor task launch worker for task 4.0 in stage 17.0 (TID 53) INFO Executor: Running task 4.0 in stage 17.0 (TID 53)
+26/03/26 19:02:11.487 Executor task launch worker for task 2.0 in stage 17.0 (TID 51) INFO Executor: Running task 2.0 in stage 17.0 (TID 51)
+26/03/26 19:02:11.494 Executor task launch worker for task 0.0 in stage 17.0 (TID 49) INFO BlockManager: Found block rdd_52_0 locally
+26/03/26 19:02:11.496 Executor task launch worker for task 3.0 in stage 17.0 (TID 52) INFO BlockManager: Found block rdd_52_3 locally
+26/03/26 19:02:11.497 Executor task launch worker for task 1.0 in stage 17.0 (TID 50) INFO BlockManager: Found block rdd_52_1 locally
+26/03/26 19:02:11.498 Executor task launch worker for task 2.0 in stage 17.0 (TID 51) INFO BlockManager: Found block rdd_52_2 locally
+26/03/26 19:02:11.499 Executor task launch worker for task 5.0 in stage 17.0 (TID 54) INFO BlockManager: Found block rdd_52_5 locally
+26/03/26 19:02:11.503 Executor task launch worker for task 4.0 in stage 17.0 (TID 53) INFO BlockManager: Found block rdd_52_4 locally
+26/03/26 19:02:11.557 Executor task launch worker for task 0.0 in stage 17.0 (TID 49) INFO Executor: Finished task 0.0 in stage 17.0 (TID 49). 2067 bytes result sent to driver
+26/03/26 19:02:11.559 task-result-getter-1 INFO TaskSetManager: Finished task 0.0 in stage 17.0 (TID 49) in 78 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:02:11.585 Executor task launch worker for task 5.0 in stage 17.0 (TID 54) INFO Executor: Finished task 5.0 in stage 17.0 (TID 54). 2067 bytes result sent to driver
+26/03/26 19:02:11.585 task-result-getter-2 INFO TaskSetManager: Finished task 5.0 in stage 17.0 (TID 54) in 100 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:02:11.606 Executor task launch worker for task 4.0 in stage 17.0 (TID 53) INFO Executor: Finished task 4.0 in stage 17.0 (TID 53). 2110 bytes result sent to driver
+26/03/26 19:02:11.607 task-result-getter-3 INFO TaskSetManager: Finished task 4.0 in stage 17.0 (TID 53) in 123 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:02:11.625 Executor task launch worker for task 1.0 in stage 17.0 (TID 50) INFO Executor: Finished task 1.0 in stage 17.0 (TID 50). 2067 bytes result sent to driver
+26/03/26 19:02:11.626 task-result-getter-0 INFO TaskSetManager: Finished task 1.0 in stage 17.0 (TID 50) in 143 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:02:11.644 Executor task launch worker for task 2.0 in stage 17.0 (TID 51) INFO Executor: Finished task 2.0 in stage 17.0 (TID 51). 2110 bytes result sent to driver
+26/03/26 19:02:11.645 task-result-getter-1 INFO TaskSetManager: Finished task 2.0 in stage 17.0 (TID 51) in 162 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:02:11.664 Executor task launch worker for task 3.0 in stage 17.0 (TID 52) INFO Executor: Finished task 3.0 in stage 17.0 (TID 52). 2110 bytes result sent to driver
+26/03/26 19:02:11.665 task-result-getter-2 INFO TaskSetManager: Finished task 3.0 in stage 17.0 (TID 52) in 181 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:02:11.665 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 17.0, whose tasks have all completed, from pool 
+26/03/26 19:02:11.666 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 17 (collect at utils.scala:26) finished in 0,197 s
+26/03/26 19:02:11.666 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 19:02:11.666 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 19:02:11.666 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 19:02:11.666 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 19:02:11.692 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:02:11.693 dag-scheduler-event-loop INFO DAGScheduler: Got job 16 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:02:11.693 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 19 (collect at utils.scala:26)
+26/03/26 19:02:11.693 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 18)
+26/03/26 19:02:11.693 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:11.696 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 19 (MapPartitionsRDD[68] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:02:11.699 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 12.5 KiB, free 1035.7 MiB)
+26/03/26 19:02:11.700 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1035.7 MiB)
+26/03/26 19:02:11.701 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_21_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 19:02:11.701 dag-scheduler-event-loop INFO SparkContext: Created broadcast 21 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:11.703 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 19 (MapPartitionsRDD[68] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:02:11.703 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks resource profile 0
+26/03/26 19:02:11.704 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 55) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 19:02:11.705 Executor task launch worker for task 0.0 in stage 19.0 (TID 55) INFO Executor: Running task 0.0 in stage 19.0 (TID 55)
+26/03/26 19:02:11.709 Executor task launch worker for task 0.0 in stage 19.0 (TID 55) INFO ShuffleBlockFetcherIterator: Getting 6 (360.0 B) non-empty blocks including 6 (360.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:02:11.709 Executor task launch worker for task 0.0 in stage 19.0 (TID 55) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/03/26 19:02:11.720 Executor task launch worker for task 0.0 in stage 19.0 (TID 55) INFO Executor: Finished task 0.0 in stage 19.0 (TID 55). 3952 bytes result sent to driver
+26/03/26 19:02:11.720 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 55) in 16 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:02:11.721 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 19.0, whose tasks have all completed, from pool 
+26/03/26 19:02:11.721 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 19 (collect at utils.scala:26) finished in 0,024 s
+26/03/26 19:02:11.721 dag-scheduler-event-loop INFO DAGScheduler: Job 16 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:11.722 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 19: Stage finished
+26/03/26 19:02:11.722 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 16 finished: collect at utils.scala:26, took 0,029971 s
+26/03/26 19:02:11.942 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:02:11.943 dag-scheduler-event-loop INFO DAGScheduler: Got job 17 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:02:11.943 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 20 (collect at utils.scala:26)
+26/03/26 19:02:11.943 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:02:11.943 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:02:11.944 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 20 (MapPartitionsRDD[70] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:02:11.947 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 7.8 KiB, free 1035.7 MiB)
+26/03/26 19:02:11.948 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 3.8 KiB, free 1035.7 MiB)
+26/03/26 19:02:11.948 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_22_piece0 in memory on 127.0.0.1:55443 (size: 3.8 KiB, free: 1036.0 MiB)
+26/03/26 19:02:11.949 dag-scheduler-event-loop INFO SparkContext: Created broadcast 22 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:02:11.950 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 20 (MapPartitionsRDD[70] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:02:11.950 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 20.0 with 1 tasks resource profile 0
+26/03/26 19:02:11.953 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 20.0 (TID 56) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8000 bytes) 
+26/03/26 19:02:11.954 Executor task launch worker for task 0.0 in stage 20.0 (TID 56) INFO Executor: Running task 0.0 in stage 20.0 (TID 56)
+26/03/26 19:02:11.958 Executor task launch worker for task 0.0 in stage 20.0 (TID 56) INFO Executor: Finished task 0.0 in stage 20.0 (TID 56). 1413 bytes result sent to driver
+26/03/26 19:02:11.960 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 20.0 (TID 56) in 9 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:02:11.960 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 20.0, whose tasks have all completed, from pool 
+26/03/26 19:02:11.960 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 20 (collect at utils.scala:26) finished in 0,015 s
+26/03/26 19:02:11.961 dag-scheduler-event-loop INFO DAGScheduler: Job 17 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:02:11.961 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 20: Stage finished
+26/03/26 19:02:11.961 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 17 finished: collect at utils.scala:26, took 0,018780 s
+26/03/26 19:02:12.159 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:02:12.159 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:02:12.165 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:02:12.166 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:02:12.170 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 19:02:12.171 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 19:27:00.387 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_18_piece0 on 127.0.0.1:55443 in memory (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 19:27:00.397 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_17_piece0 on 127.0.0.1:55443 in memory (size: 7.6 KiB, free: 1036.0 MiB)
+26/03/26 19:27:00.403 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_20_piece0 on 127.0.0.1:55443 in memory (size: 10.8 KiB, free: 1036.0 MiB)
+26/03/26 19:27:00.411 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_21_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 19:27:00.422 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_19_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 19:27:00.440 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_22_piece0 on 127.0.0.1:55443 in memory (size: 3.8 KiB, free: 1036.1 MiB)
+26/03/26 19:31:24.241 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 28.6586 ms
+26/03/26 19:31:24.294 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: count at NativeMethodAccessorImpl.java:0
+26/03/26 19:31:24.295 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 73 (count at NativeMethodAccessorImpl.java:0) as input to shuffle 4
+26/03/26 19:31:24.296 dag-scheduler-event-loop INFO DAGScheduler: Got job 18 (count at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/03/26 19:31:24.296 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 22 (count at NativeMethodAccessorImpl.java:0)
+26/03/26 19:31:24.297 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 21)
+26/03/26 19:31:24.297 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:24.298 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 22 (MapPartitionsRDD[76] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/03/26 19:31:24.300 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 12.5 KiB, free 1035.8 MiB)
+26/03/26 19:31:24.307 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1035.8 MiB)
+26/03/26 19:31:24.308 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_23_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1036.0 MiB)
+26/03/26 19:31:24.308 dag-scheduler-event-loop INFO SparkContext: Created broadcast 23 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:24.309 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 22 (MapPartitionsRDD[76] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:31:24.309 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 22.0 with 1 tasks resource profile 0
+26/03/26 19:31:24.310 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 0.0 in stage 22.0 (TID 57) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 7792 bytes) 
+26/03/26 19:31:24.313 Executor task launch worker for task 0.0 in stage 22.0 (TID 57) INFO Executor: Running task 0.0 in stage 22.0 (TID 57)
+26/03/26 19:31:24.321 Executor task launch worker for task 0.0 in stage 22.0 (TID 57) INFO ShuffleBlockFetcherIterator: Getting 0 (0.0 B) non-empty blocks including 0 (0.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:31:24.321 Executor task launch worker for task 0.0 in stage 22.0 (TID 57) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/03/26 19:31:24.324 Executor task launch worker for task 0.0 in stage 22.0 (TID 57) INFO Executor: Finished task 0.0 in stage 22.0 (TID 57). 3945 bytes result sent to driver
+26/03/26 19:31:24.327 task-result-getter-1 INFO TaskSetManager: Finished task 0.0 in stage 22.0 (TID 57) in 17 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:31:24.327 task-result-getter-1 INFO TaskSchedulerImpl: Removed TaskSet 22.0, whose tasks have all completed, from pool 
+26/03/26 19:31:24.328 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 22 (count at NativeMethodAccessorImpl.java:0) finished in 0,028 s
+26/03/26 19:31:24.328 dag-scheduler-event-loop INFO DAGScheduler: Job 18 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:31:24.328 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 22: Stage finished
+26/03/26 19:31:24.329 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 18 finished: count at NativeMethodAccessorImpl.java:0, took 0,035179 s
+26/03/26 19:31:24.361 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:31:24.361 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:31:24.367 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:31:24.368 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:31:24.371 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 19:31:24.371 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 19:31:24.752 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 17.6504 ms
+26/03/26 19:31:24.782 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:31:24.783 dag-scheduler-event-loop INFO DAGScheduler: Got job 19 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:31:24.783 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 23 (collect at utils.scala:26)
+26/03/26 19:31:24.784 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:31:24.784 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:24.784 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 23 (MapPartitionsRDD[78] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:31:24.787 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 7.9 KiB, free 1035.8 MiB)
+26/03/26 19:31:24.790 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 3.8 KiB, free 1035.8 MiB)
+26/03/26 19:31:24.791 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_24_piece0 in memory on 127.0.0.1:55443 (size: 3.8 KiB, free: 1036.0 MiB)
+26/03/26 19:31:24.792 dag-scheduler-event-loop INFO SparkContext: Created broadcast 24 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:24.793 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 23 (MapPartitionsRDD[78] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:31:24.793 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 23.0 with 1 tasks resource profile 0
+26/03/26 19:31:24.794 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 0.0 in stage 23.0 (TID 58) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8000 bytes) 
+26/03/26 19:31:24.795 Executor task launch worker for task 0.0 in stage 23.0 (TID 58) INFO Executor: Running task 0.0 in stage 23.0 (TID 58)
+26/03/26 19:31:24.816 Executor task launch worker for task 0.0 in stage 23.0 (TID 58) INFO CodeGenerator: Code generated in 17.114 ms
+26/03/26 19:31:24.821 Executor task launch worker for task 0.0 in stage 23.0 (TID 58) INFO Executor: Finished task 0.0 in stage 23.0 (TID 58). 1413 bytes result sent to driver
+26/03/26 19:31:24.821 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 23.0 (TID 58) in 28 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:31:24.822 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 23.0, whose tasks have all completed, from pool 
+26/03/26 19:31:24.822 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 23 (collect at utils.scala:26) finished in 0,036 s
+26/03/26 19:31:24.822 dag-scheduler-event-loop INFO DAGScheduler: Job 19 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:31:24.822 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 23: Stage finished
+26/03/26 19:31:24.823 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 19 finished: collect at utils.scala:26, took 0,040696 s
+26/03/26 19:31:24.860 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 30.0649 ms
+26/03/26 19:31:25.400 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 63.4609 ms
+26/03/26 19:31:25.409 nioEventLoopGroup-2-2 INFO DefaultCachedBatchSerializer: Predicate isnotnull(cancelado#823) generates partition filter: ((cancelado.count#2220 - cancelado.nullCount#2219) > 0)
+26/03/26 19:31:25.410 nioEventLoopGroup-2-2 INFO DefaultCachedBatchSerializer: Predicate (cancelado#823 = 0) generates partition filter: ((cancelado.lowerBound#2218 <= 0) AND (0 <= cancelado.upperBound#2217))
+26/03/26 19:31:25.432 dag-scheduler-event-loop INFO DAGScheduler: Got job 20 (sql at <unknown>:0) with 6 output partitions
+26/03/26 19:31:25.432 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 24 (sql at <unknown>:0)
+26/03/26 19:31:25.432 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:31:25.434 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:25.435 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 24 (In-memory table vuelos_enriquecidos MapPartitionsRDD[84] at sql at <unknown>:0), which has no missing parents
+26/03/26 19:31:25.484 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 37.9 KiB, free 1035.8 MiB)
+26/03/26 19:31:25.504 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 16.7 KiB, free 1035.8 MiB)
+26/03/26 19:31:25.505 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_25_piece0 in memory on 127.0.0.1:55443 (size: 16.7 KiB, free: 1036.0 MiB)
+26/03/26 19:31:25.505 dag-scheduler-event-loop INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:25.506 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 24 (In-memory table vuelos_enriquecidos MapPartitionsRDD[84] at sql at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:31:25.506 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 24.0 with 6 tasks resource profile 0
+26/03/26 19:31:25.508 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 24.0 (TID 59) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:25.509 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 1.0 in stage 24.0 (TID 60) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:25.509 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 2.0 in stage 24.0 (TID 61) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:25.510 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 3.0 in stage 24.0 (TID 62) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:25.510 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 4.0 in stage 24.0 (TID 63) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:25.511 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 5.0 in stage 24.0 (TID 64) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:25.511 Executor task launch worker for task 0.0 in stage 24.0 (TID 59) INFO Executor: Running task 0.0 in stage 24.0 (TID 59)
+26/03/26 19:31:25.512 Executor task launch worker for task 1.0 in stage 24.0 (TID 60) INFO Executor: Running task 1.0 in stage 24.0 (TID 60)
+26/03/26 19:31:25.515 Executor task launch worker for task 3.0 in stage 24.0 (TID 62) INFO Executor: Running task 3.0 in stage 24.0 (TID 62)
+26/03/26 19:31:25.515 Executor task launch worker for task 2.0 in stage 24.0 (TID 61) INFO Executor: Running task 2.0 in stage 24.0 (TID 61)
+26/03/26 19:31:25.516 Executor task launch worker for task 5.0 in stage 24.0 (TID 64) INFO Executor: Running task 5.0 in stage 24.0 (TID 64)
+26/03/26 19:31:25.516 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO Executor: Running task 4.0 in stage 24.0 (TID 63)
+26/03/26 19:31:25.564 Executor task launch worker for task 2.0 in stage 24.0 (TID 61) INFO BlockManager: Found block rdd_52_2 locally
+26/03/26 19:31:25.563 Executor task launch worker for task 0.0 in stage 24.0 (TID 59) INFO BlockManager: Found block rdd_52_0 locally
+26/03/26 19:31:25.564 Executor task launch worker for task 5.0 in stage 24.0 (TID 64) INFO BlockManager: Found block rdd_52_5 locally
+26/03/26 19:31:25.565 Executor task launch worker for task 1.0 in stage 24.0 (TID 60) INFO BlockManager: Found block rdd_52_1 locally
+26/03/26 19:31:25.566 Executor task launch worker for task 3.0 in stage 24.0 (TID 62) INFO BlockManager: Found block rdd_52_3 locally
+26/03/26 19:31:25.566 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO BlockManager: Found block rdd_52_4 locally
+26/03/26 19:31:25.587 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO CodeGenerator: Code generated in 12.5154 ms
+26/03/26 19:31:25.636 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO CodeGenerator: Code generated in 35.1976 ms
+26/03/26 19:31:25.686 Executor task launch worker for task 3.0 in stage 24.0 (TID 62) INFO CodeGenerator: Code generated in 47.2056 ms
+26/03/26 19:31:25.896 Executor task launch worker for task 5.0 in stage 24.0 (TID 64) INFO MemoryStore: Block rdd_84_5 stored as values in memory (estimated size 274.3 KiB, free 1035.5 MiB)
+26/03/26 19:31:25.897 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_84_5 in memory on 127.0.0.1:55443 (size: 274.3 KiB, free: 1035.8 MiB)
+26/03/26 19:31:25.898 Executor task launch worker for task 5.0 in stage 24.0 (TID 64) INFO Executor: 1 block locks were not released by task 5.0 in stage 24.0 (TID 64)
+[rdd_84_5]
+26/03/26 19:31:25.901 Executor task launch worker for task 5.0 in stage 24.0 (TID 64) INFO Executor: Finished task 5.0 in stage 24.0 (TID 64). 1600 bytes result sent to driver
+26/03/26 19:31:25.926 task-result-getter-3 INFO TaskSetManager: Finished task 5.0 in stage 24.0 (TID 64) in 415 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:31:25.930 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_23_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1035.8 MiB)
+26/03/26 19:31:25.989 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_24_piece0 on 127.0.0.1:55443 in memory (size: 3.8 KiB, free: 1035.8 MiB)
+26/03/26 19:31:26.543 Executor task launch worker for task 1.0 in stage 24.0 (TID 60) INFO MemoryStore: Block rdd_84_1 stored as values in memory (estimated size 3.0 MiB, free 1032.5 MiB)
+26/03/26 19:31:26.544 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_84_1 in memory on 127.0.0.1:55443 (size: 3.0 MiB, free: 1032.8 MiB)
+26/03/26 19:31:26.545 Executor task launch worker for task 1.0 in stage 24.0 (TID 60) INFO Executor: 1 block locks were not released by task 1.0 in stage 24.0 (TID 60)
+[rdd_84_1]
+26/03/26 19:31:26.547 Executor task launch worker for task 1.0 in stage 24.0 (TID 60) INFO Executor: Finished task 1.0 in stage 24.0 (TID 60). 1686 bytes result sent to driver
+26/03/26 19:31:26.548 task-result-getter-0 INFO TaskSetManager: Finished task 1.0 in stage 24.0 (TID 60) in 1039 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:31:26.548 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO MemoryStore: Block rdd_84_4 stored as values in memory (estimated size 3.0 MiB, free 1029.5 MiB)
+26/03/26 19:31:26.549 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_84_4 in memory on 127.0.0.1:55443 (size: 3.0 MiB, free: 1029.8 MiB)
+26/03/26 19:31:26.550 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO Executor: 1 block locks were not released by task 4.0 in stage 24.0 (TID 63)
+[rdd_84_4]
+26/03/26 19:31:26.552 Executor task launch worker for task 4.0 in stage 24.0 (TID 63) INFO Executor: Finished task 4.0 in stage 24.0 (TID 63). 1686 bytes result sent to driver
+26/03/26 19:31:26.553 task-result-getter-1 INFO TaskSetManager: Finished task 4.0 in stage 24.0 (TID 63) in 1043 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:31:26.571 Executor task launch worker for task 3.0 in stage 24.0 (TID 62) INFO MemoryStore: Block rdd_84_3 stored as values in memory (estimated size 3.0 MiB, free 1026.5 MiB)
+26/03/26 19:31:26.573 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_84_3 in memory on 127.0.0.1:55443 (size: 3.0 MiB, free: 1026.8 MiB)
+26/03/26 19:31:26.573 Executor task launch worker for task 3.0 in stage 24.0 (TID 62) INFO Executor: 1 block locks were not released by task 3.0 in stage 24.0 (TID 62)
+[rdd_84_3]
+26/03/26 19:31:26.575 Executor task launch worker for task 3.0 in stage 24.0 (TID 62) INFO Executor: Finished task 3.0 in stage 24.0 (TID 62). 1686 bytes result sent to driver
+26/03/26 19:31:26.576 task-result-getter-2 INFO TaskSetManager: Finished task 3.0 in stage 24.0 (TID 62) in 1066 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:31:26.578 Executor task launch worker for task 2.0 in stage 24.0 (TID 61) INFO MemoryStore: Block rdd_84_2 stored as values in memory (estimated size 3.0 MiB, free 1023.5 MiB)
+26/03/26 19:31:26.579 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_84_2 in memory on 127.0.0.1:55443 (size: 3.0 MiB, free: 1023.8 MiB)
+26/03/26 19:31:26.580 Executor task launch worker for task 2.0 in stage 24.0 (TID 61) INFO Executor: 1 block locks were not released by task 2.0 in stage 24.0 (TID 61)
+[rdd_84_2]
+26/03/26 19:31:26.581 Executor task launch worker for task 2.0 in stage 24.0 (TID 61) INFO Executor: Finished task 2.0 in stage 24.0 (TID 61). 1686 bytes result sent to driver
+26/03/26 19:31:26.582 task-result-getter-3 INFO TaskSetManager: Finished task 2.0 in stage 24.0 (TID 61) in 1073 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:31:26.595 Executor task launch worker for task 0.0 in stage 24.0 (TID 59) INFO MemoryStore: Block rdd_84_0 stored as values in memory (estimated size 3.1 MiB, free 1020.5 MiB)
+26/03/26 19:31:26.595 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added rdd_84_0 in memory on 127.0.0.1:55443 (size: 3.1 MiB, free: 1020.7 MiB)
+26/03/26 19:31:26.596 Executor task launch worker for task 0.0 in stage 24.0 (TID 59) INFO Executor: 1 block locks were not released by task 0.0 in stage 24.0 (TID 59)
+[rdd_84_0]
+26/03/26 19:31:26.598 Executor task launch worker for task 0.0 in stage 24.0 (TID 59) INFO Executor: Finished task 0.0 in stage 24.0 (TID 59). 1686 bytes result sent to driver
+26/03/26 19:31:26.598 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 24.0 (TID 59) in 1090 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:31:26.599 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 24.0, whose tasks have all completed, from pool 
+26/03/26 19:31:26.599 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 24 (sql at <unknown>:0) finished in 1,163 s
+26/03/26 19:31:26.599 dag-scheduler-event-loop INFO DAGScheduler: Job 20 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:31:26.599 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 24: Stage finished
+26/03/26 19:31:26.621 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 89 (sql at <unknown>:0) as input to shuffle 5
+26/03/26 19:31:26.621 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 21 (sql at <unknown>:0) with 6 output partitions
+26/03/26 19:31:26.622 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 25 (sql at <unknown>:0)
+26/03/26 19:31:26.622 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:31:26.622 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:26.624 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 25 (MapPartitionsRDD[89] at sql at <unknown>:0), which has no missing parents
+26/03/26 19:31:26.628 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 44.3 KiB, free 1020.4 MiB)
+26/03/26 19:31:26.636 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 19.5 KiB, free 1020.4 MiB)
+26/03/26 19:31:26.636 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_26_piece0 in memory on 127.0.0.1:55443 (size: 19.5 KiB, free: 1020.7 MiB)
+26/03/26 19:31:26.637 dag-scheduler-event-loop INFO SparkContext: Created broadcast 26 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:26.637 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 25 (MapPartitionsRDD[89] at sql at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:31:26.637 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 25.0 with 6 tasks resource profile 0
+26/03/26 19:31:26.639 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 65) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:26.639 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 1.0 in stage 25.0 (TID 66) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:26.639 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 2.0 in stage 25.0 (TID 67) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:26.640 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 3.0 in stage 25.0 (TID 68) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:26.640 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 4.0 in stage 25.0 (TID 69) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:26.641 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 5.0 in stage 25.0 (TID 70) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:26.641 Executor task launch worker for task 0.0 in stage 25.0 (TID 65) INFO Executor: Running task 0.0 in stage 25.0 (TID 65)
+26/03/26 19:31:26.641 Executor task launch worker for task 1.0 in stage 25.0 (TID 66) INFO Executor: Running task 1.0 in stage 25.0 (TID 66)
+26/03/26 19:31:26.641 Executor task launch worker for task 3.0 in stage 25.0 (TID 68) INFO Executor: Running task 3.0 in stage 25.0 (TID 68)
+26/03/26 19:31:26.641 Executor task launch worker for task 5.0 in stage 25.0 (TID 70) INFO Executor: Running task 5.0 in stage 25.0 (TID 70)
+26/03/26 19:31:26.641 Executor task launch worker for task 4.0 in stage 25.0 (TID 69) INFO Executor: Running task 4.0 in stage 25.0 (TID 69)
+26/03/26 19:31:26.641 Executor task launch worker for task 2.0 in stage 25.0 (TID 67) INFO Executor: Running task 2.0 in stage 25.0 (TID 67)
+26/03/26 19:31:26.649 Executor task launch worker for task 2.0 in stage 25.0 (TID 67) INFO BlockManager: Found block rdd_84_2 locally
+26/03/26 19:31:26.649 Executor task launch worker for task 4.0 in stage 25.0 (TID 69) INFO BlockManager: Found block rdd_84_4 locally
+26/03/26 19:31:26.651 Executor task launch worker for task 5.0 in stage 25.0 (TID 70) INFO BlockManager: Found block rdd_84_5 locally
+26/03/26 19:31:26.652 Executor task launch worker for task 0.0 in stage 25.0 (TID 65) INFO BlockManager: Found block rdd_84_0 locally
+26/03/26 19:31:26.653 Executor task launch worker for task 3.0 in stage 25.0 (TID 68) INFO BlockManager: Found block rdd_84_3 locally
+26/03/26 19:31:26.654 Executor task launch worker for task 1.0 in stage 25.0 (TID 66) INFO BlockManager: Found block rdd_84_1 locally
+26/03/26 19:31:26.707 Executor task launch worker for task 5.0 in stage 25.0 (TID 70) INFO Executor: Finished task 5.0 in stage 25.0 (TID 70). 2450 bytes result sent to driver
+26/03/26 19:31:26.708 task-result-getter-1 INFO TaskSetManager: Finished task 5.0 in stage 25.0 (TID 70) in 67 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:31:26.730 Executor task launch worker for task 1.0 in stage 25.0 (TID 66) INFO Executor: Finished task 1.0 in stage 25.0 (TID 66). 2407 bytes result sent to driver
+26/03/26 19:31:26.731 task-result-getter-2 INFO TaskSetManager: Finished task 1.0 in stage 25.0 (TID 66) in 92 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:31:26.749 Executor task launch worker for task 0.0 in stage 25.0 (TID 65) INFO Executor: Finished task 0.0 in stage 25.0 (TID 65). 2407 bytes result sent to driver
+26/03/26 19:31:26.750 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 65) in 112 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:31:26.761 Executor task launch worker for task 3.0 in stage 25.0 (TID 68) INFO Executor: Finished task 3.0 in stage 25.0 (TID 68). 2407 bytes result sent to driver
+26/03/26 19:31:26.763 task-result-getter-0 INFO TaskSetManager: Finished task 3.0 in stage 25.0 (TID 68) in 123 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:31:26.781 Executor task launch worker for task 4.0 in stage 25.0 (TID 69) INFO Executor: Finished task 4.0 in stage 25.0 (TID 69). 2407 bytes result sent to driver
+26/03/26 19:31:26.781 task-result-getter-1 INFO TaskSetManager: Finished task 4.0 in stage 25.0 (TID 69) in 141 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:31:26.797 Executor task launch worker for task 2.0 in stage 25.0 (TID 67) INFO Executor: Finished task 2.0 in stage 25.0 (TID 67). 2364 bytes result sent to driver
+26/03/26 19:31:26.798 task-result-getter-2 INFO TaskSetManager: Finished task 2.0 in stage 25.0 (TID 67) in 159 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:31:26.798 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 25.0, whose tasks have all completed, from pool 
+26/03/26 19:31:26.798 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 25 (sql at <unknown>:0) finished in 0,173 s
+26/03/26 19:31:26.798 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 19:31:26.799 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 19:31:26.799 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 19:31:26.799 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 19:31:26.824 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: sql at <unknown>:0
+26/03/26 19:31:26.825 dag-scheduler-event-loop INFO DAGScheduler: Got job 22 (sql at <unknown>:0) with 1 output partitions
+26/03/26 19:31:26.825 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 27 (sql at <unknown>:0)
+26/03/26 19:31:26.825 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 26)
+26/03/26 19:31:26.826 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:26.826 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 27 (MapPartitionsRDD[92] at sql at <unknown>:0), which has no missing parents
+26/03/26 19:31:26.829 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 12.5 KiB, free 1020.4 MiB)
+26/03/26 19:31:26.842 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1020.4 MiB)
+26/03/26 19:31:26.843 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_27_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1020.7 MiB)
+26/03/26 19:31:26.844 dag-scheduler-event-loop INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:26.846 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_26_piece0 on 127.0.0.1:55443 in memory (size: 19.5 KiB, free: 1020.7 MiB)
+26/03/26 19:31:26.846 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 27 (MapPartitionsRDD[92] at sql at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:31:26.846 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 27.0 with 1 tasks resource profile 0
+26/03/26 19:31:26.847 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 27.0 (TID 71) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 19:31:26.849 Executor task launch worker for task 0.0 in stage 27.0 (TID 71) INFO Executor: Running task 0.0 in stage 27.0 (TID 71)
+26/03/26 19:31:26.854 Executor task launch worker for task 0.0 in stage 27.0 (TID 71) INFO ShuffleBlockFetcherIterator: Getting 6 (360.0 B) non-empty blocks including 6 (360.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:31:26.855 Executor task launch worker for task 0.0 in stage 27.0 (TID 71) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/03/26 19:31:26.869 Executor task launch worker for task 0.0 in stage 27.0 (TID 71) INFO Executor: Finished task 0.0 in stage 27.0 (TID 71). 3952 bytes result sent to driver
+26/03/26 19:31:26.871 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 27.0 (TID 71) in 24 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:31:26.872 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 27.0, whose tasks have all completed, from pool 
+26/03/26 19:31:26.873 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 27 (sql at <unknown>:0) finished in 0,044 s
+26/03/26 19:31:26.873 dag-scheduler-event-loop INFO DAGScheduler: Job 22 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:31:26.873 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 27: Stage finished
+26/03/26 19:31:26.874 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 22 finished: sql at <unknown>:0, took 0,049175 s
+26/03/26 19:31:26.943 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_25_piece0 on 127.0.0.1:55443 in memory (size: 16.7 KiB, free: 1020.7 MiB)
+26/03/26 19:31:27.050 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 97 (collect at utils.scala:26) as input to shuffle 6
+26/03/26 19:31:27.052 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 23 (collect at utils.scala:26) with 6 output partitions
+26/03/26 19:31:27.052 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 28 (collect at utils.scala:26)
+26/03/26 19:31:27.053 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:31:27.053 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:27.054 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 28 (MapPartitionsRDD[97] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:31:27.062 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 44.4 KiB, free 1020.5 MiB)
+26/03/26 19:31:27.065 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 19.5 KiB, free 1020.5 MiB)
+26/03/26 19:31:27.065 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_28_piece0 in memory on 127.0.0.1:55443 (size: 19.5 KiB, free: 1020.7 MiB)
+26/03/26 19:31:27.066 dag-scheduler-event-loop INFO SparkContext: Created broadcast 28 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:27.066 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 28 (MapPartitionsRDD[97] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:31:27.067 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 28.0 with 6 tasks resource profile 0
+26/03/26 19:31:27.068 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 0.0 in stage 28.0 (TID 72) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:27.069 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 1.0 in stage 28.0 (TID 73) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:27.070 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 2.0 in stage 28.0 (TID 74) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:27.070 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 3.0 in stage 28.0 (TID 75) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:27.070 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 4.0 in stage 28.0 (TID 76) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:27.071 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 5.0 in stage 28.0 (TID 77) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:31:27.071 Executor task launch worker for task 0.0 in stage 28.0 (TID 72) INFO Executor: Running task 0.0 in stage 28.0 (TID 72)
+26/03/26 19:31:27.071 Executor task launch worker for task 3.0 in stage 28.0 (TID 75) INFO Executor: Running task 3.0 in stage 28.0 (TID 75)
+26/03/26 19:31:27.071 Executor task launch worker for task 5.0 in stage 28.0 (TID 77) INFO Executor: Running task 5.0 in stage 28.0 (TID 77)
+26/03/26 19:31:27.071 Executor task launch worker for task 1.0 in stage 28.0 (TID 73) INFO Executor: Running task 1.0 in stage 28.0 (TID 73)
+26/03/26 19:31:27.071 Executor task launch worker for task 4.0 in stage 28.0 (TID 76) INFO Executor: Running task 4.0 in stage 28.0 (TID 76)
+26/03/26 19:31:27.071 Executor task launch worker for task 2.0 in stage 28.0 (TID 74) INFO Executor: Running task 2.0 in stage 28.0 (TID 74)
+26/03/26 19:31:27.096 Executor task launch worker for task 2.0 in stage 28.0 (TID 74) INFO BlockManager: Found block rdd_84_2 locally
+26/03/26 19:31:27.097 Executor task launch worker for task 4.0 in stage 28.0 (TID 76) INFO BlockManager: Found block rdd_84_4 locally
+26/03/26 19:31:27.098 Executor task launch worker for task 3.0 in stage 28.0 (TID 75) INFO BlockManager: Found block rdd_84_3 locally
+26/03/26 19:31:27.097 Executor task launch worker for task 1.0 in stage 28.0 (TID 73) INFO BlockManager: Found block rdd_84_1 locally
+26/03/26 19:31:27.099 Executor task launch worker for task 0.0 in stage 28.0 (TID 72) INFO BlockManager: Found block rdd_84_0 locally
+26/03/26 19:31:27.099 Executor task launch worker for task 5.0 in stage 28.0 (TID 77) INFO BlockManager: Found block rdd_84_5 locally
+26/03/26 19:31:27.154 Executor task launch worker for task 1.0 in stage 28.0 (TID 73) INFO Executor: Finished task 1.0 in stage 28.0 (TID 73). 2364 bytes result sent to driver
+26/03/26 19:31:27.156 task-result-getter-0 INFO TaskSetManager: Finished task 1.0 in stage 28.0 (TID 73) in 87 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:31:27.174 Executor task launch worker for task 4.0 in stage 28.0 (TID 76) INFO Executor: Finished task 4.0 in stage 28.0 (TID 76). 2364 bytes result sent to driver
+26/03/26 19:31:27.175 task-result-getter-1 INFO TaskSetManager: Finished task 4.0 in stage 28.0 (TID 76) in 105 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:31:27.194 Executor task launch worker for task 5.0 in stage 28.0 (TID 77) INFO Executor: Finished task 5.0 in stage 28.0 (TID 77). 2364 bytes result sent to driver
+26/03/26 19:31:27.196 task-result-getter-2 INFO TaskSetManager: Finished task 5.0 in stage 28.0 (TID 77) in 124 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:31:27.212 Executor task launch worker for task 3.0 in stage 28.0 (TID 75) INFO Executor: Finished task 3.0 in stage 28.0 (TID 75). 2407 bytes result sent to driver
+26/03/26 19:31:27.213 task-result-getter-3 INFO TaskSetManager: Finished task 3.0 in stage 28.0 (TID 75) in 143 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:31:27.230 Executor task launch worker for task 2.0 in stage 28.0 (TID 74) INFO Executor: Finished task 2.0 in stage 28.0 (TID 74). 2321 bytes result sent to driver
+26/03/26 19:31:27.232 task-result-getter-0 INFO TaskSetManager: Finished task 2.0 in stage 28.0 (TID 74) in 163 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:31:27.249 Executor task launch worker for task 0.0 in stage 28.0 (TID 72) INFO Executor: Finished task 0.0 in stage 28.0 (TID 72). 2407 bytes result sent to driver
+26/03/26 19:31:27.251 task-result-getter-1 INFO TaskSetManager: Finished task 0.0 in stage 28.0 (TID 72) in 183 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:31:27.251 task-result-getter-1 INFO TaskSchedulerImpl: Removed TaskSet 28.0, whose tasks have all completed, from pool 
+26/03/26 19:31:27.251 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 28 (collect at utils.scala:26) finished in 0,196 s
+26/03/26 19:31:27.251 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 19:31:27.251 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 19:31:27.251 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 19:31:27.251 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 19:31:27.275 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:31:27.277 dag-scheduler-event-loop INFO DAGScheduler: Got job 24 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:31:27.277 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 30 (collect at utils.scala:26)
+26/03/26 19:31:27.277 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 29)
+26/03/26 19:31:27.277 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:27.278 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 30 (MapPartitionsRDD[100] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:31:27.281 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 12.5 KiB, free 1020.4 MiB)
+26/03/26 19:31:27.292 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 1020.4 MiB)
+26/03/26 19:31:27.292 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_29_piece0 in memory on 127.0.0.1:55443 (size: 5.9 KiB, free: 1020.7 MiB)
+26/03/26 19:31:27.294 dag-scheduler-event-loop INFO SparkContext: Created broadcast 29 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:27.295 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 30 (MapPartitionsRDD[100] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:31:27.295 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_28_piece0 on 127.0.0.1:55443 in memory (size: 19.5 KiB, free: 1020.7 MiB)
+26/03/26 19:31:27.295 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 30.0 with 1 tasks resource profile 0
+26/03/26 19:31:27.297 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 30.0 (TID 78) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 19:31:27.299 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_27_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1020.7 MiB)
+26/03/26 19:31:27.300 Executor task launch worker for task 0.0 in stage 30.0 (TID 78) INFO Executor: Running task 0.0 in stage 30.0 (TID 78)
+26/03/26 19:31:27.306 Executor task launch worker for task 0.0 in stage 30.0 (TID 78) INFO ShuffleBlockFetcherIterator: Getting 6 (360.0 B) non-empty blocks including 6 (360.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:31:27.308 Executor task launch worker for task 0.0 in stage 30.0 (TID 78) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/03/26 19:31:27.326 Executor task launch worker for task 0.0 in stage 30.0 (TID 78) INFO Executor: Finished task 0.0 in stage 30.0 (TID 78). 3952 bytes result sent to driver
+26/03/26 19:31:27.326 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 30.0 (TID 78) in 30 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:31:27.326 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 30.0, whose tasks have all completed, from pool 
+26/03/26 19:31:27.327 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 30 (collect at utils.scala:26) finished in 0,047 s
+26/03/26 19:31:27.327 dag-scheduler-event-loop INFO DAGScheduler: Job 24 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:31:27.327 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 30: Stage finished
+26/03/26 19:31:27.327 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 24 finished: collect at utils.scala:26, took 0,052299 s
+26/03/26 19:31:33.435 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:31:33.438 dag-scheduler-event-loop INFO DAGScheduler: Got job 25 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:31:33.438 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 31 (collect at utils.scala:26)
+26/03/26 19:31:33.438 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:31:33.438 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:31:33.439 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 31 (MapPartitionsRDD[104] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:31:33.445 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_30 stored as values in memory (estimated size 39.7 KiB, free 1020.5 MiB)
+26/03/26 19:31:33.448 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_30_piece0 stored as bytes in memory (estimated size 17.3 KiB, free 1020.5 MiB)
+26/03/26 19:31:33.448 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_30_piece0 in memory on 127.0.0.1:55443 (size: 17.3 KiB, free: 1020.7 MiB)
+26/03/26 19:31:33.448 dag-scheduler-event-loop INFO SparkContext: Created broadcast 30 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:31:33.449 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 31 (MapPartitionsRDD[104] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:31:33.449 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 31.0 with 1 tasks resource profile 0
+26/03/26 19:31:33.451 dispatcher-event-loop-1 INFO TaskSetManager: Starting task 0.0 in stage 31.0 (TID 79) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8423 bytes) 
+26/03/26 19:31:33.451 Executor task launch worker for task 0.0 in stage 31.0 (TID 79) INFO Executor: Running task 0.0 in stage 31.0 (TID 79)
+26/03/26 19:31:33.457 Executor task launch worker for task 0.0 in stage 31.0 (TID 79) INFO BlockManager: Found block rdd_84_0 locally
+26/03/26 19:31:33.475 Executor task launch worker for task 0.0 in stage 31.0 (TID 79) INFO CodeGenerator: Code generated in 16.1748 ms
+26/03/26 19:31:33.478 Executor task launch worker for task 0.0 in stage 31.0 (TID 79) INFO Executor: 1 block locks were not released by task 0.0 in stage 31.0 (TID 79)
+[rdd_84_0]
+26/03/26 19:31:33.479 Executor task launch worker for task 0.0 in stage 31.0 (TID 79) INFO Executor: Finished task 0.0 in stage 31.0 (TID 79). 2114 bytes result sent to driver
+26/03/26 19:31:33.479 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 31.0 (TID 79) in 29 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:31:33.480 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 31.0, whose tasks have all completed, from pool 
+26/03/26 19:31:33.480 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 31 (collect at utils.scala:26) finished in 0,040 s
+26/03/26 19:31:33.480 dag-scheduler-event-loop INFO DAGScheduler: Job 25 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:31:33.480 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 31: Stage finished
+26/03/26 19:31:33.480 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 25 finished: collect at utils.scala:26, took 0,044544 s
+26/03/26 19:31:33.496 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 11.8353 ms
+26/03/26 19:31:44.208 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:31:44.208 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:31:44.211 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_database: default
+26/03/26 19:31:44.211 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_database: default	
+26/03/26 19:31:44.215 nioEventLoopGroup-2-2 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+26/03/26 19:31:44.215 nioEventLoopGroup-2-2 INFO audit: ugi=hugom	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+26/03/26 19:38:10.700 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 99.0152 ms
+26/03/26 19:38:10.736 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 109 (collect at utils.scala:26) as input to shuffle 7
+26/03/26 19:38:10.737 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 26 (collect at utils.scala:26) with 6 output partitions
+26/03/26 19:38:10.737 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 32 (collect at utils.scala:26)
+26/03/26 19:38:10.737 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List()
+26/03/26 19:38:10.737 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:38:10.738 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 32 (MapPartitionsRDD[109] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:38:10.747 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_31 stored as values in memory (estimated size 61.2 KiB, free 1020.4 MiB)
+26/03/26 19:38:10.760 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_31_piece0 stored as bytes in memory (estimated size 26.0 KiB, free 1020.4 MiB)
+26/03/26 19:38:10.761 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_31_piece0 in memory on 127.0.0.1:55443 (size: 26.0 KiB, free: 1020.7 MiB)
+26/03/26 19:38:10.761 dag-scheduler-event-loop INFO SparkContext: Created broadcast 31 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:38:10.764 dag-scheduler-event-loop INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 32 (MapPartitionsRDD[109] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+26/03/26 19:38:10.764 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 32.0 with 6 tasks resource profile 0
+26/03/26 19:38:10.765 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 0.0 in stage 32.0 (TID 80) (127.0.0.1, executor driver, partition 0, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:38:10.765 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 1.0 in stage 32.0 (TID 81) (127.0.0.1, executor driver, partition 1, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:38:10.765 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 2.0 in stage 32.0 (TID 82) (127.0.0.1, executor driver, partition 2, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:38:10.765 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 3.0 in stage 32.0 (TID 83) (127.0.0.1, executor driver, partition 3, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:38:10.765 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 4.0 in stage 32.0 (TID 84) (127.0.0.1, executor driver, partition 4, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:38:10.767 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 5.0 in stage 32.0 (TID 85) (127.0.0.1, executor driver, partition 5, PROCESS_LOCAL, 8412 bytes) 
+26/03/26 19:38:10.768 Executor task launch worker for task 0.0 in stage 32.0 (TID 80) INFO Executor: Running task 0.0 in stage 32.0 (TID 80)
+26/03/26 19:38:10.771 Executor task launch worker for task 4.0 in stage 32.0 (TID 84) INFO Executor: Running task 4.0 in stage 32.0 (TID 84)
+26/03/26 19:38:10.771 Executor task launch worker for task 1.0 in stage 32.0 (TID 81) INFO Executor: Running task 1.0 in stage 32.0 (TID 81)
+26/03/26 19:38:10.771 Executor task launch worker for task 2.0 in stage 32.0 (TID 82) INFO Executor: Running task 2.0 in stage 32.0 (TID 82)
+26/03/26 19:38:10.771 Executor task launch worker for task 3.0 in stage 32.0 (TID 83) INFO Executor: Running task 3.0 in stage 32.0 (TID 83)
+26/03/26 19:38:10.772 Executor task launch worker for task 5.0 in stage 32.0 (TID 85) INFO Executor: Running task 5.0 in stage 32.0 (TID 85)
+26/03/26 19:38:10.784 Executor task launch worker for task 3.0 in stage 32.0 (TID 83) INFO BlockManager: Found block rdd_84_3 locally
+26/03/26 19:38:10.786 Executor task launch worker for task 1.0 in stage 32.0 (TID 81) INFO BlockManager: Found block rdd_84_1 locally
+26/03/26 19:38:10.786 Executor task launch worker for task 4.0 in stage 32.0 (TID 84) INFO BlockManager: Found block rdd_84_4 locally
+26/03/26 19:38:10.786 Executor task launch worker for task 2.0 in stage 32.0 (TID 82) INFO BlockManager: Found block rdd_84_2 locally
+26/03/26 19:38:10.786 Executor task launch worker for task 0.0 in stage 32.0 (TID 80) INFO BlockManager: Found block rdd_84_0 locally
+26/03/26 19:38:10.790 Executor task launch worker for task 5.0 in stage 32.0 (TID 85) INFO BlockManager: Found block rdd_84_5 locally
+26/03/26 19:38:10.814 Executor task launch worker for task 3.0 in stage 32.0 (TID 83) INFO CodeGenerator: Code generated in 27.4695 ms
+26/03/26 19:38:10.879 Executor task launch worker for task 2.0 in stage 32.0 (TID 82) INFO CodeGenerator: Code generated in 61.5618 ms
+26/03/26 19:38:10.913 Executor task launch worker for task 2.0 in stage 32.0 (TID 82) INFO CodeGenerator: Code generated in 19.7871 ms
+26/03/26 19:38:10.934 Executor task launch worker for task 5.0 in stage 32.0 (TID 85) INFO CodeGenerator: Code generated in 11.2187 ms
+26/03/26 19:38:10.991 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_30_piece0 on 127.0.0.1:55443 in memory (size: 17.3 KiB, free: 1020.7 MiB)
+26/03/26 19:38:11.005 Executor task launch worker for task 3.0 in stage 32.0 (TID 83) INFO CodeGenerator: Code generated in 11.5042 ms
+26/03/26 19:38:11.028 Executor task launch worker for task 3.0 in stage 32.0 (TID 83) INFO CodeGenerator: Code generated in 10.1687 ms
+26/03/26 19:38:11.031 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_29_piece0 on 127.0.0.1:55443 in memory (size: 5.9 KiB, free: 1020.7 MiB)
+26/03/26 19:38:11.589 Executor task launch worker for task 5.0 in stage 32.0 (TID 85) INFO Executor: Finished task 5.0 in stage 32.0 (TID 85). 2861 bytes result sent to driver
+26/03/26 19:38:11.590 task-result-getter-0 INFO TaskSetManager: Finished task 5.0 in stage 32.0 (TID 85) in 823 ms on 127.0.0.1 (executor driver) (1/6)
+26/03/26 19:38:11.617 Executor task launch worker for task 2.0 in stage 32.0 (TID 82) INFO Executor: Finished task 2.0 in stage 32.0 (TID 82). 2818 bytes result sent to driver
+26/03/26 19:38:11.618 task-result-getter-1 INFO TaskSetManager: Finished task 2.0 in stage 32.0 (TID 82) in 853 ms on 127.0.0.1 (executor driver) (2/6)
+26/03/26 19:38:11.635 Executor task launch worker for task 0.0 in stage 32.0 (TID 80) INFO Executor: Finished task 0.0 in stage 32.0 (TID 80). 2818 bytes result sent to driver
+26/03/26 19:38:11.637 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 32.0 (TID 80) in 872 ms on 127.0.0.1 (executor driver) (3/6)
+26/03/26 19:38:11.670 Executor task launch worker for task 4.0 in stage 32.0 (TID 84) INFO Executor: Finished task 4.0 in stage 32.0 (TID 84). 2775 bytes result sent to driver
+26/03/26 19:38:11.672 task-result-getter-3 INFO TaskSetManager: Finished task 4.0 in stage 32.0 (TID 84) in 906 ms on 127.0.0.1 (executor driver) (4/6)
+26/03/26 19:38:11.689 Executor task launch worker for task 3.0 in stage 32.0 (TID 83) INFO Executor: Finished task 3.0 in stage 32.0 (TID 83). 2775 bytes result sent to driver
+26/03/26 19:38:11.691 task-result-getter-0 INFO TaskSetManager: Finished task 3.0 in stage 32.0 (TID 83) in 925 ms on 127.0.0.1 (executor driver) (5/6)
+26/03/26 19:38:11.720 Executor task launch worker for task 1.0 in stage 32.0 (TID 81) INFO Executor: Finished task 1.0 in stage 32.0 (TID 81). 2818 bytes result sent to driver
+26/03/26 19:38:11.721 task-result-getter-1 INFO TaskSetManager: Finished task 1.0 in stage 32.0 (TID 81) in 956 ms on 127.0.0.1 (executor driver) (6/6)
+26/03/26 19:38:11.721 task-result-getter-1 INFO TaskSchedulerImpl: Removed TaskSet 32.0, whose tasks have all completed, from pool 
+26/03/26 19:38:11.721 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 32 (collect at utils.scala:26) finished in 0,982 s
+26/03/26 19:38:11.722 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 19:38:11.722 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 19:38:11.722 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 19:38:11.722 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 19:38:11.737 nioEventLoopGroup-2-2 INFO ShufflePartitionsUtil: For shuffle(7), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/03/26 19:38:11.766 nioEventLoopGroup-2-2 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+26/03/26 19:38:11.829 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 49.8136 ms
+26/03/26 19:38:11.913 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 43.1625 ms
+26/03/26 19:38:11.981 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:38:11.984 dag-scheduler-event-loop INFO DAGScheduler: Got job 27 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:38:11.984 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 34 (collect at utils.scala:26)
+26/03/26 19:38:11.984 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 33)
+26/03/26 19:38:11.984 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:38:11.985 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 34 (MapPartitionsRDD[114] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:38:11.990 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_32 stored as values in memory (estimated size 65.4 KiB, free 1020.4 MiB)
+26/03/26 19:38:12.000 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_32_piece0 stored as bytes in memory (estimated size 28.1 KiB, free 1020.4 MiB)
+26/03/26 19:38:12.002 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_32_piece0 in memory on 127.0.0.1:55443 (size: 28.1 KiB, free: 1020.7 MiB)
+26/03/26 19:38:12.003 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_31_piece0 on 127.0.0.1:55443 in memory (size: 26.0 KiB, free: 1020.7 MiB)
+26/03/26 19:38:12.003 dag-scheduler-event-loop INFO SparkContext: Created broadcast 32 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:38:12.003 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 34 (MapPartitionsRDD[114] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:38:12.003 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 34.0 with 1 tasks resource profile 0
+26/03/26 19:38:12.006 dispatcher-event-loop-0 INFO TaskSetManager: Starting task 0.0 in stage 34.0 (TID 86) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 19:38:12.009 Executor task launch worker for task 0.0 in stage 34.0 (TID 86) INFO Executor: Running task 0.0 in stage 34.0 (TID 86)
+26/03/26 19:38:12.035 Executor task launch worker for task 0.0 in stage 34.0 (TID 86) INFO ShuffleBlockFetcherIterator: Getting 6 (8.2 KiB) non-empty blocks including 6 (8.2 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:38:12.035 Executor task launch worker for task 0.0 in stage 34.0 (TID 86) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+26/03/26 19:38:12.096 Executor task launch worker for task 0.0 in stage 34.0 (TID 86) INFO CodeGenerator: Code generated in 45.7594 ms
+26/03/26 19:38:12.115 Executor task launch worker for task 0.0 in stage 34.0 (TID 86) INFO CodeGenerator: Code generated in 13.7352 ms
+26/03/26 19:38:12.151 Executor task launch worker for task 0.0 in stage 34.0 (TID 86) INFO Executor: Finished task 0.0 in stage 34.0 (TID 86). 6743 bytes result sent to driver
+26/03/26 19:38:12.152 task-result-getter-2 INFO TaskSetManager: Finished task 0.0 in stage 34.0 (TID 86) in 146 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:38:12.154 task-result-getter-2 INFO TaskSchedulerImpl: Removed TaskSet 34.0, whose tasks have all completed, from pool 
+26/03/26 19:38:12.154 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 34 (collect at utils.scala:26) finished in 0,167 s
+26/03/26 19:38:12.155 dag-scheduler-event-loop INFO DAGScheduler: Job 27 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:38:12.155 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 34: Stage finished
+26/03/26 19:38:12.155 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 27 finished: collect at utils.scala:26, took 0,173057 s
+26/03/26 19:38:12.168 dag-scheduler-event-loop INFO DAGScheduler: Registering RDD 115 (collect at utils.scala:26) as input to shuffle 8
+26/03/26 19:38:12.170 dag-scheduler-event-loop INFO DAGScheduler: Got map stage job 28 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:38:12.170 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ShuffleMapStage 36 (collect at utils.scala:26)
+26/03/26 19:38:12.170 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 35)
+26/03/26 19:38:12.170 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:38:12.171 dag-scheduler-event-loop INFO DAGScheduler: Submitting ShuffleMapStage 36 (MapPartitionsRDD[115] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:38:12.187 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_33 stored as values in memory (estimated size 66.0 KiB, free 1020.4 MiB)
+26/03/26 19:38:12.189 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_33_piece0 stored as bytes in memory (estimated size 28.4 KiB, free 1020.4 MiB)
+26/03/26 19:38:12.189 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_33_piece0 in memory on 127.0.0.1:55443 (size: 28.4 KiB, free: 1020.7 MiB)
+26/03/26 19:38:12.190 dag-scheduler-event-loop INFO SparkContext: Created broadcast 33 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:38:12.191 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 36 (MapPartitionsRDD[115] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:38:12.191 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 36.0 with 1 tasks resource profile 0
+26/03/26 19:38:12.193 dispatcher-event-loop-5 INFO TaskSetManager: Starting task 0.0 in stage 36.0 (TID 87) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7781 bytes) 
+26/03/26 19:38:12.194 Executor task launch worker for task 0.0 in stage 36.0 (TID 87) INFO Executor: Running task 0.0 in stage 36.0 (TID 87)
+26/03/26 19:38:12.251 Executor task launch worker for task 0.0 in stage 36.0 (TID 87) INFO CodeGenerator: Code generated in 40.4766 ms
+26/03/26 19:38:12.261 Executor task launch worker for task 0.0 in stage 36.0 (TID 87) INFO ShuffleBlockFetcherIterator: Getting 6 (8.2 KiB) non-empty blocks including 6 (8.2 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:38:12.261 Executor task launch worker for task 0.0 in stage 36.0 (TID 87) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+26/03/26 19:38:12.376 Executor task launch worker for task 0.0 in stage 36.0 (TID 87) INFO Executor: Finished task 0.0 in stage 36.0 (TID 87). 5600 bytes result sent to driver
+26/03/26 19:38:12.376 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_32_piece0 on 127.0.0.1:55443 in memory (size: 28.1 KiB, free: 1020.7 MiB)
+26/03/26 19:38:12.378 task-result-getter-3 INFO TaskSetManager: Finished task 0.0 in stage 36.0 (TID 87) in 185 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:38:12.378 task-result-getter-3 INFO TaskSchedulerImpl: Removed TaskSet 36.0, whose tasks have all completed, from pool 
+26/03/26 19:38:12.380 dag-scheduler-event-loop INFO DAGScheduler: ShuffleMapStage 36 (collect at utils.scala:26) finished in 0,203 s
+26/03/26 19:38:12.380 dag-scheduler-event-loop INFO DAGScheduler: looking for newly runnable stages
+26/03/26 19:38:12.380 dag-scheduler-event-loop INFO DAGScheduler: running: Set()
+26/03/26 19:38:12.380 dag-scheduler-event-loop INFO DAGScheduler: waiting: Set()
+26/03/26 19:38:12.380 dag-scheduler-event-loop INFO DAGScheduler: failed: Set()
+26/03/26 19:38:12.383 nioEventLoopGroup-2-2 INFO ShufflePartitionsUtil: For shuffle(8), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+26/03/26 19:38:12.420 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 20.0171 ms
+26/03/26 19:38:12.470 nioEventLoopGroup-2-2 INFO SparkContext: Starting job: collect at utils.scala:26
+26/03/26 19:38:12.472 dag-scheduler-event-loop INFO DAGScheduler: Got job 29 (collect at utils.scala:26) with 1 output partitions
+26/03/26 19:38:12.472 dag-scheduler-event-loop INFO DAGScheduler: Final stage: ResultStage 39 (collect at utils.scala:26)
+26/03/26 19:38:12.472 dag-scheduler-event-loop INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 38)
+26/03/26 19:38:12.473 dag-scheduler-event-loop INFO DAGScheduler: Missing parents: List()
+26/03/26 19:38:12.474 dag-scheduler-event-loop INFO DAGScheduler: Submitting ResultStage 39 (MapPartitionsRDD[118] at collect at utils.scala:26), which has no missing parents
+26/03/26 19:38:12.479 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_34 stored as values in memory (estimated size 61.5 KiB, free 1020.4 MiB)
+26/03/26 19:38:12.481 dag-scheduler-event-loop INFO MemoryStore: Block broadcast_34_piece0 stored as bytes in memory (estimated size 26.6 KiB, free 1020.4 MiB)
+26/03/26 19:38:12.483 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Added broadcast_34_piece0 in memory on 127.0.0.1:55443 (size: 26.6 KiB, free: 1020.7 MiB)
+26/03/26 19:38:12.483 dag-scheduler-event-loop INFO SparkContext: Created broadcast 34 from broadcast at DAGScheduler.scala:1580
+26/03/26 19:38:12.484 dag-scheduler-event-loop INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 39 (MapPartitionsRDD[118] at collect at utils.scala:26) (first 15 tasks are for partitions Vector(0))
+26/03/26 19:38:12.484 dag-scheduler-event-loop INFO TaskSchedulerImpl: Adding task set 39.0 with 1 tasks resource profile 0
+26/03/26 19:38:12.485 dispatcher-event-loop-3 INFO TaskSetManager: Starting task 0.0 in stage 39.0 (TID 88) (127.0.0.1, executor driver, partition 0, NODE_LOCAL, 7792 bytes) 
+26/03/26 19:38:12.486 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO Executor: Running task 0.0 in stage 39.0 (TID 88)
+26/03/26 19:38:12.497 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO ShuffleBlockFetcherIterator: Getting 1 (1476.0 B) non-empty blocks including 1 (1476.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+26/03/26 19:38:12.497 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+26/03/26 19:38:12.511 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO CodeGenerator: Code generated in 12.392 ms
+26/03/26 19:38:12.528 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO CodeGenerator: Code generated in 12.2787 ms
+26/03/26 19:38:12.580 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO CodeGenerator: Code generated in 19.7361 ms
+26/03/26 19:38:12.636 dispatcher-BlockManagerMaster INFO BlockManagerInfo: Removed broadcast_33_piece0 on 127.0.0.1:55443 in memory (size: 28.4 KiB, free: 1020.7 MiB)
+26/03/26 19:38:12.636 Executor task launch worker for task 0.0 in stage 39.0 (TID 88) INFO Executor: Finished task 0.0 in stage 39.0 (TID 88). 7506 bytes result sent to driver
+26/03/26 19:38:12.638 task-result-getter-0 INFO TaskSetManager: Finished task 0.0 in stage 39.0 (TID 88) in 152 ms on 127.0.0.1 (executor driver) (1/1)
+26/03/26 19:38:12.638 task-result-getter-0 INFO TaskSchedulerImpl: Removed TaskSet 39.0, whose tasks have all completed, from pool 
+26/03/26 19:38:12.638 dag-scheduler-event-loop INFO DAGScheduler: ResultStage 39 (collect at utils.scala:26) finished in 0,163 s
+26/03/26 19:38:12.639 dag-scheduler-event-loop INFO DAGScheduler: Job 29 is finished. Cancelling potential speculative or zombie tasks for this job
+26/03/26 19:38:12.639 dag-scheduler-event-loop INFO TaskSchedulerImpl: Killing all running tasks in stage 39: Stage finished
+26/03/26 19:38:12.640 nioEventLoopGroup-2-2 INFO DAGScheduler: Job 29 finished: collect at utils.scala:26, took 0,169121 s
+26/03/26 19:38:12.661 nioEventLoopGroup-2-2 INFO CodeGenerator: Code generated in 18.0505 ms
