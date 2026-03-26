@@ -191,6 +191,7 @@ modo **local** (Spark corre en tu máquina), pero en producción el parámetro
 `master` apuntaría a un cluster remoto.
 
 ```{r}
+# ADICIONAL
 # Reemplaza la ruta con la que copiaste en el paso 1, usando barras normales:
 Sys.setenv(JAVA_HOME = "C:/Program Files/Eclipse Adoptium/jdk-11.0.30.7-hotspot")
 
