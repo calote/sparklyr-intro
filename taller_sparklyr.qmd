@@ -191,6 +191,14 @@ modo **local** (Spark corre en tu máquina), pero en producción el parámetro
 `master` apuntaría a un cluster remoto.
 
 ```{r}
+# Reemplaza la ruta con la que copiaste en el paso 1, usando barras normales:
+Sys.setenv(JAVA_HOME = "C:/Program Files/Eclipse Adoptium/jdk-11.0.30.7-hotspot")
+
+# Verifica que se haya guardado
+Sys.getenv("JAVA_HOME")
+```
+
+```{r}
 # Ejemplo — no modificar, solo ejecutar
 sc <- spark_connect(master = "local")
 ```
@@ -206,7 +214,17 @@ vuelos_sp <- spark_read_csv(
   name    = "vuelos",
   path    = "data/vuelos_2024.csv",
   header  = TRUE,
-  infer_schema = TRUE
+  #infer_schema = TRUE
+  columns = c("vuelo_id"="integer",
+              "aerolinea"="character",
+              "origen"="character",
+              "destino"="character",
+              "fecha"="date",
+              "hora_prog"="double",
+              "retraso_min"="double",
+              "pasajeros"="integer",
+              "precio_medio"="double",
+              "cancelado"="integer")
 )
 ```
 
