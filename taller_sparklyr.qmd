@@ -571,9 +571,6 @@ hecho el ejercicio 2.2 de la misma forma?
 > `compute()` guarda la tabla en la base de datos y se sigue trabajando desde allí, `collect()` trae los datos a R. 
 >
 
-git add taller_sparklyr.qmd
-git commit -m "Completado reto 1"
-git push origin alumno/nombre-apellido
 
 # RETO 3 — Funciones de ventana {#reto3}
 
@@ -1258,3 +1255,6 @@ Antes de enviar tu `.qmd` renderizado, verifica:
 
 
 
+
+git commit -m "comentario"
+git push origin alumno/Lola-Velasco
