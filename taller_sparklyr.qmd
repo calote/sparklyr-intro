@@ -206,7 +206,17 @@ vuelos_sp <- spark_read_csv(
   name    = "vuelos",
   path    = "data/vuelos_2024.csv",
   header  = TRUE,
-  infer_schema = TRUE
+  #infer_schema = TRUE
+  columns = c("vuelo_id"="integer",
+              "aerolinea"="character",
+              "origen"="character",
+              "destino"="character",
+              "fecha"="date",
+              "hora_prog"="double",
+              "retraso_min"="double",
+              "pasajeros"="integer",
+              "precio_medio"="double",
+              "cancelado"="integer")
 )
 ```
 
@@ -242,7 +252,7 @@ Usa la función `sdf_nrow()` para contar las filas totales.
 ```{r}
 #| label: reto1-ej1
 
-n_total <- ___(vuelos_sp)
+n_total <- sdf_nrow(vuelos_sp)
 
 cat("Total de vuelos:", n_total, "\n")
 ```
@@ -267,11 +277,11 @@ Calcula también el porcentaje sobre el total.
 #| label: reto1-ej2
 
 n_cancelados <- vuelos_sp |>
-  filter(___) |>
+  filter(cancelado == 1) |>
   sdf_nrow()
 
 cat("Vuelos cancelados:", n_cancelados, "\n")
-cat("Porcentaje:", round(___ / ___ * 100, 2), "%\n")
+cat("Porcentaje:", round(n_cancelados / n_total * 100, 2), "%\n")
 ```
 
 <div class="pista">
@@ -299,14 +309,14 @@ Ordena de mayor a menor retraso medio. **No olvides `collect()` al final.**
 #| label: reto1-ej3
 
 resumen_aerolineas <- vuelos_sp |>
-  group_by(___) |>
+  group_by(aerolinea) |>
   summarise(
-    n_vuelos      = ___,
-    retraso_medio = ___,
-    pct_cancelado = ___
+    n_vuelos      = n(),
+    retraso_medio = mean(retraso_min, na.rm = T),
+    pct_cancelado = mean(cancelado, na.rm = T) * 100
   ) |>
-  arrange(___) |>
-  ___()     # <-- traer resultado a R
+  arrange(desc(retraso_medio)) |>
+  collect()      # <-- traer resultado a R
 
 resumen_aerolineas
 ```
@@ -452,17 +462,17 @@ resultado?               (como tibble)         (como tabla Spark)
 #| label: reto2-ej1
 
 vuelos_enriquecidos <- vuelos_sp |>
-  filter(___) |>
+  filter(cancelado == 0) |>
   mutate(
     franja_horaria = case_when(
-      ___ ~ "madrugada",
-      ___ ~ "mañana",
-      ___ ~ "tarde",
-      ___ ~ "noche"
+      hora_prog < 7  ~ "madrugada",
+      hora_prog < 13 ~ "mañana",
+      hora_prog < 20 ~ "tarde",
+      TRUE ~ "noche"
     ),
-    ingreso_estimado = ___
+    ingreso_estimado = pasajeros * precio_medio
   ) |>
-  compute("___")
+  compute("vuelos_enriquecidos")
 
 # Verificar: mira unas cuantas filas
 vuelos_enriquecidos |>
@@ -497,13 +507,13 @@ Ordena por aerolínea y luego por ingreso total descendente.
 #| label: reto2-ej2
 
 ingresos <- vuelos_enriquecidos |>
-  group_by(___, ___) |>
+  group_by(aerolinea, franja_horaria) |>
   summarise(
-    n_vuelos      = ___,
-    ingreso_total = ___,
-    ingreso_medio = ___
+    n_vuelos      = n(),
+    ingreso_total = sum(ingreso_estimado, na.rm = T),
+    ingreso_medio = mean(ingreso_estimado, na.rm = T)
   ) |>
-  arrange(___, ___) |>
+  arrange(aerolinea, desc(ingreso_total)) |>
   collect()
 
 ingresos
@@ -529,12 +539,12 @@ funciona con datos en R (el resultado del `collect()`).
 ```{r}
 #| label: reto2-ej3
 
-ggplot(___, aes(x = ___, y = ___, fill = ___)) +
+ggplot(ingresos, aes(x = aerolinea, y = ingreso_total, fill = franja_horaria)) +
   geom_col(position = "dodge") +
   labs(
     title = "Ingreso estimado por aerolínea y franja horaria",
-    x     = "___",
-    y     = "___"
+    x     = "Aerolinea",
+    y     = "Ingresos total"
   ) +
   theme_minimal()
 ```
@@ -554,10 +564,11 @@ En `aes()`: x es `franja_horaria`, y es `ingreso_total`, fill es `aerolinea`.
 En el ejercicio 2.1 usamos `compute()` al final. ¿Qué habría pasado si
 hubiéramos usado `collect()` en vez de `compute()`? ¿Podríamos haber
 hecho el ejercicio 2.2 de la misma forma?
+
 :::
 
 > *Tu respuesta aquí:*
->
+> `compute()` guarda la tabla en la base de datos y se sigue trabajando desde allí, `collect()` trae los datos a R. 
 >
 
 
