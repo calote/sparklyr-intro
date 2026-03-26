@@ -192,6 +192,13 @@ modo **local** (Spark corre en tu máquina), pero en producción el parámetro
 
 ```{r}
 # Ejemplo — no modificar, solo ejecutar
+Sys.setenv(JAVA_HOME ="C:/Archivos de Programa/Eclipse Adoptium/jdk-11.0.30.7-hotspot")
+
+Sys.getenv("JAVA_HOME")
+```
+
+```{r}
+# Ejemplo — no modificar, solo ejecutar
 sc <- spark_connect(master = "local")
 ```
 
@@ -452,17 +459,17 @@ resultado?               (como tibble)         (como tabla Spark)
 #| label: reto2-ej1
 
 vuelos_enriquecidos <- vuelos_sp |>
-  filter(___) |>
+  filter(cancelado == 0) |>
   mutate(
     franja_horaria = case_when(
-      ___ ~ "madrugada",
-      ___ ~ "mañana",
-      ___ ~ "tarde",
-      ___ ~ "noche"
+      hora_prog < 7 ~ "madrugada",
+      hora_prog < 13 ~ "mañana",
+      hora_prog < 20 ~ "tarde",
+      TRUE ~ "noche"
     ),
-    ingreso_estimado = ___
+    ingreso_estimado = pasajeros * precio_medio
   ) |>
-  compute("___")
+  compute("vuelos_enriquecidos")
 
 # Verificar: mira unas cuantas filas
 vuelos_enriquecidos |>
@@ -497,13 +504,13 @@ Ordena por aerolínea y luego por ingreso total descendente.
 #| label: reto2-ej2
 
 ingresos <- vuelos_enriquecidos |>
-  group_by(___, ___) |>
+  group_by(aerolinea, franja_horaria) |>
   summarise(
-    n_vuelos      = ___,
-    ingreso_total = ___,
-    ingreso_medio = ___
+    n_vuelos      = n(),
+    ingreso_total = sum(ingreso_estimado,na.rm=T),
+    ingreso_medio = sum(ingreso_estimado,na.rm=T)
   ) |>
-  arrange(___, ___) |>
+  arrange(aerolinea, desc(ingreso_total)) |>
   collect()
 
 ingresos
@@ -529,12 +536,12 @@ funciona con datos en R (el resultado del `collect()`).
 ```{r}
 #| label: reto2-ej3
 
-ggplot(___, aes(x = ___, y = ___, fill = ___)) +
+ggplot(ingresos, aes(x = aerolinea, y = ingreso_total, fill = franja_horaria)) +
   geom_col(position = "dodge") +
   labs(
     title = "Ingreso estimado por aerolínea y franja horaria",
-    x     = "___",
-    y     = "___"
+    x     = "Aerolineas divididas por franja",
+    y     = "Ingreso total"
   ) +
   theme_minimal()
 ```
@@ -557,7 +564,7 @@ hecho el ejercicio 2.2 de la misma forma?
 :::
 
 > *Tu respuesta aquí:*
->
+> BARBARIDAD
 >
 
 
