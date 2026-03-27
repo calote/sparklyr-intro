@@ -193,6 +193,9 @@ modo **local** (Spark corre en tu máquina), pero en producción el parámetro
 ```{r}
 # Ejemplo — no modificar, solo ejecutar
 sc <- spark_connect(master = "local")
+
+## Cargar la tabla guardada previamente
+#vuelos_sp <- spark_read_parquet(sc, name = "vuelos_sp", path = "data/vuelos_sp.parquet")
 ```
 
 `sc` es nuestro objeto de conexión. Lo usaremos en todo el taller.
@@ -758,25 +761,25 @@ Visualiza la tendencia de una aerolínea con ggplot.
 
 tendencia <- vuelos_enriquecidos |>
   # Paso 1: retraso medio por día y aerolínea
-  group_by(aerolinea, ___) |>
-  summarise(retraso_dia = mean(retraso_min, na.rm = TRUE)) |>
+  group_by(aerolinea, fecha) |>
+  summarise(retraso_medio_dia = mean(retraso_min, na.rm = TRUE)) |>
 
   # Paso 2: función de ventana con lag
-  group_by(___) |>
-  arrange(___) |>
+  group_by(aerolinea) |>
+  arrange(fecha) |>
   mutate(
-    retraso_ayer  = lag(___, ___),
-    cambio_diario = ___
+    retraso_dia_anterior  = lag(retraso_medio_dia, 1),
+    cambio_diario = retraso_medio_dia - retraso_dia_anterior
   ) |>
   ungroup() |>
   collect()
 
 # Visualización para la aerolínea "IB" (o la que prefieras)
 tendencia |>
-  filter(aerolinea == "___") |>
-  ggplot(aes(x = fecha, y = retraso_dia)) +
+  filter(aerolinea == "IB") |>
+  ggplot(aes(x = fecha, y = retraso_medio_dia)) +
   geom_line(alpha = 0.4) +
-  geom_smooth(se = FALSE, color = "tomato") +
+  geom_smooth(se = FALSE, color = "tomato", method = "loess", span = 0.1) + # , method = "loess", span = 0.1
   labs(title = "Evolución del retraso medio diario",
        x = "Fecha", y = "Retraso medio (min)") +
   theme_minimal()
@@ -888,7 +891,7 @@ Partiendo de `vuelos_sp` (la tabla completa, con cancelados), crea una tabla
 #| label: reto4-ej1
 
 vuelos_ml <- vuelos_sp |>
-  filter(!is.na(___), !is.na(___)) |>
+  filter(!is.na(retraso_min), !is.na(precio_medio)) |>
   mutate(
     franja_horaria = case_when(
       hora_prog < 7  ~ "madrugada",
@@ -897,8 +900,8 @@ vuelos_ml <- vuelos_sp |>
       TRUE           ~ "noche"
     )
   ) |>
-  select(___) |>
-  compute("___")
+  select(cancelado, aerolinea, franja_horaria, origen, destino, precio_medio) |>
+  compute("vuelos_ml")
 ```
 
 
@@ -913,13 +916,18 @@ Aplica `ft_string_indexer()` a cada variable categórica y luego
 #| label: reto4-ej2
 
 vuelos_preparados <- vuelos_ml |>
-  ft_string_indexer("aerolinea",      "___") |>
-  ft_string_indexer("franja_horaria", "___") |>
-  ft_string_indexer("origen",         "___") |>
-  ft_string_indexer("destino",        "___") |>
+
+  # Indexar cada variable categórica
+  ft_string_indexer("aerolinea",      "aerolinea_idx") |>
+  ft_string_indexer("franja_horaria", "franja_idx") |>
+  ft_string_indexer("origen",         "origen_idx") |>
+  ft_string_indexer("destino",        "destino_idx") |>
+
+  # Ensamblar todo en un vector de features
   ft_vector_assembler(
-    input_cols = c("___", "___", "___", "___", "___"),
-    output_col = "___"
+    input_cols  = c("aerolinea_idx", "franja_idx",
+                    "origen_idx", "destino_idx", "precio_medio"),
+    output_col  = "features"
   )
 ```
 
@@ -945,10 +953,10 @@ para reproducibilidad.
 #| label: reto4-ej3
 
 particiones <- vuelos_preparados |>
-  sdf_random_split(___ = 0.7, ___ = 0.3, seed = ___)
+  sdf_random_split(training = 0.7, testing = 0.3, seed = 42)
 
-train_sp <- particiones$___
-test_sp  <- particiones$___
+train_sp <- particiones$training
+test_sp  <- particiones$testing
 
 cat("Filas train:", sdf_nrow(train_sp), "\n")
 cat("Filas test: ", sdf_nrow(test_sp), "\n")
@@ -975,11 +983,24 @@ La variable respuesta es `cancelado` y las features están en la columna
 ```{r}
 #| label: reto4-ej4
 
-modelo <- train_sp |>
+modelo_lr <- train_sp |>
   ml_logistic_regression(
-    features_col = "___",
-    label_col    = "___"
+    #formula          = cancelado ~ features,
+    # Cuando no hay formula, sparklyr usa features_col y label_col directamente sobre 
+    # las columnas ya existentes, sin intentar ensamblarlas de nuevo.
+    features_col     = "features",
+    label_col        = "cancelado",
+    max_iter         = 100,
+    reg_param        = 0.01,          # regularización L2 (ridge)
+    elastic_net_param = 0.0           # 0 = ridge, 1 = lasso, entre medias = elastic net
   )
+
+# Inspeccionar los coeficientes del modelo:
+# (son difíciles de interpretar directamente porque los features están indexados,
+# pero el signo y la magnitud relativa dan pistas)
+coefs <- ml_summary(modelo_lr)
+coefs
+
 ```
 
 <div class="pista">
@@ -1002,24 +1023,53 @@ modelo <- train_sp |>
 #| label: reto4-ej5
 
 # Predicciones
-predicciones <- ml_predict(___, ___)
+predicciones <- ml_predict(modelo_lr, test_sp)
 
-# AUC
-auc <- ml_binary_classification_evaluator(
-  ___,
-  label_col   = "___",
-  metric_name = "___"
+# Veamos unas cuantas predicciones:
+pred01 = predicciones |>
+  select(cancelado, prediction, probability) |>
+  head(10) |>
+  collect()
+pred01
+pred01[[3]]
+
+# AUC (Area Under the ROC Curve) mide la capacidad discriminativa del modelo.
+# Un AUC de 0.5 = aleatorio, 1.0 = perfecto.
+# ml_binary_classification_evaluator() lo calcula dentro de Spark.
+
+auc_reto4 <- ml_binary_classification_evaluator(
+  predicciones,
+  label_col      = "cancelado",
+  prediction_col = "prediction",
+  metric_name    = "areaUnderROC"
 )
 
-cat("AUC:", round(auc, 4), "\n")
+cat("AUC:", round(auc_reto4, 4), "\n")
 
-# Matriz de confusión
-matriz <- predicciones |>
-  group_by(___, ___) |>
-  summarise(n = n()) |>
+# Accuracy manual
+metricas <- predicciones |>
+  summarise(
+    total     = n(),
+    correctos = sum(as.numeric(cancelado == prediction), na.rm = TRUE)
+  ) |>
   collect()
 
-matriz
+accuracy <- metricas$correctos / metricas$total
+cat("Accuracy:", round(accuracy, 4), "\n")
+
+# Matriz de confusión
+matriz_confusion <- predicciones |>
+  group_by(cancelado, prediction) |>
+  summarise(n = n()) |>
+  collect() |>
+  arrange(cancelado, prediction)
+
+matriz_confusion
+
+# NOTA DIDÁCTICA: Con un dataset donde solo el 6% de vuelos se cancela,
+# un modelo que prediga SIEMPRE "no cancelado" tendría un accuracy del 94%.
+# Por eso el AUC es una métrica más informativa que el accuracy cuando
+# las clases están desbalanceadas.
 ```
 
 <div class="pista">
@@ -1042,6 +1092,41 @@ métrica más informativa que el accuracy en este caso?
 > *Tu respuesta aquí:*
 >
 >
+
+
+
+```{r}
+# 4.7 — Experimentación: ¿Se puede mejorar el AUC?
+# ──────────────────────────────────────────────────
+# Ideas para que los alumnos experimenten:
+# - Añadir hora_prog como variable numérica directa
+# - Probar ml_random_forest_classifier() en vez de regresión logística
+# - Cambiar reg_param y elastic_net_param
+# - Crear interacciones (ej: aerolinea + origen como combinación)
+
+# Ejemplo rápido con Random Forest:
+modelo_rf <- train_sp |>
+  ml_random_forest_classifier(
+    #formula       = cancelado ~ features,
+    features_col  = "features",
+    label_col     = "cancelado",
+    num_trees     = 50,
+    max_depth     = 5,
+    seed          = 42
+  )
+
+pred_rf <- ml_predict(modelo_rf, test_sp)
+
+auc_rf <- ml_binary_classification_evaluator(
+  pred_rf,
+  label_col   = "cancelado",
+  metric_name = "areaUnderROC"
+)
+
+cat("AUC Regresión Logística:", round(auc_reto4, 4), "\n")
+cat("AUC Random Forest:      ", round(auc_rf, 4), "\n")
+```
+
 
 
 # RETO 5 — Pipeline completo {#reto5}
@@ -1100,20 +1185,59 @@ Crea un pipeline que contenga, en este orden:
 ```{r}
 #| label: reto5-ej1
 
-mi_pipeline <- ml_pipeline(___) |>
-  ft_string_indexer(input_col = "aerolinea",      output_col = "aerolinea_idx") |>
-  ft_string_indexer(input_col = "___",            output_col = "___") |>
-  ft_string_indexer(input_col = "___",            output_col = "___") |>
-  ft_string_indexer(input_col = "___",            output_col = "___") |>
+# 5.1 — Preparación de datos base
+# ────────────────────────────────
+# Reutilizamos la tabla vuelos_ml del reto 4 (ya tiene franja_horaria
+# y está filtrada de NAs).
+
+# División en train/test (misma semilla para reproducibilidad)
+particiones <- vuelos_ml |>
+  sdf_random_split(training = 0.7, testing = 0.3, seed = 42)
+
+train_sp <- particiones$training
+test_sp  <- particiones$testing
+
+
+# ml_pipeline() recibe la conexión a Spark y una secuencia de "stages".
+# Cada stage es un transformador (ft_*) o un estimador (ml_*).
+# Cuando el pipeline se "fittea" (entrena), cada stage se ejecuta en orden:
+# los transformadores se aplican y los estimadores se ajustan.
+
+pipeline_definicion <- ml_pipeline(sc) |>
+
+  # Stage 1-4: Indexar variables categóricas
+  ft_string_indexer(
+    input_col = "aerolinea", output_col = "aerolinea_idx"
+  ) |>
+  ft_string_indexer(
+    input_col = "franja_horaria", output_col = "franja_idx"
+  ) |>
+  ft_string_indexer(
+    input_col = "origen", output_col = "origen_idx"
+  ) |>
+  ft_string_indexer(
+    input_col = "destino", output_col = "destino_idx"
+  ) |>
+
+  # Stage 5: Ensamblar features en un vector
   ft_vector_assembler(
     input_cols = c("aerolinea_idx", "franja_idx",
                    "origen_idx", "destino_idx", "precio_medio"),
     output_col = "features"
   ) |>
+
+  # Stage 6: Modelo (regresión logística)
   ml_logistic_regression(
-    features_col = "features",
-    label_col    = "___"
+    features_col      = "features",
+    label_col         = "cancelado",
+    max_iter          = 100,
+    reg_param         = 0.01,
+    elastic_net_param = 0.0
   )
+
+# Podemos inspeccionar la estructura del pipeline antes de entrenarlo:
+pipeline_definicion
+
 ```
 
 <div class="pista">
@@ -1134,8 +1258,15 @@ Usa `ml_fit()` para entrenar el pipeline con los datos de entrenamiento.
 ```{r}
 #| label: reto5-ej2
 
-# Usamos las mismas particiones del Reto 4
-pipeline_entrenado <- ml_fit(___, ___)
+# ml_fit() toma el pipeline y los datos de entrenamiento, y devuelve un
+# "PipelineModel" entrenado. Este objeto contiene:
+#   - Los mappings de cada StringIndexer (qué string corresponde a qué índice)
+#   - Los coeficientes del modelo de regresión logística
+# Todo listo para aplicarse a datos nuevos.
+
+pipeline_modelo <- ml_fit(pipeline_definicion, train_sp)
+
+pipeline_modelo
 ```
 
 <div class="pista">
@@ -1160,15 +1291,22 @@ calcula el AUC.
 ```{r}
 #| label: reto5-ej3
 
-predicciones_pipe <- ml_transform(___, ___)
+# ml_transform() aplica TODOS los stages del pipeline a datos nuevos.
+# Los datos solo necesitan tener las columnas originales (aerolinea,
+# franja_horaria, origen, destino, precio_medio). No necesitan estar
+# pre-procesados.
 
-auc_pipe <- ml_binary_classification_evaluator(
-  ___,
+predicciones_pipeline <- ml_transform(pipeline_modelo, test_sp)
+
+# Evaluación
+auc_pipeline <- ml_binary_classification_evaluator(
+  predicciones_pipeline,
   label_col   = "cancelado",
   metric_name = "areaUnderROC"
 )
 
-cat("AUC del pipeline:", round(auc_pipe, 4), "\n")
+cat("AUC del pipeline:", round(auc_pipeline, 4), "\n")
+
 ```
 
 
@@ -1183,22 +1321,32 @@ el AUC es idéntico.
 #| label: reto5-ej4
 
 # Guardar
-ml_save(___, "modelo_cancelaciones", overwrite = TRUE)
+# ml_save() serializa el pipeline entrenado a una carpeta.
+# Esta carpeta contiene metadatos JSON y datos binarios de Spark.
+# Se puede cargar en otro proceso de R, en PySpark, o en un servidor
+# de producción de Spark.
 
-# Cargar en una variable nueva
-pipeline_recargado <- ml_load(___, "modelo_cancelaciones")
+ruta_modelo <- "modelo_cancelaciones_v1"
+ml_save(pipeline_modelo, ruta_modelo, overwrite = TRUE)
 
-# Verificar
-pred_recargado <- ml_transform(___, test_sp)
+cat("Pipeline guardado en:", normalizePath(ruta_modelo), "\n")
 
-auc_recargado <- ml_binary_classification_evaluator(
-  pred_recargado,
+# Verificar que el modelo cargado funciona igual
+# ─────────────────────────────────────────────────────
+
+pipeline_cargado <- ml_load(sc, ruta_modelo)
+
+pred_cargado <- ml_transform(pipeline_cargado, test_sp)
+
+auc_cargado <- ml_binary_classification_evaluator(
+  pred_cargado,
   label_col   = "cancelado",
   metric_name = "areaUnderROC"
 )
 
-cat("AUC original: ", round(auc_pipe, 4), "\n")
-cat("AUC recargado:", round(auc_recargado, 4), "\n")
+cat("AUC original: ", round(auc_pipeline, 4), "\n")
+cat("AUC recargado:", round(auc_cargado, 4), "\n")
+# Deben ser idénticos.
 ```
 
 <div class="pista">
@@ -1236,8 +1384,16 @@ No olvides desconectar Spark al terminar:
 ```{r}
 #| label: cierre
 
+# Al terminar la sesión, guardar la tabla en disco
+spark_write_parquet(vuelos_sp, "data/vuelos_sp.parquet", mode = "overwrite")
+
 spark_disconnect(sc)
-cat("✅ Sesión cerrada\n")
+
+# Eliminar del entorno todos los objetos que apuntan a Spark
+# (tbl_spark y spark_connection son referencias inválidas tras desconectar)
+rm(list = ls()[sapply(ls(), function(x) inherits(get(x), c("tbl_spark", "spark_connection")))])
+
+cat("✅ Sesión cerrada y entorno limpio\n")
 ```
 
 
