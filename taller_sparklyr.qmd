@@ -662,18 +662,18 @@ Filtra solo los top 3 de cada aerolínea.
 
 top3_origenes <- vuelos_enriquecidos |>
   # Paso 1: contar
-  group_by(___, ___) |>
-  summarise(n_vuelos = ___) |>
+  group_by(aerolinea, origen) |>
+  summarise(n_vuelos = n()) |>
 
   # Paso 2: rankear dentro de cada aerolínea
-  group_by(___) |>
+  group_by(aerolinea) |>
   mutate(
-    ranking = min_rank(___)
+    ranking = min_rank(desc(n_vuelos))
   ) |>
   ungroup() |>
 
   # Quedarnos solo con los top 3
-  filter(___) |>
+  filter(ranking<=3) |>
   arrange(aerolinea, ranking) |>
   collect()
 
@@ -713,20 +713,20 @@ Después, trae a R los 10 vuelos con mayor desviación positiva.
 
 vuelos_con_desviacion <- vuelos_enriquecidos |>
   filter(!is.na(retraso_min)) |>
-  group_by(___, ___) |>
+  group_by(aerolinea, franja_horaria) |>
   mutate(
-    media_grupo = ___,
-    desviacion  = ___,
-    n_en_grupo  = ___
+    media_grupo = mean(retraso_min,na.rm = T),
+    desviacion  = retraso_min - media_grupo,
+    n_en_grupo  = n()
   ) |>
-  ___()    # <-- no olvides desagrupar
+  ungroup()    # <-- no olvides desagrupar
 
 # Top 10 con mayor desviación
 top10 <- vuelos_con_desviacion |>
-  arrange(___) |>
+  arrange(desc(desviacion))|>
   select(vuelo_id, aerolinea, franja_horaria,
          retraso_min, media_grupo, desviacion) |>
-  head(___) |>
+  head(10) |>
   collect()
 
 top10
