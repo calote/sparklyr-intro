@@ -755,23 +755,23 @@ Visualiza la tendencia de una aerolínea con ggplot.
 
 tendencia <- vuelos_enriquecidos |>
   # Paso 1: retraso medio por día y aerolínea
-  group_by(aerolinea, ___) |>
-  summarise(retraso_dia = mean(retraso_min, na.rm = TRUE)) |>
+  group_by(aerolinea, fecha) |>
+  summarise(retraso_medio_dia = mean(retraso_min, na.rm = TRUE)) |>
 
   # Paso 2: función de ventana con lag
-  group_by(___) |>
-  arrange(___) |>
+  group_by(aerolinea) |>
+  arrange(fecha) |>
   mutate(
-    retraso_ayer  = lag(___, ___),
-    cambio_diario = ___
+    retraso_medio_ayer  = lag(retraso_medio_dia, 1),
+    cambio_diario = retraso_medio_dia - retraso_medio_ayer
   ) |>
   ungroup() |>
   collect()
 
 # Visualización para la aerolínea "IB" (o la que prefieras)
 tendencia |>
-  filter(aerolinea == "___") |>
-  ggplot(aes(x = fecha, y = retraso_dia)) +
+  filter(aerolinea == "IB") |>
+  ggplot(aes(x = fecha, y = retraso_medio_dia)) +
   geom_line(alpha = 0.4) +
   geom_smooth(se = FALSE, color = "tomato") +
   labs(title = "Evolución del retraso medio diario",
@@ -794,10 +794,12 @@ Agrupa por `aerolinea` y ordena por `fecha` antes de aplicar `lag`.
 
 ¿Por qué es importante el `arrange(fecha)` antes del `lag()`? ¿Qué pasaría
 si no ordenamos?
+
+
 :::
 
 > *Tu respuesta aquí:*
->
+>Para poder usar el lag() de manera correcta, ya que si no lo usaramos podrían aparecer dos entradas consecutivas cuyas fechas no son consecutivas y estaríamos calculando el cambio de retraso entre dias diferentes.
 >
 
 
@@ -885,7 +887,7 @@ Partiendo de `vuelos_sp` (la tabla completa, con cancelados), crea una tabla
 #| label: reto4-ej1
 
 vuelos_ml <- vuelos_sp |>
-  filter(!is.na(___), !is.na(___)) |>
+  filter(!is.na(retraso_min), !is.na(precio_medio)) |>
   mutate(
     franja_horaria = case_when(
       hora_prog < 7  ~ "madrugada",
@@ -894,8 +896,8 @@ vuelos_ml <- vuelos_sp |>
       TRUE           ~ "noche"
     )
   ) |>
-  select(___) |>
-  compute("___")
+  select(cancelado,aerolinea,franja_horaria,origen,destino,precio_medio) |>
+  compute("vuelos_ml")
 ```
 
 
@@ -910,13 +912,13 @@ Aplica `ft_string_indexer()` a cada variable categórica y luego
 #| label: reto4-ej2
 
 vuelos_preparados <- vuelos_ml |>
-  ft_string_indexer("aerolinea",      "___") |>
-  ft_string_indexer("franja_horaria", "___") |>
-  ft_string_indexer("origen",         "___") |>
-  ft_string_indexer("destino",        "___") |>
+  ft_string_indexer("aerolinea",      "aerolinea_idx") |>
+  ft_string_indexer("franja_horaria", "franja_horaria_idx") |>
+  ft_string_indexer("origen",         "origen_idx") |>
+  ft_string_indexer("destino",        "destino_idx") |>
   ft_vector_assembler(
-    input_cols = c("___", "___", "___", "___", "___"),
-    output_col = "___"
+    input_cols = c("aerolinea_idx", "franja_horaria_idx", "origen_idx", "destino_idx", "precio_medio"),
+    output_col = "features"
   )
 ```
 
@@ -942,10 +944,10 @@ para reproducibilidad.
 #| label: reto4-ej3
 
 particiones <- vuelos_preparados |>
-  sdf_random_split(___ = 0.7, ___ = 0.3, seed = ___)
+  sdf_random_split(training = 0.7, testing = 0.3, seed = 42)
 
-train_sp <- particiones$___
-test_sp  <- particiones$___
+train_sp <- particiones$training
+test_sp  <- particiones$testing
 
 cat("Filas train:", sdf_nrow(train_sp), "\n")
 cat("Filas test: ", sdf_nrow(test_sp), "\n")
@@ -974,8 +976,11 @@ La variable respuesta es `cancelado` y las features están en la columna
 
 modelo <- train_sp |>
   ml_logistic_regression(
-    features_col = "___",
-    label_col    = "___"
+    features_col = "features",
+    label_col    = "cancelado",
+    max_iter = 100,
+    reg_paaram = 0.01,
+    elastic_net_param = 0
   )
 ```
 
@@ -999,20 +1004,20 @@ modelo <- train_sp |>
 #| label: reto4-ej5
 
 # Predicciones
-predicciones <- ml_predict(___, ___)
+predicciones <- ml_predict(modelo_lr, test_sp)
 
 # AUC
 auc <- ml_binary_classification_evaluator(
-  ___,
-  label_col   = "___",
-  metric_name = "___"
+  predicciones,
+  label_col   = "cancelado",
+  metric_name = "areaUnderROC"
 )
 
 cat("AUC:", round(auc, 4), "\n")
 
 # Matriz de confusión
 matriz <- predicciones |>
-  group_by(___, ___) |>
+  group_by(cancelado, prediccion) |>
   summarise(n = n()) |>
   collect()
 
