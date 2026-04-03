@@ -249,7 +249,7 @@ Usa la función `sdf_nrow()` para contar las filas totales.
 ```{r}
 #| label: reto1-ej1
 
-n_total <- ___(vuelos_sp)
+n_total <- sdf_nrow(vuelos_sp)
 
 cat("Total de vuelos:", n_total, "\n")
 ```
@@ -274,11 +274,11 @@ Calcula también el porcentaje sobre el total.
 #| label: reto1-ej2
 
 n_cancelados <- vuelos_sp |>
-  filter(___) |>
+  filter(cancelado==1) |>
   sdf_nrow()
 
 cat("Vuelos cancelados:", n_cancelados, "\n")
-cat("Porcentaje:", round(___ / ___ * 100, 2), "%\n")
+cat("Porcentaje:", round(n_cancelados / n_total * 100, 2), "%\n")
 ```
 
 <div class="pista">
@@ -306,14 +306,14 @@ Ordena de mayor a menor retraso medio. **No olvides `collect()` al final.**
 #| label: reto1-ej3
 
 resumen_aerolineas <- vuelos_sp |>
-  group_by(___) |>
+  group_by(aerolinea) |>
   summarise(
-    n_vuelos      = ___,
-    retraso_medio = ___,
-    pct_cancelado = ___
+    n_vuelos      = n(),
+    retraso_medio = round(mean(retraso_min, na.rm = T),3),
+    pct_cancelado = round(mean(cancelado, na.rm = T)*100,3)
   ) |>
-  arrange(___) |>
-  ___()     # <-- traer resultado a R
+  arrange(desc(retraso_medio)) |>
+  collect()     # <-- traer resultado a R
 
 resumen_aerolineas
 ```
@@ -351,7 +351,7 @@ del `group_by`)? ¿Funcionaría? ¿Sería buena idea?
 :::
 
 > *Tu respuesta aquí:*
->
+> Traería todos los datos de vuelo_sp, lo cual no es una buena idea ya que estamos usando spark dado que este conjunto de datos es muy grande y para evitar tener que trabajar directamente con el, sino mediante una conexion. No sería buena idea, los calculos serían más lentos y en el peor de los casos no se podrían hacer debido a la magnitud de los datos.
 >
 
 
@@ -363,7 +363,7 @@ te sorprenda? ¿Ha acertado Spark con la inferencia?
 :::
 
 > *Tu respuesta aquí:*
->
+>N o completamente vemos como retraso_min es de tipo String al igual que precio_medio, siendo ambos valores numericos.
 >
 
 
@@ -564,7 +564,7 @@ hecho el ejercicio 2.2 de la misma forma?
 :::
 
 > *Tu respuesta aquí:*
-> BARBARIDAD
+> Que nos hubiera guardado la tabla en R, cosa que hemos estado evitando todo este tiempo usando spark ya que estamos considerando una tabla muy grande con la que no podemos trabajar directamente en R.
 >
 
 
@@ -1017,7 +1017,7 @@ cat("AUC:", round(auc, 4), "\n")
 
 # Matriz de confusión
 matriz <- predicciones |>
-  group_by(cancelado, prediccion) |>
+  group_by(cancelado, predictions) |>
   summarise(n = n()) |>
   collect()
 
@@ -1042,7 +1042,7 @@ métrica más informativa que el accuracy en este caso?
 :::
 
 > *Tu respuesta aquí:*
->
+> Por que tiene en cuenta la senssitividad y la especifidad, que tienen en cuenta los que se han cancelado y los que no se han candelado respectivamente.
 >
 
 
@@ -1102,11 +1102,12 @@ Crea un pipeline que contenga, en este orden:
 ```{r}
 #| label: reto5-ej1
 
-mi_pipeline <- ml_pipeline(___) |>
+particiones <- sdf_random_split(training=0.7,testing=0.3,seed=42)
+mi_pipeline <- ml_pipeline(sc) |>
   ft_string_indexer(input_col = "aerolinea",      output_col = "aerolinea_idx") |>
-  ft_string_indexer(input_col = "___",            output_col = "___") |>
-  ft_string_indexer(input_col = "___",            output_col = "___") |>
-  ft_string_indexer(input_col = "___",            output_col = "___") |>
+  ft_string_indexer(input_col = "franja",            output_col = "franja_idx") |>
+  ft_string_indexer(input_col = "origen",            output_col = "origen_idx") |>
+  ft_string_indexer(input_col = "destino",            output_col = "destino_idx") |>
   ft_vector_assembler(
     input_cols = c("aerolinea_idx", "franja_idx",
                    "origen_idx", "destino_idx", "precio_medio"),
@@ -1114,7 +1115,7 @@ mi_pipeline <- ml_pipeline(___) |>
   ) |>
   ml_logistic_regression(
     features_col = "features",
-    label_col    = "___"
+    label_col    = "cancelado"
   )
 ```
 
@@ -1137,7 +1138,7 @@ Usa `ml_fit()` para entrenar el pipeline con los datos de entrenamiento.
 #| label: reto5-ej2
 
 # Usamos las mismas particiones del Reto 4
-pipeline_entrenado <- ml_fit(___, ___)
+pipeline_entrenado <- ml_fit(mi_pipeline, train)
 ```
 
 <div class="pista">
@@ -1185,7 +1186,7 @@ el AUC es idéntico.
 #| label: reto5-ej4
 
 # Guardar
-ml_save(___, "modelo_cancelaciones", overwrite = TRUE)
+ml_save(vuelo_sp, "modelo_cancelaciones", overwrite = TRUE)
 
 # Cargar en una variable nueva
 pipeline_recargado <- ml_load(___, "modelo_cancelaciones")
